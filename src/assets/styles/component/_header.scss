@@ -1,0 +1,79 @@
+//----------------------------------------------------
+//  import
+//----------------------------------------------------
+
+// ----------------------------------------------------
+// 変数
+// ----------------------------------------------------
+
+.c-Header {
+  width: 100%;
+  min-width: $setting-default-global-minwidth-size;
+  margin: 0 auto;
+
+  &__items {
+    width: 100%;
+    background: #fff;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    // min-height: 64px;
+    padding: 10px;
+  }
+
+  &__item {
+    // [ _sm: 428px, _md: 768px, _lg: 1024px ]
+    // iPhone 375, 390, 414, 414, 428
+    &._sm {
+      display: none;
+
+      @media (max-width: 428px) {
+        display: block;
+      }
+    }
+
+    &._md {
+      @media (max-width: 428px) {
+        display: none;
+      }
+    }
+  }
+
+  &__logo {
+    font-size: 1.6rem;
+    font-weight: bold;
+
+    img {
+      width: auto;
+      max-height: 1.8rem;
+    }
+  }
+
+  &__title {
+    font-size: 1.6rem;
+    font-weight: bold;
+  }
+}
+
+.c-Nav {
+  &__items {
+  }
+
+  &__item {
+    padding: 0.4rem 0.8rem;
+
+    // 仕切り線
+    &._divider {
+      border-right: 1px solid $setting-default-border-color;
+    }
+  }
+
+  a {
+    display: block;
+    font-size: 1.3rem;
+    color: $setting-default-text-color;
+
+    &.is-active {
+      color: $setting-default-current-color;
+    }
+  }
+}

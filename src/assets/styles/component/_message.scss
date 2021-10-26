@@ -1,0 +1,139 @@
+//----------------------------------------------------
+//  import
+//----------------------------------------------------
+
+// ----------------------------------------------------
+// 変数
+// ----------------------------------------------------
+
+.c-Message {
+  width: 600px;
+  margin: 10px auto;
+  padding: 10px;
+  background: $setting-default-message-background-color;
+  border: 1px solid $setting-default-message-border-color;
+  border-radius: 4px;
+  font-size: 16px;
+
+  a {
+    margin: 0 5px;
+    text-decoration: underline;
+  }
+
+  &__icon {
+    color: $setting-default-message-color;
+  }
+
+  &__text {
+    color: $setting-default-message-color;
+  }
+
+  &__note {
+    padding: 10px 0 0 10px;
+    text-align: right;
+    font-size: 12px;
+  }
+
+  &--danger {
+    background: $setting-default-danger-background-color;
+    border: 1px solid $setting-default-danger-border-color;
+
+    .c-Message__icon {
+      color: $setting-default-danger-color;
+    }
+
+    .c-Message__text {
+      color: $setting-default-danger-color;
+    }
+  }
+
+  &--warning {
+    background: $setting-default-warning-background-color;
+    border: 1px solid $setting-default-warning-border-color;
+
+    .c-Message__icon {
+      color: $setting-default-warning-color;
+    }
+
+    .c-Message__text {
+      color: $setting-default-warning-color;
+    }
+  }
+
+  &--success {
+    background: $setting-default-success-background-color;
+    border: 1px solid $setting-default-success-border-color;
+
+    .c-Message__icon {
+      color: $setting-default-success-color;
+    }
+
+    .c-Message__text {
+      color: $setting-default-success-color;
+    }
+  }
+
+  &--info {
+    background: $setting-default-info-background-color;
+    border: 1px solid $setting-default-info-border-color;
+
+    .c-Message__icon {
+      color: $setting-default-info-color;
+    }
+
+    .c-Message__text {
+      color: $setting-default-info-color;
+    }
+  }
+
+  &--loading {
+    background: $setting-default-info-background-color;
+    border: 1px solid $setting-default-info-border-color;
+    margin: 40px auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: $setting-default-card-box-shadow--soft;
+
+    .c-Message__icon {
+      color: #666;
+    }
+
+    .c-Message__text {
+      color: $setting-default-info-color;
+    }
+  }
+
+  &--notice {
+    background: $setting-default-info-background-color;
+    border: 1px solid $setting-default-info-border-color;
+    width: 700px;
+    margin: 10px auto;
+    padding: 20px 0 20px 20px;
+    background: #fff;
+    box-shadow: $setting-default-card-box-shadow--soft;
+
+    .c-Message__text {
+      color: $setting-default-info-color;
+
+      p {
+        font-weight: 700;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      dt {
+        display: inline-block;
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      dd {
+        display: inline-block;
+        font-size: 13px;
+        color: #333;
+      }
+    }
+  }
+}

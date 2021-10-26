@@ -1,0 +1,125 @@
+//----------------------------------------------------
+//  DOM
+//----------------------------------------------------
+
+// <div class="c-Input__label">
+//   <label>
+//     商品ID
+//   </label>
+//   <input class="c-Input" type="text" name="id" value="" placeholder="商品IDを入力">
+//   <div class="c-Input__feedback">エラーです</div>
+// </div><!-- /c-Input__label -->
+
+// <div class="c-Input__group">
+//   <div class="c-Input__label">
+//     <label>
+//       日予算<i class="c-Input__required">※必須</i>
+//     </label>
+//     <input class="c-Input is-invalid" type="number" name="budget" value="0" placeholder="" disabled>
+//     <div class="c-Input__feedback">エラーです</div>
+//   </div><!-- /c-Input__label -->
+// </div><!-- /c-Input__group -->
+
+////
+//// 検索ボックス
+////
+// <div class="c-Input__group">
+//   <div class="c-Input__label">
+//     <label>
+//       絞り込み
+//     </label>
+//     <div class="c-Input__icon">
+//       <icon-park type="search" size="16" theme="outline"/>
+//     </div><!-- /c-Input__icon -->
+//     <input class="c-Input _icon" type="search" name="search" value="" placeholder="商品名、商品IDを入力">
+//     <div class="c-Input__feedback">エラーです</div>
+//   </div><!-- /c-Input__label -->
+// </div><!-- /c-Input__group -->
+
+// ----------------------------------------------------
+// 変数
+// ----------------------------------------------------
+
+.c-Input {
+  // min-width: 28rem;
+  // height: calc(1.5em + 0.75rem + 2px);
+  height: auto;
+  padding: 0.375rem 0.75rem;
+  font-size: 1.3rem;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+
+  &__group {
+    .c-Input {
+      min-width: 28rem;
+    }
+  }
+
+  &__label {
+    position: relative;
+    padding-right: 0.8rem;
+
+    label {
+      position: absolute;
+      top: -1.6rem;
+      font-size: 10px;
+    }
+  }
+
+  &__required {
+    padding: 0 2px;
+    color: $setting-default-error-color;
+    font-style: normal;
+  }
+
+  &[disabled] {
+    background: #eee;
+  }
+
+  &._file {
+    width: 100%;
+    color: $setting-default-text-color;
+    font-weight: 700;
+  }
+
+  // 検索アイコン等、左配置のアイコン
+  // c-Icon._icon > c-Icon__icon {svg等のアイコン}
+  &._icon {
+    padding-left: 2.4rem;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+  }
+
+  &__feedback {
+    display: none;
+    padding: 4px 0;
+    color: $setting-default-error-color;
+    font-size: 10px;
+  }
+
+  // `.c-Input` に、`.is-invalid` 付与で、 `.c-Input__feedback` 表示
+  // &.is-invalid + &__feedback {
+  //   display: block;
+  // }
+
+  // &.is-invalid {
+  //   border: 1px solid $setting-default-error-color;
+  // }
+}
+
+// .c-Input に限定せず、グローバルに is-invalid 表示を行う
+// 入力要素 に、`.is-invalid` 付与で、 `.c-Input__feedback` 表示
+.is-invalid + .c-Input__feedback {
+  display: block;
+}
+
+.is-invalid {
+  border: 1px solid $setting-default-error-color;
+}

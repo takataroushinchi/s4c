@@ -1,0 +1,25 @@
+/* ---------------------------------- *\
+  #Breakpoints
+\* ---------------------------------- */
+
+// [ _sm: 428px, _md: 768px, _lg: 1024px ]
+// <div class="c-Header__item _md"> ※429px以上で表示
+// <div class="c-Header__item _sm"> ※429px以上で非表示
+
+.element {
+  // [ _sm: 428px, _md: 768px, _lg: 1024px ]
+  // iPhone 375, 390, 414, 414, 428
+  &._sm {
+    display: none;
+
+    @media (max-width: 428px) {
+      display: block;
+    }
+  }
+
+  &._md {
+    @media (max-width: 428px) {
+      display: none;
+    }
+  }
+}

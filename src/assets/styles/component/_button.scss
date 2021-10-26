@@ -1,0 +1,126 @@
+//----------------------------------------------------
+//  import
+//----------------------------------------------------
+
+// ----------------------------------------------------
+// 変数
+// ----------------------------------------------------
+
+.c-Button {
+  display: inline-block;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 2px;
+  padding: 6px 10px;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  background-image: none;
+  user-select: none;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: $setting-default-card-box-shadow;
+
+  &:hover {
+    color: $setting-default-primary-color;
+  }
+
+  i {
+    margin: 0 2px;
+  }
+
+  &._delete {
+    &:hover {
+      color: $setting-default-warning-color;
+    }
+  }
+
+  &._primary {
+    background: $setting-default-primary-color;
+    color: #fff;
+    padding: 6px 10px;
+    font-size: 15px;
+    border: 0;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+
+  // 詳細csvダウンロードボタン
+  &._download {
+    background: #428bca;
+    color: #fff;
+    padding: 0.4rem 0.8rem 0.8rem;
+    font-size: 1.3rem;
+    border: 0;
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+
+    &:hover {
+      color: #eee;
+    }
+
+    &:visited {
+      color: #fff;
+    }
+  }
+
+  // アイコンやテキストのみのボタン、タップ領域担保スタイル
+  &._element {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+  }
+
+  // キャンペーンステータス表示
+  &._status {
+    padding: 0;
+    border-radius: 4px;
+    // border: none;
+    font-size: 13px;
+    color: #fff;
+    box-shadow: none;
+    text-align: left;
+    background: #52a351;
+
+    span {
+      padding: 0 4px;
+    }
+
+    .i-icon {
+      color: #333;
+      background: #f6f8f9;
+      border-radius: 0 3px 3px 0;
+    }
+  }
+
+  &._valid {
+    background: #52a351;
+  }
+
+  &._invalid {
+    background: #6d757c;
+  }
+
+  &._archive {
+    background: #ca5c54;
+  }
+  // --
+
+  // タブUI用スタイル
+  &._tab {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+
+    &.is-selected {
+      font-weight: 700;
+      color: $setting-default-primary-color;
+      border-bottom: 1px solid $setting-default-primary-color;
+    }
+  }
+}

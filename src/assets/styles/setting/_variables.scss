@@ -1,0 +1,129 @@
+// =============================================================================
+// config
+// =============================================================================
+
+/// リリースバージョン
+/// @group setting.default
+/// @type Number
+$setting-default-release-version: 1 !default;
+
+/// サービスID
+/// @group setting.default
+/// @type String
+$setting-service-id: s4c !default;
+
+// 画像参照パス
+// @group setting.default
+// @type String
+$setting-default-image-path: '../images/' !default;
+
+/// ベースとなるfont-size（px指定）
+/// @group setting.default
+/// @type Number
+$setting-default-global-font-size: 14px !default;
+
+/// ベースとなる最小幅（px指定）
+/// @group setting.default
+/// @type Number
+$setting-default-global-minwidth-size: 980px !default;
+
+/// ベースとなる最大幅（px指定）
+/// @group setting.default
+/// @type Number
+$setting-default-global-maxwidth-size: 700px !default;
+
+/// remベースとなるfont-size（16px / 62.5%）
+/// @group setting.default
+/// @type Number
+$setting-default-global-rem-size: 10 !default;
+
+/// ベースとなるline-height
+/// @group setting.default
+/// @type Number
+$setting-default-line-height: 1.4 !default;
+
+/// ベースとなる背景色
+/// @group setting.default
+/// @type Color
+$setting-default-background-color: #eceeef !default;
+
+/// ベースとなる枠線の色
+/// @group setting.default
+/// @type Color
+$setting-default-border-color: #ccc !default;
+
+/// ベースとなるテキスト色
+/// @group setting.default
+/// @type Color
+$setting-default-text-color: #353c43 !default;
+
+/// ベースとなるリンク色
+/// @group setting-default
+/// @type Color
+$setting-default-link-text-color: #203b92 !default;
+
+/// ベースとなる訪問済みのリンク色
+/// @group setting-default
+/// @type Color
+$setting-default-visited-link-text-color: #999 !default;
+
+/// ベースとなる余白サイズ
+/// @group setting-default
+/// @type Number
+$setting-default-spacing: 10px !default;
+
+/// ベースとなるチェックした時の色
+/// @group setting-default
+/// @type color
+$setting-default-checked-color: #4094f7 !default;
+
+// ベースとなるチェック済みの色
+/// @group setting-default
+/// @type Color
+$setting-default-radio-checked-color: #5575c7 !default;
+
+/// ベースとなるチェック済みの色
+/// @group setting-default
+/// @type Color
+$setting-default-check-checked-color: #5575c7 !default;
+
+/// ベースとなる初期設定の色(primary)
+/// @group setting-default
+/// @type Color
+$setting-default-primary-color: #5575c7 !default;
+
+/// ベースとなる初期設定の色(secondary)
+/// @group setting-default
+/// @type Color
+$setting-default-secondary-color: #f4b402 !default;
+
+/// ベースとなる現在地を示すの色
+/// @group setting-default
+/// @type Color
+$setting-default-current-color: #1e5596 !default;
+
+/// ベースとなるカードUIの背景色
+/// @group setting-default
+/// @type Color
+$setting-default-card-background-color: #f9f9f9 !default;
+
+/// ベースとなるカードUIの枠線の色
+/// @group setting-default
+/// @type Color
+$setting-default-card-border-color: #ccc !default;
+
+/// ベースとなるカードUIのbox-shadow色
+/// @group setting-default
+/// @type Color
+$setting-default-card-box-shadow-color: rgba(0, 0, 0, 0.3) !default;
+
+/// ベースとなるカードUIのbox-shadow
+/// @group setting-default
+/// @type String
+$setting-default-card-box-shadow: 0 1px 2px
+  $setting-default-card-box-shadow-color !default;
+
+/// ベースとなるカードUIのbox-shadow--soft
+/// @group setting-default
+/// @type String
+$setting-default-card-box-shadow--soft: 0 4px 8px rgba(0, 0, 0, 0.1) !default;

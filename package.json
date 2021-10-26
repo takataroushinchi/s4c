@@ -1,0 +1,42 @@
+{
+  "name": "s4c",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "build:css": "run-s build:sass build:postcss",
+    "build:sass": "sass src/assets/styles:src/assets/css --style expanded --no-source-map",
+    "build:postcss": "postcss src/assets/css/common.css -c=postcss.config.js --no-map -o src/assets/css/common.css",
+    "css": "onchange \"src/assets/styles\" -- npm run build:css"
+  },
+  "dependencies": {
+    "@headlessui/vue": "^1.4.1",
+    "@icon-park/vue-next": "^1.3.5",
+    "chart.js": "^3.5.1",
+    "core-js": "^3.6.5",
+    "vue": "^3.0.0",
+    "vue-chart-3": "^0.5.8",
+    "vue-router": "^4.0.0-0",
+    "vue2-datepicker": "^4.0.0-beta.2",
+    "vuex": "^4.0.0-0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-plugin-vuex": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/compiler-sfc": "^3.0.0",
+    "autoprefixer": "^9.8.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^7.0.0",
+    "npm-run-all": "^4.1.5",
+    "onchange": "^7.1.0",
+    "postcss": "^8.3.9",
+    "postcss-cli": "^9.0.1",
+    "sass": "^1.43.2"
+  }
+}

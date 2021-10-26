@@ -1,0 +1,33 @@
+//----------------------------------------------------
+//  import
+//----------------------------------------------------
+
+// ----------------------------------------------------
+// 変数
+// ----------------------------------------------------
+
+// .#{$setting-service-id}-ItemList {
+.c-ItemList {
+  width: 100%;
+  min-width: $setting-default-global-minwidth-size;
+  margin: 0 auto;
+  padding: 10px;
+
+  &__header {
+    padding: 0.8rem;
+    background: #fff;
+    font-size: 1.3rem;
+    border-bottom: 1px solid #f1eede;
+
+    &._sticky {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+  }
+
+  &__content {
+    background: #fff;
+    // box-shadow: $setting-default-card-box-shadow;
+  }
+}

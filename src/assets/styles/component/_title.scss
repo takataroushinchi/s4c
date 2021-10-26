@@ -1,0 +1,31 @@
+//----------------------------------------------------
+//  import
+//----------------------------------------------------
+
+// ----------------------------------------------------
+// 変数
+// ----------------------------------------------------
+
+.c-Title {
+  position: relative;
+  width: 100%;
+  min-width: $setting-default-global-minwidth-size;
+  margin: 0 auto;
+  padding: 1.2rem 1.2rem;
+  background: $setting-default-background-color;
+  white-space: nowrap;
+
+  &__text {
+    padding-right: 0.8rem;
+    font-size: 1.6rem;
+  }
+
+  &__actions {
+    width: 100%;
+    font-size: 1.3rem;
+
+    .i-icon {
+      padding: 0 0.4rem;
+    }
+  }
+}

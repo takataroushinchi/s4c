@@ -1,0 +1,130 @@
+/* ---------------------------------- *\
+   #CHECK
+\* ---------------------------------- */
+
+//----------------------------------------------------
+//  DOM
+//----------------------------------------------------
+
+// <div class="c-Check">
+//   <input class="c-Check__input c-Check__input--item" type="checkbox" value="xxxx" id="dummyID-Check-02-01" name="dummyID-Check-02" :checked="checked">
+//   <span class="c-Check__icon">
+//     <icon-park type="check" theme="filled"/>
+//   </span>
+//   <label class="c-Check__label" for="dummyID-Check-02-01">Check Box</label>
+// </div>
+
+// ----------------------------------------------------
+// 変数
+// ----------------------------------------------------
+
+/// ボーダー色
+/// @type color
+/// @see $setting-default-border-color
+$component-check-border-color: $setting-default-border-color !default;
+
+/// 背景色
+/// @type color
+/// @see $setting-default-background-color
+$component-check-default-background-color: $setting-default-background-color !default;
+
+/// アイコン色
+/// @type color
+$component-check-default-icon-color: #fff !default;
+
+/// checked時の背景色
+/// @type color
+/// @see $setting-default-checked-color
+$component-check-checked-color: $setting-default-check-checked-color !default;
+
+/// disabled時のアイコン色
+/// @type color
+/// @see $setting-default-disabled-color
+$component-check-disabled-icon-color: $setting-default-disabled-color !default;
+
+/// disable時の背景色
+/// @type color
+$component-check-disabled-background-color: #e9edf0 !default;
+
+/// disableの時のボーダー色
+/// @type color
+/// @see $setting-default-disabled-color
+$component-check-disabled-border-color: $setting-default-disabled-color !default;
+
+// disabled時のラベル色
+/// @type color
+/// @see $setting-default-disabled-color
+$component-check-disabled-text-color: $setting-default-disabled-color !default;
+
+.c-Check {
+  position: relative;
+  display: inline-block;
+
+  &__input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    appearance: none;
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+    cursor: pointer;
+    outline: 0;
+
+    &:checked {
+      & + .c-Check__icon {
+        background-color: $setting-default-primary-color;
+
+        .i-icon {
+          visibility: visible;
+        }
+      }
+    }
+
+    &:disabled {
+      cursor: default;
+
+      & + .c-Check__icon {
+        background-color: $component-check-disabled-background-color;
+      }
+
+      &:checked {
+        & + .c-Check__icon {
+          background-color: $component-check-disabled-background-color;
+          border-width: 2px;
+          color: $component-check-disabled-icon-color;
+        }
+      }
+    }
+  }
+
+  &__icon {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: $component-check-default-background-color;
+    border: 1px solid $component-check-border-color;
+    border-radius: 4px;
+    font-size: 16px;
+    color: $component-check-default-icon-color;
+    pointer-events: none;
+
+    .i-icon {
+      position: absolute;
+      bottom: 0;
+      left: 2px;
+      visibility: hidden;
+    }
+  }
+
+  &__label {
+    position: relative;
+    padding-left: 0.4rem;
+    vertical-align: top;
+    pointer-events: none;
+  }
+}

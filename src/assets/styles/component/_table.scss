@@ -1,0 +1,75 @@
+//----------------------------------------------------
+//  import
+//----------------------------------------------------
+
+// ----------------------------------------------------
+// 変数
+// ----------------------------------------------------
+
+.c-Table {
+  width: 100%;
+
+  &._primary {
+    th {
+      background: $setting-default-primary-color;
+      color: #fff;
+      font-weight: normal;
+
+      .c-Info i {
+        color: #fff;
+      }
+    }
+  }
+
+  &._striped {
+    tr:nth-child(odd) {
+      background-color: #f9f9f9;
+    }
+
+    tr:nth-child(even) {
+      background-color: #fdfdfd;
+    }
+  }
+
+  th {
+    padding: 8px;
+    line-height: 1.4;
+    vertical-align: top;
+    font-size: 14px;
+    border-bottom: 1px solid #f1eede;
+    white-space: nowrap;
+    text-align: left;
+  }
+
+  &__colspan {
+    th {
+      padding: 0;
+      border: none;
+
+      &._underline {
+        border-bottom: 1px solid #f1eede;
+      }
+    }
+  }
+
+  td {
+    padding: 5px 10px;
+    line-height: 1.4;
+    font-size: 14px;
+    border-bottom: 1px solid #f1eede;
+  }
+
+  &__badge {
+    display: inline-block;
+    padding: 0.25em 0.4em;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    color: #fff;
+    background-color: #6c757d;
+    border-radius: 10rem;
+  }
+}

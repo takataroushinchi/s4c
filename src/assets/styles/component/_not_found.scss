@@ -1,0 +1,49 @@
+//----------------------------------------------------
+//  import
+//----------------------------------------------------
+
+// ----------------------------------------------------
+// 変数
+// ----------------------------------------------------
+
+// .#{$setting-service-id}-NotFound {
+.c-NotFound {
+  max-width: 780px;
+  min-height: 100%;
+  margin: 40px auto 80px;
+  padding: 20px;
+  background: #fff;
+  box-shadow: $setting-default-card-box-shadow--soft;
+
+  &__title {
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  &__text {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 10px;
+  }
+
+  &__listItems {
+    padding-left: 10px;
+  }
+
+  &__listItem {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+
+    &:before {
+      content: '';
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      margin-right: 10px;
+      border-radius: 2px;
+      background: #666;
+    }
+  }
+}

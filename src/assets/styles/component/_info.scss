@@ -1,0 +1,116 @@
+//----------------------------------------------------
+//  DOM
+//----------------------------------------------------
+
+//<div class="c-Info">
+//  <span class="c-Info__label _danger">ROAS</span>
+//  <button><i aria-hidden="true" class="fa fa-info-circle"></i></button>
+//  <div class="c-InfoBody _right">ROASとはホゲホゲです。</div>
+//</div>
+
+// ----------------------------------------------------
+// 変数
+// ----------------------------------------------------
+
+.c-Info {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+  z-index: 3;
+
+  &__label {
+    position: absolute;
+    top: 0;
+    right: 2.4em;
+    padding: 2px 4px;
+    font-size: 10px;
+    border-radius: 2px;
+    pointer-events: none;
+
+    &._inline {
+      position: relative;
+      top: 0;
+      right: 0;
+      margin-right: 5px;
+      border: 1px solid $setting-default-danger-color;
+      color: #fff;
+      background: $setting-default-danger-color;
+    }
+
+    &._danger {
+      border: 1px solid $setting-default-danger-color;
+      color: #fff;
+      background: $setting-default-danger-color;
+    }
+
+    &._warning {
+      border: 1px solid $setting-default-warning-color;
+      color: #fff;
+      background: $setting-default-warning-color;
+    }
+
+    &._success {
+      border: 1px solid $setting-default-success-color;
+      color: #fff;
+      background: $setting-default-success-color;
+    }
+
+    &._info {
+      border: 1px solid $setting-default-info-color;
+      color: #fff;
+      background: $setting-default-info-color;
+    }
+  }
+
+  button {
+    background: transparent;
+    border: 0;
+  }
+
+  &Body {
+    display: none;
+    position: absolute;
+    top: -3.6em;
+    // right: 0;
+    width: auto;
+    height: 3.6em;
+    padding: 2px 5px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+    color: #fff;
+    font-size: 10px;
+
+    .c-Info:hover & {
+      display: flex;
+      align-items: center;
+    }
+
+    &:before {
+      position: absolute;
+      content: '';
+      display: block;
+      bottom: -12px;
+      // left: 6px;
+      width: 12px;
+      height: 12px;
+      border: 6px solid transparent;
+      border-top: 6px solid #333;
+    }
+
+    &:not(._right) {
+      right: 0;
+
+      &:before {
+        right: 6px;
+      }
+    }
+
+    &._right {
+      left: 0;
+
+      &:before {
+        left: 6px;
+      }
+    }
+  }
+}

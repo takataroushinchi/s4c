@@ -1,0 +1,21 @@
+//----------------------------------------------------
+//  import
+//----------------------------------------------------
+
+// ----------------------------------------------------
+// 変数
+// ----------------------------------------------------
+
+.chartjs-Chart {
+  position: relative;
+  width: 100%;
+  min-width: $setting-default-global-minwidth-size;
+  margin: 0 auto;
+  padding: 10px 10px 20px 150px;
+
+  .c-Input {
+    position: absolute;
+    left: 10px;
+    top: 40px;
+  }
+}

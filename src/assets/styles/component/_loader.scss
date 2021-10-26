@@ -1,0 +1,53 @@
+//----------------------------------------------------
+//  DOM
+//----------------------------------------------------
+
+// // デフォルト非表示、jsで#js-Loaderの表示非表示切り替え<p>
+// <div class="c-Loader" id="js-Loader">
+// <div class="c-Loader__inner">
+// <i class="c-Loader__icon" aria-hidden="true"></i>
+// </div>
+// </div><!-- /.c-Loader#js-Loader -->
+
+/* ---------------------------------- *\
+   #loading中
+\* ---------------------------------- */
+
+.c-Loader {
+  // display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+
+  &__inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -25px;
+    margin-left: -25px;
+  }
+
+  &__icon {
+    display: block;
+    width: 50px;
+    height: 50px;
+    border: 6px solid rgba(255, 255, 255, 0.2);
+    border-top: 6px solid #fff;
+    border-radius: 100%;
+    animation: load 1s infinite cubic-bezier(0.55, 0.15, 0.45, 0.85);
+  }
+}
+
+@keyframes load {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

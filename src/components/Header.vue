@@ -1,0 +1,83 @@
+<template>
+<section class="c-Header">
+  <div class="c-Header__items u-FlexBox u-FlexBox--middle u-FlexBox--justify">
+    <div class="c-Header__item u-FlexBox__item--fill">
+      <router-link to="/" exact-active-class="is-active" class="u-FlexBox u-FlexBox--middle">
+        <div class="c-Header__logo">
+          <img alt="Vue logo" src="../assets/images/logo.png">
+        </div><!-- /c-Header__logo -->
+        <div class="u-FlexBox__spacer"></div>
+        <h1 class="c-Header__title">
+            <span>{{ title }}</span>
+        </h1><!-- /c-Header__title -->
+      </router-link>
+    </div><!-- /c-Header__item -->
+    <div class="c-Header__item">
+      <nav class="c-Nav">
+        <ul class="c-Nav__items u-FlexBox u-FlexBox--middle">
+          <li class="c-Nav__item u-InlineFlex">
+            <router-link to="/" exact-active-class="is-active">キャンペーン</router-link>
+            <Menu as="div" class="headlessui-Menu">
+              <MenuButton class="headlessui-Menu__button">
+                <icon-park type="down" theme="filled"/>
+              </MenuButton>
+              <MenuItems as="ul" class="headlessui-Menu__items">
+                <MenuItem as="li" class="headlessui-Menu__item">
+                  <router-link to="/" exact-active-class="is-active">キャンペーン一覧</router-link>
+                </MenuItem>
+                <MenuItem as="li" class="headlessui-Menu__item">
+                  <router-link to="/create" exact-active-class="is-active">キャンペーン新規作成</router-link>
+                </MenuItem>
+              </MenuItems>
+            </Menu>
+          </li><!-- /c-Nav__item -->
+          <li class="c-Nav__item u-InlineFlex">
+            <router-link to="/report" exact-active-class="is-active">レポート</router-link>
+            <Menu as="div" class="headlessui-Menu">
+              <MenuButton class="headlessui-Menu__button">
+                <icon-park type="down" theme="filled"/>
+              </MenuButton>
+              <MenuItems as="ul" class="headlessui-Menu__items">
+                <MenuItem as="li" class="headlessui-Menu__item">
+                  <router-link to="/report" exact-active-class="is-active">日別</router-link>
+                </MenuItem>
+                <MenuItem as="li" class="headlessui-Menu__item">
+                  <router-link to="/report/monthly" exact-active-class="is-active">月別</router-link>
+                </MenuItem>
+                <MenuItem as="li" class="headlessui-Menu__item">
+                  <router-link to="/report/campaign" exact-active-class="is-active">キャンペーン別</router-link>
+                </MenuItem>
+              </MenuItems>
+            </Menu>
+          </li><!-- /c-Nav__item -->
+          <li class="c-Nav__item _divider u-InlineFlex">
+            <router-link to="/csv-download" exact-active-class="is-active">詳細csv</router-link>
+          </li><!-- /c-Nav__item -->
+          <li class="c-Nav__item">
+            <a href="/logout">ログアウト</a>
+          </li><!-- /c-Nav__item -->
+        </ul>
+      </nav><!-- /c-Nav -->
+    </div><!-- /c-Header__item -->
+  </div><!-- /c-Header__items -->
+</section><!-- /c-Header -->
+</template>
+
+<script>
+import { IconPark } from '@icon-park/vue-next/es/all';
+import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/vue";
+
+export default {
+  name: 'Header',
+  props: {
+    title: String
+  },
+  components: {
+    IconPark,
+    Menu,
+    MenuButton,
+    MenuItems,
+    MenuItem,
+  }
+}
+</script>

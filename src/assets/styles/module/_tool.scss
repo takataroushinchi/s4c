@@ -1,0 +1,30 @@
+//----------------------------------------------------
+//  import
+//----------------------------------------------------
+
+// ----------------------------------------------------
+// 変数
+// ----------------------------------------------------
+
+.c-Tool {
+  position: relative;
+  width: 100%;
+  min-width: $setting-default-global-minwidth-size;
+  margin: 0 auto;
+  padding: 2.4rem 1.2rem 1.2rem;
+  white-space: nowrap;
+  border-bottom: 1px solid #f1eede;
+
+  &__text {
+    padding-right: 0.8rem;
+    font-size: 1.6rem;
+  }
+
+  &__actions {
+    font-size: 1.3rem;
+
+    .i-icon {
+      padding: 0 0.4rem;
+    }
+  }
+}

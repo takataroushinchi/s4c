@@ -1,0 +1,87 @@
+//----------------------------------------------------
+//  import
+//----------------------------------------------------
+
+// ----------------------------------------------------
+// 変数
+// ----------------------------------------------------
+
+// Styles
+// =====================================
+
+.c-Pagination {
+  // margin-right: -$setting-default-spacing;
+  // margin-left: -$setting-default-spacing;
+  text-align: center;
+  margin-bottom: 20px;
+
+  &__items {
+    display: inline-flex;
+
+    &--sizeFull {
+      box-sizing: border-box;
+      width: 100%;
+    }
+  }
+
+  &__item {
+    display: flex;
+    margin-right: 2px;
+    margin-left: 2px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+
+    &--fill {
+      flex: 1;
+    }
+
+    &.is-current > .c-Pagination__body {
+      border-color: $setting-default-primary-color;
+      background: $setting-default-primary-color;
+      color: #fff;
+      cursor: default;
+      pointer-events: none;
+    }
+
+    &.is-disabled > .c-Pagination__body {
+      border-color: $setting-default-disabled-color;
+      background-color: $setting-default-disabled-color;
+      color: $setting-default-text-color;
+      cursor: default;
+      pointer-events: none;
+    }
+  }
+
+  &__body {
+    display: block;
+    overflow: hidden;
+    padding: $setting-default-spacing;
+    min-width: 37px;
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    // default
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    background-color: #fff;
+    color: $setting-default-text-color;
+    font-size: 14px;
+    user-select: none;
+
+    &:hover {
+      color: $setting-default-primary-color;
+    }
+
+    &:visited {
+      color: $setting-default-text-color;
+    }
+
+    &:disabled {
+      border-color: $setting-default-disabled-color;
+      background-color: $setting-default-disabled-color;
+      color: #ccc;
+    }
+  }
+}

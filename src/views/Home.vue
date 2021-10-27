@@ -1,12 +1,10 @@
 <template>
-<div>
   <CommonTitle text="サマリー"/>
   <SummaryList/>
   <Chart/>
   <CampaignListTitle text="キャンペーン一覧"/>
   <tab-navigation/>
   <CampaignList :list="listRef"/>
-</div>
 </template>
 
 <script>

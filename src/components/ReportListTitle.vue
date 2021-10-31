@@ -9,17 +9,17 @@
     </ul><!-- /c-InlineList__items  -->
   </div><!-- /c-InlineList  -->
   <div class="u-FlexBox__spacer"></div>
-  <a class="c-Button" href="javascript:;" download><icon-park type="download" theme="filled"/>CSVダウンロード</a>
+  <a class="c-Button" href="javascript:;" download><download theme="filled"/>CSVダウンロード</a>
 </div><!-- /c-Title -->
 </template>
 
 <script>
-import { IconPark } from '@icon-park/vue-next/es/all';
+import { Download } from '@icon-park/vue-next';
 
 export default {
   name: 'ReportListTitle',
   components: {
-    IconPark,
+    Download,
   },
   props: {
     dimension: {

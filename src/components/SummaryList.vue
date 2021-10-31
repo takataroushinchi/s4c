@@ -15,7 +15,7 @@
           <th>
             ROAS
             <div class="c-Info">
-              <button><icon-park type="info" theme="filled"/></button>
+              <button><info theme="filled"/></button>
               <div class="c-InfoBody _left">ROASとはホゲホゲです。</div>
             </div>
           </th>
@@ -40,11 +40,11 @@
 </template>
 
 <script>
-import { IconPark } from '@icon-park/vue-next/es/all';
+import { Info } from '@icon-park/vue-next';
 
 export default {
   components: {
-    IconPark,
+    Info,
   }
 }
 </script>

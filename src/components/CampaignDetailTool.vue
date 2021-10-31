@@ -13,7 +13,7 @@
           絞り込み
         </label>
         <div class="c-Input__icon">
-          <icon-park type="search" size="16" theme="outline"/>
+          <search size="16" theme="outline"/>
         </div><!-- /c-Input__icon -->
         <input class="c-Input _icon" type="search" name="search" value="" placeholder="商品名、商品IDを入力">
         <div class="c-Input__feedback">エラーです</div>
@@ -52,12 +52,12 @@
 </template>
 
 <script>
-import { IconPark } from '@icon-park/vue-next/es/all';
+import { Search } from '@icon-park/vue-next';
 
 export default {
   name: 'CampaignDetailTool',
   components: {
-    IconPark,
+    Search,
   },
   setup(_, context) {
     const DialogMethod = () => {

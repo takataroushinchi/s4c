@@ -5,7 +5,7 @@
   <aside class="c-Message c-Message--success" v-show="idRef === 'ui' || idRef === 'logout'">
     <div class="u-FlexBox u-FlexBox--withGutter">
       <div class="c-Message__icon u-FlexBox__item">
-        <icon-park type="info" theme="filled"/>
+        <info theme="filled"/>
       </div>
       <p class="c-Message__text u-FlexBox__item u-FlexBox__item--fill">
         ログアウトしました。
@@ -16,7 +16,7 @@
   <aside class="c-Message" v-if="idRef === 'ui' || idRef === 'message'">
   <div class="u-FlexBox u-FlexBox--middle u-FlexBox--withGutter">
     <div class="c-Message__icon u-FlexBox__item">
-      <icon-park type="info" theme="filled"/>
+      <info theme="filled"/>
     </div>
     <p class="c-Message__text u-FlexBox__item u-FlexBox__item--fill">
       情報：更新が完了しました。
@@ -30,7 +30,7 @@
   <aside class="c-Message c-Message--loading" v-if="idRef === 'ui' || idRef === 'loading'">
     <div class="u-FlexBox u-FlexBox--withGutter">
       <div class="c-Message__icon u-FlexBox__item">
-        <icon-park type="upload-one" theme="filled"/>
+        <upload-one theme="filled"/>
       </div>
       <p class="c-Message__text u-FlexBox__item u-FlexBox__item--fill">
         一括入札準備中です
@@ -43,7 +43,7 @@
   <div class="u-FlexBox u-FlexBox--withGutter">
     <div class="c-Message__icon u-FlexBox__item">
       <i aria-hidden="true" class="fa fa-cloud-upload"></i>
-      <icon-park type="upload-one" theme="filled"/>
+      <upload-one theme="filled"/>
     </div>
     <p class="c-Message__text u-FlexBox__item u-FlexBox__item--fill">
       一括入札が進行中です... 完了 3100件 / 合計 10519件（残り 7419件）
@@ -55,7 +55,7 @@
   <aside class="c-Message c-Message--success" v-if="idRef === 'ui' || idRef === 'success'">
   <div class="u-FlexBox u-FlexBox--withGutter">
     <div class="c-Message__icon u-FlexBox__item">
-      <icon-park type="info" theme="filled"/>
+      <info theme="filled"/>
     </div>
     <p class="c-Message__text u-FlexBox__item u-FlexBox__item--fill">
       成功：登録が完了しました。
@@ -67,7 +67,7 @@
   <aside class="c-Message c-Message--danger" v-if="idRef === 'ui' || idRef === 'danger'">
   <div class="u-FlexBox u-FlexBox--withGutter">
     <div class="c-Message__icon u-FlexBox__item">
-      <icon-park type="info" theme="filled"/>
+      <info theme="filled"/>
     </div>
     <p class="c-Message__text u-FlexBox__item u-FlexBox__item--fill">
       エラー・警告：入力項目にエラーがあります。内容を確認してください。
@@ -79,7 +79,7 @@
   <aside class="c-Message c-Message--warning" v-if="idRef === 'ui' || idRef === 'warning'">
   <div class="u-FlexBox u-FlexBox--withGutter">
     <div class="c-Message__icon u-FlexBox__item">
-      <icon-park type="info" theme="filled"/>
+      <info theme="filled"/>
     </div>
     <p class="c-Message__text u-FlexBox__item u-FlexBox__item--fill">
       予算が設定されていません。予算を設定してください。
@@ -90,7 +90,7 @@
   <aside class="c-Message c-Message--info" v-if="idRef === 'ui' || idRef === 'info'">
   <div class="u-FlexBox u-FlexBox--withGutter">
     <div class="c-Message__icon u-FlexBox__item">
-      <icon-park type="info" theme="filled"/>
+      <info theme="filled"/>
     </div>
     <p class="c-Message__text u-FlexBox__item u-FlexBox__item--fill">
       インフォメーション：ただいまメンテナンス中です、しばらくお待ちください。
@@ -103,7 +103,7 @@
 
 <script>
 import { ref } from 'vue'
-import { IconPark } from '@icon-park/vue-next/es/all';
+import { Info, UploadOne } from '@icon-park/vue-next';
 import { useRoute, onBeforeRouteLeave, onBeforeRouteUpdate } from 'vue-router';
 // @ is an alias to /src
 import CommonTitle from '@/components/CommonTitle.vue';
@@ -112,7 +112,8 @@ import Loader from '@/components/Loader.vue';
 export default {
   name: 'UI',
   components: {
-    IconPark,
+    Info,
+    UploadOne,
     CommonTitle,
     Loader,
   },

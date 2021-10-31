@@ -23,7 +23,7 @@
           <div class="u-FlexBox__spacer"></div>
           <a class="c-Button _download" href="javascript:;" download>
             <span class="u-TextHiddenVisually">CVレポートCSVダウンロード</span>
-            <icon-park type="download" theme="filled"/>
+            <download theme="filled"/>
           </a>
         </div><!-- /u-FlexBox -->
       </div><!-- /c-Content__unit -->
@@ -50,7 +50,7 @@
           <div class="u-FlexBox__spacer"></div>
           <a class="c-Button _download" href="javascript:;" download>
             <span class="u-TextHiddenVisually">クエリレポートCSVダウンロード</span>
-            <icon-park type="download" theme="filled"/>
+            <download theme="filled"/>
           </a>
         </div><!-- /u-FlexBox -->
       </div><!-- /c-Content__unit -->
@@ -60,7 +60,7 @@
 
 <script>
 import { ref } from 'vue'
-import { IconPark } from '@icon-park/vue-next/es/all';
+import { Download } from '@icon-park/vue-next';
 import DatePicker from 'vue2-datepicker';
 import 'vue2-datepicker/locale/ja';
 // import 'vue2-datepicker/index.css';
@@ -68,7 +68,7 @@ import 'vue2-datepicker/locale/ja';
 export default {
   name: 'CsvDownLoadContent',
   components: {
-    IconPark,
+    Download,
     DatePicker,
   },
   setup() {

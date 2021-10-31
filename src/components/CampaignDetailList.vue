@@ -16,12 +16,12 @@
       <div class="u-FlexBox__spacer"></div>
       <button type="button" class="c-Button">
         <span class="u-TextHiddenVisually">前へ</span>
-        <icon-park type="arrow-left" theme="filled"/>
+        <arrow-left theme="filled"/>
       </button>
       <div class="u-FlexBox__spacer"></div>
       <button type="button" class="c-Button">
         <span class="u-TextHiddenVisually">次へ</span>
-        <icon-park type="arrow-right" theme="filled"/>
+        <arrow-right theme="filled"/>
       </button>
     </div><!-- /u-FlexBox -->
   </div><!-- /c-ItemList__header -->
@@ -33,7 +33,7 @@
             <div class="c-Check">
               <input class="c-Check__input c-Check__input--item" type="checkbox" value="xxxx">
               <span class="c-Check__icon">
-                <icon-park type="check" theme="filled"/>
+                <check theme="filled"/>
               </span>
               <label class="c-Check__label">選択</label>
             </div>
@@ -55,12 +55,14 @@
 </template>
 
 <script>
-import { IconPark } from '@icon-park/vue-next/es/all';
+import { ArrowLeft, ArrowRight, Check } from '@icon-park/vue-next';
 import CampaignDetailListItem from '@/components/CampaignDetailListItem.vue';
 
 export default {
   components: {
-    IconPark,
+    ArrowLeft,
+    ArrowRight,
+    Check,
     CampaignDetailListItem,
   },
   props: {

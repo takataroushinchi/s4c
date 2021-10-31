@@ -1,7 +1,7 @@
 <template>
   <section class="c-NotFound">
     <h2 class="c-NotFound__title u-FlexBox u-FlexBox--middle">
-      <icon-park type="info" theme="filled"/>
+      <info theme="filled"/>
       <div class="u-FlexBox__spacer"></div>
       <span>条件に一致する情報が見つかりませんでした。</span>
     </h2>
@@ -14,11 +14,11 @@
 </template>
 
 <script>
-import { IconPark } from '@icon-park/vue-next/es/all';
+import { Info } from '@icon-park/vue-next';
 
 export default {
   components: {
-    IconPark,
+    Info,
   },
 }
 </script>

@@ -13,7 +13,7 @@
     <Popover class="headlessui-Popover">
       <PopoverButton class="c-Button _status" :class="'_'+status">
         <span class="u-TextNoWrap">{{ text }}</span>
-        <icon-park type="down" theme="filled"/>
+        <down theme="filled"/>
       </PopoverButton>
       <PopoverPanel class="headlessui-Popover__panel" v-slot="{ close }">
         <div class="headlessui-Popover__header">
@@ -45,7 +45,7 @@
       </PopoverPanel>
     </Popover>
     <div class="c-Info">
-      <button><icon-park type="caution" theme="filled"/></button>
+      <button><caution theme="filled"/></button>
       <div class="c-InfoBody _left">予算超過、期間超過</div>
     </div><!-- /c-Info -->
     </div>
@@ -56,13 +56,13 @@
   <td class="u-TextRight u-TextNoWrap">999,999</td>
   <td class="u-TextRight u-TextNoWrap">999,999</td>
   <td class="u-TextCenter">
-    <router-link to="/report" exact-active-class="is-active" class="c-Button _element"><icon-park type="chart-line" theme="filled"/></router-link>
+    <router-link to="/report" exact-active-class="is-active" class="c-Button _element"><chart-line theme="filled"/></router-link>
   </td>
 </tr>
 </template>
 
 <script>
-import { IconPark } from '@icon-park/vue-next/es/all';
+import { Down, Caution, ChartLine } from '@icon-park/vue-next';
 import {
   Popover,
   PopoverButton,
@@ -71,7 +71,9 @@ import {
 
 export default {
   components: {
-    IconPark,
+    Down,
+    Caution,
+    ChartLine,
     Popover,
     PopoverButton,
     PopoverPanel,

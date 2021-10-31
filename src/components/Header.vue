@@ -19,7 +19,7 @@
             <router-link to="/" exact-active-class="is-active">キャンペーン</router-link>
             <Menu as="div" class="headlessui-Menu">
               <MenuButton class="headlessui-Menu__button">
-                <icon-park type="down" theme="filled"/>
+                <down theme="filled"/>
               </MenuButton>
               <MenuItems as="ul" class="headlessui-Menu__items">
                 <MenuItem as="li" class="headlessui-Menu__item">
@@ -35,7 +35,7 @@
             <router-link to="/report" exact-active-class="is-active">レポート</router-link>
             <Menu as="div" class="headlessui-Menu">
               <MenuButton class="headlessui-Menu__button">
-                <icon-park type="down" theme="filled"/>
+                <down theme="filled"/>
               </MenuButton>
               <MenuItems as="ul" class="headlessui-Menu__items">
                 <MenuItem as="li" class="headlessui-Menu__item">
@@ -64,7 +64,7 @@
 </template>
 
 <script>
-import { IconPark } from '@icon-park/vue-next/es/all';
+import { Down } from '@icon-park/vue-next';
 import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/vue";
 
 export default {
@@ -73,7 +73,7 @@ export default {
     title: String
   },
   components: {
-    IconPark,
+    Down,
     Menu,
     MenuButton,
     MenuItems,

@@ -27,9 +27,9 @@
         集計単位
       </label>
       <select class="c-Input" name="reportSelect01" @change="handleChange">
-        <option value="daily" :selected="dimension==='daily'">日別</option>
-        <option value="monthly" :selected="dimension==='monthly'">月別</option>
-        <option value="campaign" :selected="dimension==='campaign'">キャンペーン別</option>
+        <option value="daily" :selected="dimension === 'daily'">日別</option>
+        <option value="monthly" :selected="dimension === 'monthly'">月別</option>
+        <option value="campaign" :selected="dimension === 'campaign'">キャンペーン別</option>
       </select>
     </div><!-- /c-Input__label -->
 

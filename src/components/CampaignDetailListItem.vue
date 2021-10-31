@@ -4,7 +4,7 @@
     <div class="c-Check">
       <input class="c-Check__input c-Check__input--item" type="checkbox" value="xxxx" :checked="checked">
       <span class="c-Check__icon">
-        <icon-park type="check" theme="filled"/>
+        <check theme="filled"/>
       </span>
     </div>
   </td>
@@ -13,17 +13,18 @@
   <td><a class="u-TextEllipsis1line" href="javascript:;" target="blank" rel="noopener noreferrer">商品名称商品名称商品名称商品名称商品名称商品名称商品名</a></td>
   <td class="u-TextNoWrap">999,999</td>
   <td class="u-TextCenter">
-    <router-link to="/report" exact-active-class="is-active"><icon-park type="chart-line" theme="filled"/></router-link>
+    <router-link to="/report" exact-active-class="is-active"><chart-line theme="filled"/></router-link>
   </td>
 </tr>
 </template>
 
 <script>
-import { IconPark } from '@icon-park/vue-next/es/all';
+import { Check, ChartLine } from '@icon-park/vue-next';
 
 export default {
   components: {
-    IconPark,
+    Check,
+    ChartLine,
   },
   props: {
     id: {

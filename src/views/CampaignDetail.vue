@@ -11,7 +11,7 @@
       <div class="headlessui-Dialog__inner u-FlexBox u-FlexBox--center u-FlexBox--middle">
       <div class="headlessui-Dialog__body">
         <DialogTitle class="headlessui-Dialog__title">
-          <icon-park type="info" theme="filled"/>
+          <info theme="filled"/>
           編集内容の保存
         </DialogTitle>
         <DialogDescription class="headlessui-Dialog__description">
@@ -39,7 +39,7 @@ import {
   useRoute,
   onBeforeRouteLeave,
   } from 'vue-router';
-import { IconPark } from '@icon-park/vue-next/es/all';
+import { Info } from '@icon-park/vue-next';
 import {
   Dialog,
   DialogOverlay,
@@ -56,7 +56,7 @@ import CampaignDetailList from '@/components/CampaignDetailList.vue';
 export default {
   name: 'CampaignDetail',
   components: {
-    IconPark,
+    Info,
     Dialog,
     DialogOverlay,
     DialogTitle,

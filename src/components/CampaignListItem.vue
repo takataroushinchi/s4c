@@ -45,7 +45,7 @@
       </PopoverPanel>
     </Popover>
     <div class="c-Info">
-      <button><caution theme="filled"/></button>
+      <button type="button"><caution theme="filled"/></button>
       <div class="c-InfoBody _left">予算超過、期間超過</div>
     </div><!-- /c-Info -->
     </div>

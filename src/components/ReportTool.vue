@@ -1,40 +1,39 @@
 <template>
 <div class="c-Tool u-FlexBox u-FlexBox--top u-FlexBox--justify">
-  <div class="c-Input__group u-FlexBox__item--fill">
+  <div class="c-Input__label">
+    <label>
+      集計単位
+    </label>
+    <select class="c-Input" name="reportSelect01" @change="handleChange">
+      <option value="daily" :selected="dimension === 'daily'">日別</option>
+      <option value="monthly" :selected="dimension === 'monthly'">月別</option>
+      <option value="campaign" :selected="dimension === 'campaign'">キャンペーン別</option>
+    </select>
+  </div><!-- /c-Input__label -->
+
+  <div class="u-FlexBox__spacer"></div>
+
+  <div class="u-FlexBox u-FlexBox--top u-FlexBox--right u-FlexBox__item--fill">
+    <div class="u-FlexBox__divider"></div>
+    <div class="u-FlexBox__spacer"></div>
+
     <div class="c-Input__label">
       <label>
         期間
       </label>
       <date-picker
-       v-model="date1"
-       :lang="lang"
-       :shortcuts="shortcuts"
-       range
-       :disabled-date="disabledBefore90daysAndAfterToday"
-       type="date"
-       placeholder="最大90日分で期間を指定"
+      v-model="date1"
+      :lang="lang"
+      :shortcuts="shortcuts"
+      range
+      :disabled-date="disabledBefore90daysAndAfterToday"
+      type="date"
+      placeholder="最大90日分で期間を指定"
       ></date-picker>
       <div class="c-Input__feedback">エラーです</div>
     </div><!-- /c-Input__label -->
-  </div><!-- /c-Input__group -->
-
-  <div class="u-FlexBox__spacer"></div>
-  <div class="u-FlexBox__divider"></div>
-
-  <div class="u-FlexBox u-FlexBox--top">
-    <div class="c-Input__label">
-      <label>
-        集計単位
-      </label>
-      <select class="c-Input" name="reportSelect01" @change="handleChange">
-        <option value="daily" :selected="dimension === 'daily'">日別</option>
-        <option value="monthly" :selected="dimension === 'monthly'">月別</option>
-        <option value="campaign" :selected="dimension === 'campaign'">キャンペーン別</option>
-      </select>
-    </div><!-- /c-Input__label -->
 
     <div class="u-FlexBox__spacer"></div>
-    <div class="u-FlexBox__divider"></div>
 
     <div class="c-Input__label">
       <label>

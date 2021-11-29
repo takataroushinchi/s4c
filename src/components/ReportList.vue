@@ -13,7 +13,7 @@
           <th class="u-TextRight">広告費</th>
           <th class="u-TextRight">注文回数</th>
           <th class="u-TextRight">経由売上</th>
-          <th class="u-TextRight">ROSAS</th>
+          <th class="u-TextRight">ROAS</th>
         </tr>
       </thead>
       <tbody>

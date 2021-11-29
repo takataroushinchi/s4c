@@ -7,7 +7,7 @@
       <div class="u-FlexBox__spacer"></div>
       <input class="c-Input" type="number" name="amount" :value="base_amount" placeholder="">
       <div class="u-FlexBox__spacer"></div>
-      <button type="button" class="c-Button">
+      <button type="button" class="c-Button" @click="DialogMethod">
         <span>このページ内のチェック商品 250 件を一括入札</span>
       </button>
     </div><!-- /u-FlexBox -->
@@ -70,11 +70,16 @@ export default {
       type: Array,
     },
   },
-  setup() {
+  setup(_, context) {
     const base_amount = 50;
+
+    const DialogMethod = () => {
+      context.emit('custom-event', true);
+    }
 
     return {
       base_amount,
+      DialogMethod,
     }
   },
 }

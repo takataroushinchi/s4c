@@ -1,11 +1,5 @@
 <template>
-<div class="c-Tool u-FlexBox u-FlexBox--top u-FlexBox--justify">
-  <button type="button" class="c-Button _primary" @click="DialogMethod">
-    <span>編集内容を保存</span>
-  </button>
-
-  <div class="u-FlexBox__spacer"></div>
-
+<div class="c-Tool u-FlexBox u-FlexBox--top u-FlexBox--right">
   <div class="u-FlexBox u-FlexBox--top">
     <div class="c-Input__group">
       <div class="c-Input__label">
@@ -59,14 +53,5 @@ export default {
   components: {
     Search,
   },
-  setup(_, context) {
-    const DialogMethod = () => {
-      context.emit('custom-event', true);
-    }
-
-    return {
-      DialogMethod,
-    }
-  }
 }
 </script>

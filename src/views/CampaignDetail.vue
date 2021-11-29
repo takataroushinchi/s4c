@@ -1,10 +1,10 @@
 <template>
   <CampaignDetailTitle text="無題のキャンペーン001"/>
   <CampaignDetailSettingItem />
-  <CampaignDetailTool @custom-event="setIsOpen" />
+  <CampaignDetailTool />
 
   <CommonTitle text="商品一覧"/>
-  <CampaignDetailList :list="listRef"/>
+  <CampaignDetailList :list="listRef" @custom-event="setIsOpen"/>
 
   <Dialog :open="isOpenRef" @close="setIsOpen" class="headlessui-Dialog">
     <div class="headlessui-Dialog__content">
@@ -37,7 +37,6 @@ import { ref } from "vue";
 import {
   useRouter,
   useRoute,
-  onBeforeRouteLeave,
   } from 'vue-router';
 import { Info } from '@icon-park/vue-next';
 import {
@@ -72,7 +71,6 @@ export default {
     const router = useRouter()
     const route = useRoute()
     const path = route.path
-    let saved = false
     let toPath = '/campaign-detail'
 
     let isOpenRef = ref(false);
@@ -92,18 +90,6 @@ export default {
     ]]
 
     listRef.value = (path === '/campaign-detail')? data[0] : data[1];
-
-    onBeforeRouteLeave((to) => {
-      // 未保存の場合は保存ダイアログを出す
-      if (!saved) {
-        isOpenRef.value = true;
-        toPath = to.path;
-        // 保存済みフラグ
-        saved = true;
-        return false;
-      }
-      // listRef.value = (to.path === '/campaign-detail')? data[0] : data[1];
-    })
 
     const handleMethod = () => {
       router.push(toPath)

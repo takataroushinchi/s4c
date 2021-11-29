@@ -52,6 +52,7 @@
   </td>
   <td class="u-TextBreakWord">2021/10/10〜2021/11/10</td>
   <td class="u-TextRight u-TextNoWrap">999,999</td>
+  <td class="u-TextRight u-TextNoWrap">1,000</td>
   <td class="u-TextRight u-TextNoWrap">1,999</td>
   <td class="u-TextRight u-TextNoWrap">999,999</td>
   <td class="u-TextRight u-TextNoWrap">999,999</td>

@@ -5,7 +5,7 @@
       <thead>
         <tr class="c-Table__colspan">
           <th colspan="5"></th>
-          <th class="u-TextCenter _underline" colspan="3">利用額</th>
+          <th class="u-TextCenter _underline" colspan="4">利用額</th>
           <th colspan="1"></th>
         </tr>
         <tr>
@@ -14,6 +14,7 @@
           <th>ステータス</th>
           <th>期間</th>
           <th class="u-TextRight">日予算</th>
+          <th class="u-TextCenter">当日</th>
           <th class="u-TextCenter">前日</th>
           <th class="u-TextCenter">当月</th>
           <th class="u-TextCenter">前月</th>

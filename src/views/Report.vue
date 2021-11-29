@@ -2,7 +2,7 @@
   <CommonTitle text="レポート"/>
   <ReportTool :dimension="dimensionRef"/>
   <Chart v-if="dimensionRef !== 'campaign'"/>
-  <ReportListTitle :dimension="dimensionRef"/>
+  <ReportListTitle />
   <ReportList :list="listRef"/>
 </template>
 

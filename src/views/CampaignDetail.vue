@@ -15,8 +15,8 @@
           編集内容の保存
         </DialogTitle>
         <DialogDescription class="headlessui-Dialog__description">
-          すべての編集内容が保存されていない可能性があります。<br>
-          現在の編集内容を保存しますか？
+          保存すると、入札金額が反映され入札が開始されます。<br>
+          入札情報をご確認の上、問題ない場合は保存を押してください。
         </DialogDescription>
 
         <div class="u-FlexBox u-FlexBox--middle u-FlexBox--right">

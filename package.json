@@ -9,7 +9,11 @@
     "build:css": "run-s build:sass build:postcss",
     "build:sass": "sass src/assets/styles:src/assets/css --style expanded --no-source-map",
     "build:postcss": "postcss src/assets/css/common.css -c=postcss.config.js --no-map -o src/assets/css/common.css",
-    "css": "onchange \"src/assets/styles\" -- npm run build:css"
+    "css": "onchange \"src/assets/styles\" -- npm run build:css",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "mv-storybook-static": "rm -rf public/storybook && mv storybook-static public/storybook",
+    "deploy-storybook": "run-s build-storybook mv-storybook-static"
   },
   "dependencies": {
     "@headlessui/vue": "^1.4.1",
@@ -23,6 +27,11 @@
     "vuex": "^4.0.0-0"
   },
   "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@storybook/addon-actions": "^6.4.8",
+    "@storybook/addon-essentials": "^6.4.8",
+    "@storybook/addon-links": "^6.4.8",
+    "@storybook/vue3": "^6.4.8",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-plugin-router": "~4.5.0",
@@ -31,12 +40,14 @@
     "@vue/compiler-sfc": "^3.0.0",
     "autoprefixer": "^9.8.0",
     "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.2.3",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^7.0.0",
     "npm-run-all": "^4.1.5",
     "onchange": "^7.1.0",
     "postcss": "^8.3.9",
     "postcss-cli": "^9.0.1",
-    "sass": "^1.43.2"
+    "sass": "^1.43.2",
+    "vue-loader": "^16.8.3"
   }
 }

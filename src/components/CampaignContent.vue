@@ -16,7 +16,7 @@
         </div><!-- /c-Input__group -->
       </div><!-- /c-Content__unit -->
 
-      <div class="c-Content__unit">
+      <div class="c-Content__unit" v-if="isEdit">
         <h3 class="c-Content__unitTitle">公開状態</h3>
         <div class="c-Radio c-Radio--horizontal">
             <input class="c-Radio__radio" type="radio" id="dummyID-01-01" name="dummyID-01" checked>
@@ -26,7 +26,7 @@
             <input class="c-Radio__radio" type="radio" id="dummyID-01-02" name="dummyID-01">
             <label class="c-Radio__label _invalid" for="dummyID-01-02"><span>一時停止</span></label>
           </div><!--/c-Radio-->
-          <div class="c-Radio c-Radio--horizontal" v-if="isEdit">
+          <div class="c-Radio c-Radio--horizontal">
             <input class="c-Radio__radio" type="radio" id="dummyID-01-03" name="dummyID-01">
             <label class="c-Radio__label _archive" for="dummyID-01-03"><span>アーカイブ</span></label>
           </div><!--/c-Radio-->

@@ -54,7 +54,7 @@
       <label>
         商品ID
       </label>
-      <input class="c-Input" type="text" name="id" value="" placeholder="商品IDを入力">
+      <input class="c-Input" type="text" name="id" :value="item_id" placeholder="商品IDを入力">
       <div class="c-Input__feedback">エラーです</div>
     </div><!-- /c-Input__label -->
 
@@ -91,7 +91,7 @@ export default {
   components: {
     DatePicker,
   },
-  setup() {
+  setup(props) {
     const router = useRouter()
     let date1 = ref([new Date(new Date().getTime() - 30 * 24 * 3600 * 1000), new Date()])
     const lang = {
@@ -147,12 +147,16 @@ export default {
       router.push(`/report/${dimension}`)
     }
 
+    // /report?filter=item_id
+    const item_id = props.filter === 'item_id'? '12345' : ''
+
     return {
       date1,
       lang,
       shortcuts,
       disabledBefore90daysAndAfterToday,
       handleChange,
+      item_id,
     }
   }
 }

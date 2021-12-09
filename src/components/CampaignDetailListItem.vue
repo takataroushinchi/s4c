@@ -13,7 +13,7 @@
   <td><a class="u-TextEllipsis1line" href="javascript:;" target="blank" rel="noopener noreferrer">商品名称商品名称商品名称商品名称商品名称商品名称商品名</a></td>
   <td class="u-TextNoWrap">999,999</td>
   <td class="u-TextCenter">
-    <router-link to="/report" exact-active-class="is-active"><chart-line theme="filled"/></router-link>
+    <router-link to="/report?filter=item_id" exact-active-class="is-active"><chart-line theme="filled"/></router-link>
   </td>
 </tr>
 </template>

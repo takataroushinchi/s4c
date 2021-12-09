@@ -1,6 +1,5 @@
 <template>
 <tr>
-  <td class="u-TextNoWrap">999999</td>
   <td>
     <div class="u-FlexBox u-FlexBox--middle">
       <router-link to="/campaign-detail" exact-active-class="is-active" class="u-TextEllipsis1line">キャンペーン名称キャンペーン名称キャンペーン名称</router-link>

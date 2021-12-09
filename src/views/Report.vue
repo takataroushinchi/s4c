@@ -51,16 +51,16 @@ export default {
       { id: 4444, unit: '2021/07' },
     ],
     [
-      { id: 1111, unit: '99「キャンペーン名称」' },
-      { id: 2222, unit: '98「キャンペーン名称」' },
-      { id: 3333, unit: '97「キャンペーン名称」' },
-      { id: 4444, unit: '96「キャンペーン名称」' },
+      { id: 1111, unit: 'キャンペーン名称001' },
+      { id: 2222, unit: '壱弐参肆伍陸漆捌玖拾002' },
+      { id: 3333, unit: '壱弐参肆伍陸漆捌玖拾壱弐参肆伍陸漆捌玖拾称003' },
+      { id: 4444, unit: '壱弐参肆伍陸漆捌玖拾004' },
     ]]
 
 
     // :dimension [ daily, monthly, campaign ]
     // /Report の場合は、undefind なので、dailyを設定
-    dimensionRef.value =dimension? dimension : "daily";
+    dimensionRef.value = dimension? dimension : "daily";
     // listRef.value = (path === '/report/campaign')? data[2] : (path === '/report/monthly')? data[1] : data[0];
     listRef.value = (dimension === 'campaign')? data[2] : (dimension === 'monthly')? data[1] : data[0];
 

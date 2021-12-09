@@ -4,12 +4,11 @@
     <table class="c-Table">
       <thead>
         <tr class="c-Table__colspan">
-          <th colspan="5"></th>
+          <th colspan="4"></th>
           <th class="u-TextCenter _underline" colspan="4">利用額</th>
           <th colspan="1"></th>
         </tr>
         <tr>
-          <th>ID</th>
           <th>キャンペーン</th>
           <th>ステータス</th>
           <th>期間</th>

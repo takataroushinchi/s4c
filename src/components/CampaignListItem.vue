@@ -56,7 +56,7 @@
   <td class="u-TextRight u-TextNoWrap">999,999</td>
   <td class="u-TextRight u-TextNoWrap">999,999</td>
   <td class="u-TextCenter">
-    <router-link to="/report" exact-active-class="is-active" class="c-Button _element"><chart-line theme="filled"/></router-link>
+    <router-link to="/report?filter=cpn" exact-active-class="is-active" class="c-Button _element"><chart-line theme="filled"/></router-link>
   </td>
 </tr>
 </template>

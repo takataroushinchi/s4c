@@ -41,7 +41,7 @@
       </label>
       <select class="c-Input" name="reportSelect02">
         <option value="">-</option>
-        <option value="campaign1" :selected="cpn === 'campaign'">キャンペーン001</option>
+        <option value="campaign1" :selected="filter === 'cpn'">キャンペーン001</option>
         <option value="campaign2">キャンペーン002</option>
         <option value="campaign3">キャンペーン003</option>
         <option value="campaign4">キャンペーン004</option>
@@ -84,6 +84,9 @@ export default {
     dimension: {
       type: String,
     },
+    filter: {
+      type: String,
+    }
   },
   components: {
     DatePicker,

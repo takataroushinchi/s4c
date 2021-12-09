@@ -1,6 +1,6 @@
 <template>
   <CommonTitle text="レポート"/>
-  <ReportTool :dimension="dimensionRef"/>
+  <ReportTool :dimension="dimensionRef" :filter="query_filter"/>
   <Chart v-if="dimensionRef !== 'campaign'"/>
   <ReportListTitle />
   <ReportList :list="listRef"/>
@@ -37,6 +37,10 @@ export default {
     const route = useRoute()
     const { dimension } = route.params
     // const path = route.path;
+
+    // /report?filter=cpn
+    const query_filter = route.query.filter? route.query.filter : ''
+
     const data = [[
       { id: 1111, unit: '2021/10/10' },
       { id: 2222, unit: '2021/10/09' },
@@ -81,6 +85,7 @@ export default {
     return {
       listRef,
       dimensionRef,
+      query_filter,
     }
   }
 }

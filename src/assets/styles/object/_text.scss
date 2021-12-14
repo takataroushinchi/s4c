@@ -37,6 +37,36 @@
     white-space: nowrap;
   }
 
+  &MinWidth {
+    &._10em {
+      min-width: 10em;
+    }
+
+    &._20em {
+      min-width: 20em;
+    }
+
+    &._1by4 {
+      min-width: 25%;
+    }
+
+    &._1by2 {
+      min-width: 50%;
+    }
+
+    &._min {
+      min-width: min-content;
+    }
+
+    &._max {
+      min-width: max-content;
+    }
+
+    &._full {
+      min-width: 100%;
+    }
+  }
+
   &UnderLine {
     text-decoration: underline;
   }

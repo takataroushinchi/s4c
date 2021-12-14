@@ -300,6 +300,31 @@ template {
 .u-TextNoWrap {
   white-space: nowrap;
 }
+.u-TextMinWidth._10em {
+  min-width: 10em;
+}
+.u-TextMinWidth._20em {
+  min-width: 20em;
+}
+.u-TextMinWidth._1by4 {
+  min-width: 25%;
+}
+.u-TextMinWidth._1by2 {
+  min-width: 50%;
+}
+.u-TextMinWidth._min {
+  min-width: -webkit-min-content;
+  min-width: -moz-min-content;
+  min-width: min-content;
+}
+.u-TextMinWidth._max {
+  min-width: -webkit-max-content;
+  min-width: -moz-max-content;
+  min-width: max-content;
+}
+.u-TextMinWidth._full {
+  min-width: 100%;
+}
 .u-TextUnderLine {
   text-decoration: underline;
 }

@@ -29,7 +29,7 @@
       <div class="c-Content__footer u-FlexBox u-FlexBox--middle u-FlexBox--justify">
         <router-link :to="{ name: 'PasswordReset'}" exact-active-class="is-selected" class="c-Button _element">ログインできない方</router-link>
         <div class="u-FlexBox__spacer"></div>
-        <router-link :to="{ name: 'AccountsSelect'}" exact-active-class="is-selected" class="c-Button _primary">ログイン</router-link>
+        <button type="button" class="c-Button _primary" @click="handleClick">ログイン</button>
       </div><!-- /c-Content__footer -->
     </div><!-- /c-Content__inner -->
   </div><!-- /c-Content -->
@@ -37,7 +37,21 @@
 </template>
 
 <script>
+import { useRouter } from 'vue-router';
+
 export default {
   name: 'LoginForm',
+  setup() {
+    const router = useRouter();
+
+    const handleClick = () => {
+      // ログイン時の処理
+      router.push({ name: 'AccountsSelect'})
+    }
+
+    return {
+      handleClick,
+    }
+  }
 }
 </script>

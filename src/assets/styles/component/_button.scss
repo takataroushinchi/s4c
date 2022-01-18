@@ -123,4 +123,17 @@
       border-bottom: 1px solid $setting-default-primary-color;
     }
   }
+
+  // グローバルメニュー、プルダウン(.c-NavItem)内配置トリガーボタンスタイル
+  &._menu-item {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    width: 100%;
+    margin: -1rem;
+    font-weight: bold;
+    text-align: left;
+    font-size: 1.3rem;
+    color: $setting-default-text-color;
+  }
 }

@@ -17,7 +17,7 @@
       <div class="c-Content__footer u-FlexBox u-FlexBox--middle u-FlexBox--right">
         <button type="button" class="c-Button _element" @click="handleBack">キャンセル</button>
         <div class="u-FlexBox__spacer"></div>
-        <router-link :to="{ name: 'Login'}" exact-active-class="is-selected" class="c-Button _primary">決定</router-link>
+        <button type="button" class="c-Button _primary" @click="handleClick">決定</button>
       </div><!-- /c-Content__footer -->
     </div><!-- /c-Content__inner -->
   </div><!-- /c-Content -->
@@ -29,12 +29,20 @@ import { useRouter } from 'vue-router';
 export default {
   name: 'PasswordResetForm',
   setup() {
-    const router = useRouter()
+    const router = useRouter();
+
     const handleBack = () => {
       router.back()
     }
+
+    const handleClick = () => {
+      // パスワードリセット時の処理
+      router.push({ name: 'Login'})
+    }
+
     return {
       handleBack,
+      handleClick,
     }
   }
 }

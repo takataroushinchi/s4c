@@ -6,9 +6,9 @@
 
 <script>
 // @ is an alias to /src
-import HeaderUser from '@/components/HeaderUser.vue';
+import HeaderUser from '@/components/user/HeaderUser.vue';
 import CommonTitle from '@/components/CommonTitle.vue';
-import PasswordResetForm from '@/components/PasswordResetForm.vue';
+import PasswordResetForm from '@/components/user/PasswordResetForm.vue';
 
 export default {
   name: 'PasswordReset',

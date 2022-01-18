@@ -8,6 +8,7 @@ import Login from '../views/Login.vue'
 import PasswordSet from '../views/PasswordSet.vue'
 import PasswordReset from '../views/PasswordReset.vue'
 import AccountsSelect from '../views/AccountsSelect.vue'
+import AccountsUnauthorized from '../views/AccountsUnauthorized.vue'
 
 // @ is an alias to /src
 import UI from '@/views/UI.vue'
@@ -79,6 +80,16 @@ const routes = [
     path: '/accounts/select',
     name: 'AccountsSelect',
     component: AccountsSelect
+  },
+  {
+    path: '/accounts/unauthorized',
+    name: 'AccountsUnauthorized',
+    component: AccountsUnauthorized
+  },
+  {
+    path: '/manager/accounts',
+    name: 'ManagerAccounts',
+    component: Home
   },
   {
     path: '/ui',

@@ -4,7 +4,7 @@
     <div class="c-Header__item u-FlexBox__item--fill">
       <router-link to="/" exact-active-class="is-active" class="u-FlexBox u-FlexBox--middle">
         <div class="c-Header__logo">
-          <img alt="Vue logo" src="../assets/images/logo.png">
+          <img alt="logo" src="@/assets/images/logo.png">
         </div><!-- /c-Header__logo -->
         <div class="u-FlexBox__spacer"></div>
         <h1 class="c-Header__title">
@@ -26,7 +26,7 @@
                   <router-link :to="{ name: 'PasswordReset'}" exact-active-class="is-active">パスワード再設定</router-link>
                 </MenuItem>
                 <MenuItem as="li" class="headlessui-Menu__item">
-                  <router-link :to="{ name: 'Login'}" exact-active-class="is-active">ログアウト</router-link>
+                  <button type="button" class="c-Button _menu-item" @click="handleClick">ログアウト</button>
                 </MenuItem>
               </MenuItems>
             </Menu>
@@ -41,9 +41,10 @@
 <script>
 import { Down } from '@icon-park/vue-next';
 import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/vue";
+import { useRouter } from 'vue-router';
 
 export default {
-  name: 'Header',
+  name: 'HeaderUser',
   props: {
     title: String
   },
@@ -53,6 +54,18 @@ export default {
     MenuButton,
     MenuItems,
     MenuItem,
+  },
+  setup() {
+    const router = useRouter();
+
+    const handleClick = () => {
+      // ログアウト時の処理
+      router.push({ name: 'Login'})
+    }
+
+    return {
+      handleClick,
+    }
   }
 }
 </script>

@@ -1,4 +1,5 @@
 <template>
+  <Header title="アカウント名称"/>
   <CommonTitle :text="title"/>
   <CampaignContent :text="text" :isEdit="isEdit"/>
 </template>
@@ -6,12 +7,14 @@
 <script>
 import { useRoute } from 'vue-router';
 // @ is an alias to /src
+import Header from '@/components/Header.vue';
 import CommonTitle from '@/components/CommonTitle.vue';
 import CampaignContent from '@/components/CampaignContent.vue';
 
 export default {
   name: 'CampaignEdit',
   components: {
+    Header,
     CommonTitle,
     CampaignContent,
   },

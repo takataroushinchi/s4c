@@ -1,4 +1,5 @@
 <template>
+  <Header title="アカウント名称"/>
   <CommonTitle text="レポート"/>
   <ReportTool :dimension="dimensionRef" :filter="query_filter"/>
   <Chart v-if="dimensionRef !== 'campaign'"/>
@@ -10,6 +11,7 @@
 import { ref } from 'vue'
 import { useRoute, onBeforeRouteLeave, onBeforeRouteUpdate } from 'vue-router';
 // @ is an alias to /src
+import Header from '@/components/Header.vue';
 import CommonTitle from '@/components/CommonTitle.vue';
 import Chart from '@/components/Chart.vue';
 import ReportTool from '@/components/ReportTool.vue';
@@ -19,6 +21,7 @@ import ReportList from '@/components/ReportList.vue';
 export default {
   name: 'Report',
   components: {
+    Header,
     CommonTitle,
     Chart,
     ReportTool,

@@ -1,4 +1,5 @@
 <template>
+  <Header title="アカウント名称"/>
   <CampaignDetailTitle text="無題のキャンペーン001"/>
   <CampaignDetailSettingItem />
   <CampaignDetailTool />
@@ -46,6 +47,7 @@ import {
   DialogDescription,
 } from "@headlessui/vue";
 // @ is an alias to /src
+import Header from '@/components/Header.vue';
 import CommonTitle from '@/components/CommonTitle.vue';
 import CampaignDetailTitle from '@/components/CampaignDetailTitle.vue';
 import CampaignDetailSettingItem from '@/components/CampaignDetailSettingItem.vue';
@@ -60,6 +62,7 @@ export default {
     DialogOverlay,
     DialogTitle,
     DialogDescription,
+    Header,
     CommonTitle,
     CampaignDetailTitle,
     CampaignDetailSettingItem,

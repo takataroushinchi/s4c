@@ -53,8 +53,21 @@
           <li class="c-Nav__item _divider u-InlineFlex">
             <router-link to="/csv-download" exact-active-class="is-active">詳細csv</router-link>
           </li><!-- /c-Nav__item -->
-          <li class="c-Nav__item">
-            <a href="/logout">ログアウト</a>
+          <li class="c-Nav__item u-InlineFlex">
+            <Menu as="div" class="headlessui-Menu">
+              <MenuButton class="headlessui-Menu__button">
+                <span>testユーザー</span>
+                <down theme="filled"/>
+              </MenuButton>
+              <MenuItems as="ul" class="headlessui-Menu__items">
+                <MenuItem as="li" class="headlessui-Menu__item">
+                  <router-link :to="{ name: 'PasswordReset'}" exact-active-class="is-active">パスワード再設定</router-link>
+                </MenuItem>
+                <MenuItem as="li" class="headlessui-Menu__item">
+                  <router-link :to="{ name: 'Login'}" exact-active-class="is-active">ログアウト</router-link>
+                </MenuItem>
+              </MenuItems>
+            </Menu>
           </li><!-- /c-Nav__item -->
         </ul>
       </nav><!-- /c-Nav -->

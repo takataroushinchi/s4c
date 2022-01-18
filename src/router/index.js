@@ -4,6 +4,10 @@ import CampaignEdit from '../views/CampaignEdit.vue'
 import CampaignDetail from '../views/CampaignDetail.vue'
 import Report from '../views/Report.vue'
 import CsvDownLoad from '../views/CsvDownLoad.vue'
+import Login from '../views/Login.vue'
+import PasswordSet from '../views/PasswordSet.vue'
+import PasswordReset from '../views/PasswordReset.vue'
+import AccountsSelect from '../views/AccountsSelect.vue'
 
 // @ is an alias to /src
 import UI from '@/views/UI.vue'
@@ -19,6 +23,11 @@ const routes = [
   {
     path: '/archive',
     name: 'CampaignArchive',
+    component: Home
+  },
+  {
+    path: '/accounts/:supplier_id?/list',
+    name: 'AccountsList',
     component: Home
   },
   {
@@ -50,6 +59,26 @@ const routes = [
     path: '/csv-download',
     name: 'CsvDownLoad',
     component: CsvDownLoad
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login
+  },
+  {
+    path: '/password/:user_id?/set',
+    name: 'PasswordSet',
+    component: PasswordSet
+  },
+  {
+    path: '/password/reset',
+    name: 'PasswordReset',
+    component: PasswordReset
+  },
+  {
+    path: '/accounts/select',
+    name: 'AccountsSelect',
+    component: AccountsSelect
   },
   {
     path: '/ui',

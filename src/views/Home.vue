@@ -1,4 +1,5 @@
 <template>
+  <Header title="アカウント名称"/>
   <CommonTitle text="サマリー"/>
   <SummaryList/>
   <Chart/>
@@ -11,6 +12,7 @@
 import { ref } from 'vue'
 import { useRoute, onBeforeRouteLeave } from 'vue-router';
 // @ is an alias to /src
+import Header from '@/components/Header.vue';
 import CommonTitle from '@/components/CommonTitle.vue';
 import SummaryList from '@/components/SummaryList.vue';
 import CampaignListTitle from '@/components/CampaignListTitle.vue';
@@ -21,6 +23,7 @@ import Chart from '@/components/Chart.vue';
 export default {
   name: 'Home',
   components: {
+    Header,
     CommonTitle,
     SummaryList,
     CampaignListTitle,

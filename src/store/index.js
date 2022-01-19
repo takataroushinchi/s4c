@@ -3,6 +3,7 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     login_user: null,
+    selected_supplier: null,
     users:[
       {user_id:1, user_name:'広告ユーザー1（複数アカウント）', email: 'text@test.jp', password: '', role:1, supplier_id:[1,2,3]},
       {user_id:2, user_name:'広告ユーザー2（単数アカウント）', email: 'text@test.jp', password: '', role:1, supplier_id:[1]},
@@ -22,6 +23,12 @@ export default createStore({
     deleteLoginUser (state) {
       state.login_user = null
     },
+    setSelectedSupplier (state, supplier) {
+      state.selected_supplier = supplier
+    },
+    deleteSelectedSupplier (state) {
+      state.selected_supplier = null
+    },
   },
   actions: {
     login ({ commit }, user) {
@@ -30,15 +37,22 @@ export default createStore({
     logout ({ commit }) {
       commit('deleteLoginUser')
     },
+    setSelectedSupplier ({ commit }, supplier) {
+      commit('setSelectedSupplier', supplier)
+    },
+    deleteSelectedSupplier ({ commit }) {
+      commit('deleteSelectedSupplier')
+    },
   },
   modules: {
   },
   getters: {
-    userName: state => state.login_user ? state.login_user.user_name : '',
+    userName: state => state.login_user ? state.login_user.user_name : 'ユーザー名',
     uid: state => state.login_user ? state.login_user.user_id : null,
     getUserById: state => id => {
       return state.users.find( user => user.user_id === id )
     },
+    supplierName: state => state.selected_supplier ? state.selected_supplier.supplier_name : 'アカウント名',
     getSupplierById: state => id => {
       return state.suppliers.find( supplier => supplier.id === id )
     }

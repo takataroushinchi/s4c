@@ -8,7 +8,7 @@
         </div><!-- /c-Header__logo -->
         <div class="u-FlexBox__spacer"></div>
         <h1 class="c-Header__title">
-            <span>{{ title }}</span>
+            <span>{{ displaySupplierName }}</span>
         </h1><!-- /c-Header__title -->
       </router-link>
     </div><!-- /c-Header__item -->
@@ -16,14 +16,14 @@
       <nav class="c-Nav">
         <ul class="c-Nav__items u-FlexBox u-FlexBox--middle">
           <li class="c-Nav__item u-InlineFlex">
-            <router-link :to="{name: 'Accounts'}" exact-active-class="is-active">キャンペーン</router-link>
+            <router-link :to="{name: 'UserHome'}" exact-active-class="is-active">キャンペーン</router-link>
             <Menu as="div" class="headlessui-Menu">
               <MenuButton class="headlessui-Menu__button">
                 <down theme="filled"/>
               </MenuButton>
               <MenuItems as="ul" class="headlessui-Menu__items">
                 <MenuItem as="li" class="headlessui-Menu__item">
-                  <router-link :to="{name: 'Accounts'}" exact-active-class="is-active">キャンペーン一覧</router-link>
+                  <router-link :to="{name: 'UserHome'}" exact-active-class="is-active">キャンペーン一覧</router-link>
                 </MenuItem>
                 <MenuItem as="li" class="headlessui-Menu__item">
                   <router-link :to="{name: 'CampaignCreate'}" exact-active-class="is-active">キャンペーン新規作成</router-link>
@@ -62,7 +62,7 @@
           <li class="c-Nav__item u-InlineFlex">
             <Menu as="div" class="headlessui-Menu">
               <MenuButton class="headlessui-Menu__button">
-                <span>{{ login_user?.user_name }}</span>
+                <span>{{ displayUserName }}</span>
                 <down theme="filled"/>
               </MenuButton>
               <MenuItems as="ul" class="headlessui-Menu__items">
@@ -109,6 +109,14 @@ export default {
       return store.state.login_user
     })
 
+    const displayUserName = computed(()=>{
+      return store.getters.userName
+    })
+
+    const displaySupplierName = computed(()=>{
+      return store.getters.supplierName
+    })
+
     const handleClick = () => {
       // ログアウト時の処理
       store.dispatch('logout')
@@ -117,6 +125,8 @@ export default {
 
     return {
       login_user,
+      displayUserName,
+      displaySupplierName,
       handleClick,
     }
   }

@@ -41,7 +41,8 @@ export default {
     }
 
     const handleClick = () => {
-      router.push({ name: 'Accounts', params: { supplier_id } })
+      store.dispatch('setSelectedSupplier', store.state.suppliers[supplier_id - 1])
+      router.push({ name: 'UserHome', params: { supplier_id } })
     }
     return {
       handleChange,

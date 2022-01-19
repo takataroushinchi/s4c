@@ -5,7 +5,7 @@ import CampaignDetail from '../views/CampaignDetail.vue'
 import Report from '../views/Report.vue'
 import CsvDownLoad from '../views/CsvDownLoad.vue'
 import NotFound from '@/views/NotFound.vue'
-// user
+// config
 import Login from '../views/Login.vue'
 import PasswordSet from '../views/PasswordSet.vue'
 import PasswordReset from '../views/PasswordReset.vue'
@@ -31,12 +31,12 @@ const routes = [
   },
   {
     path: '/archive',
-    name: 'CampaignArchive',
+    name: 'UserHomeArchive',
     component: Home
   },
   {
-    path: '/accounts/:supplier_id?',
-    name: 'Accounts',
+    path: '/user/:supplier_id?',
+    name: 'UserHome',
     component: Home
   },
   {
@@ -69,7 +69,7 @@ const routes = [
     name: 'CsvDownLoad',
     component: CsvDownLoad
   },
-  // user
+  // config
   {
     path: '/login',
     name: 'Login',

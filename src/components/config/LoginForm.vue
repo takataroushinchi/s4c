@@ -63,7 +63,8 @@ export default {
         router.push({ name: 'AccountsSelect'})
       } else if (userRef.value === 'user2'){
         store.dispatch('login', store.state.users[1])
-        router.push({ name: 'AccountsSelect'})
+        store.dispatch('setSelectedSupplier', store.state.suppliers[0])
+        router.push({ name: 'UserHome', params: { supplier_id: store.state.selected_supplier.id}})
       } else {
         store.dispatch('login', store.state.users[2])
         // router.push({ name: 'AccountsUnauthorized'})

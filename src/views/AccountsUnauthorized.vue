@@ -1,5 +1,5 @@
 <template>
-  <UserHeader title="PRアイテム"/>
+  <ConfigHeader title="PRアイテム"/>
   <CommonTitle text="利用アカウント選択"/>
 
   <section class="c-NotFound">
@@ -15,14 +15,14 @@
 <script>
 import { Info } from '@icon-park/vue-next';
 // @ is an alias to /src
-import UserHeader from '@/components/user/Header.vue';
+import ConfigHeader from '@/components/config/Header.vue';
 import CommonTitle from '@/components/CommonTitle.vue';
 
 export default {
   name: 'AccountsUnauthorized',
   components: {
     Info,
-    UserHeader,
+    ConfigHeader,
     CommonTitle,
   },
 }

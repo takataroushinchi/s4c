@@ -62,7 +62,7 @@
           <li class="c-Nav__item u-InlineFlex">
             <Menu as="div" class="headlessui-Menu">
               <MenuButton class="headlessui-Menu__button">
-                <span>{{ login_user?.user_name }}</span>
+                <span>{{ displayUserName }}</span>
                 <down theme="filled"/>
               </MenuButton>
               <MenuItems as="ul" class="headlessui-Menu__items">
@@ -109,6 +109,10 @@ export default {
       return store.state.login_user
     })
 
+    const displayUserName = computed(()=>{
+      return store.getters.userName
+    })
+
     const handleClick = () => {
       // ログアウト時の処理
       store.dispatch('logout')
@@ -117,6 +121,7 @@ export default {
 
     return {
       login_user,
+      displayUserName,
       handleClick,
     }
   }

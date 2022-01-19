@@ -12,13 +12,13 @@
         </h1><!-- /c-Header__title -->
       </router-link>
     </div><!-- /c-Header__item -->
-    <div class="c-Header__item">
+    <div class="c-Header__item" v-if="login_user">
       <nav class="c-Nav">
         <ul class="c-Nav__items u-FlexBox u-FlexBox--middle">
           <li class="c-Nav__item u-InlineFlex">
             <Menu as="div" class="headlessui-Menu">
               <MenuButton class="headlessui-Menu__button">
-                <span>testユーザー</span>
+                <span>{{ login_user?.user_name }}</span>
                 <down theme="filled"/>
               </MenuButton>
               <MenuItems as="ul" class="headlessui-Menu__items">
@@ -41,7 +41,9 @@
 <script>
 import { Down } from '@icon-park/vue-next';
 import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/vue";
+import { computed } from 'vue';
 import { useRouter } from 'vue-router';
+import { useStore } from 'vuex';
 
 export default {
   name: 'HeaderUser',
@@ -57,13 +59,20 @@ export default {
   },
   setup() {
     const router = useRouter();
+    const store = useStore();
+
+    const login_user = computed(()=>{
+      return store.state.login_user
+    })
 
     const handleClick = () => {
       // ログアウト時の処理
+      store.dispatch('logout')
       router.push({ name: 'Login'})
     }
 
     return {
+      login_user,
       handleClick,
     }
   }

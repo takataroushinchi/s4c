@@ -25,11 +25,13 @@
 
 <script>
 import { useRouter } from 'vue-router';
+import { useStore } from 'vuex';
 
 export default {
   name: 'PasswordResetForm',
   setup() {
     const router = useRouter();
+    const store = useStore();
 
     const handleBack = () => {
       router.back()
@@ -37,6 +39,8 @@ export default {
 
     const handleClick = () => {
       // パスワードリセット時の処理
+      // メール送信、ログアウト後、ログインページへ遷移
+      store.dispatch('logout')
       router.push({ name: 'Login'})
     }
 

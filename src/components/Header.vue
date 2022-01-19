@@ -53,16 +53,16 @@
           <li class="c-Nav__item _divider u-InlineFlex">
             <router-link to="/csv-download" exact-active-class="is-active">詳細csv</router-link>
           </li><!-- /c-Nav__item -->
-          <li class="c-Nav__item u-InlineFlex">
+          <li class="c-Nav__item u-InlineFlex" v-if="login_user?.role===2">
             <router-link :to="{ name: 'ManagerAccounts' }" exact-active-class="is-active">管理画面TOP</router-link>
           </li><!-- /c-Nav__item -->
-          <li class="c-Nav__item u-InlineFlex">
+          <li class="c-Nav__item u-InlineFlex" v-if="login_user?.supplier_id.length!==0">
             <router-link :to="{ name: 'AccountsSelect'}" exact-active-class="is-active">アカウント切替</router-link>
           </li><!-- /c-Nav__item -->
           <li class="c-Nav__item u-InlineFlex">
             <Menu as="div" class="headlessui-Menu">
               <MenuButton class="headlessui-Menu__button">
-                <span>testユーザー</span>
+                <span>{{ login_user?.user_name }}</span>
                 <down theme="filled"/>
               </MenuButton>
               <MenuItems as="ul" class="headlessui-Menu__items">
@@ -85,7 +85,9 @@
 <script>
 import { Down } from '@icon-park/vue-next';
 import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/vue";
+import { computed } from 'vue';
 import { useRouter } from 'vue-router';
+import { useStore } from 'vuex';
 
 export default {
   name: 'Header',
@@ -101,13 +103,20 @@ export default {
   },
   setup() {
     const router = useRouter();
+    const store = useStore();
+
+    const login_user = computed(()=>{
+      return store.state.login_user
+    })
 
     const handleClick = () => {
       // ログアウト時の処理
+      store.dispatch('logout')
       router.push({ name: 'Login'})
     }
 
     return {
+      login_user,
       handleClick,
     }
   }

@@ -2,7 +2,7 @@
 <section class="c-Header">
   <div class="c-Header__items u-FlexBox u-FlexBox--middle u-FlexBox--justify">
     <div class="c-Header__item u-FlexBox__item--fill">
-      <router-link to="/" exact-active-class="is-active" class="u-FlexBox u-FlexBox--middle">
+      <div class="u-FlexBox u-FlexBox--middle">
         <div class="c-Header__logo">
           <img alt="logo" src="@/assets/images/logo.png">
         </div><!-- /c-Header__logo -->
@@ -10,7 +10,7 @@
         <h1 class="c-Header__title">
             <span>{{ title }}</span>
         </h1><!-- /c-Header__title -->
-      </router-link>
+      </div>
     </div><!-- /c-Header__item -->
     <div class="c-Header__item" v-if="login_user">
       <nav class="c-Nav">
@@ -23,7 +23,7 @@
               </MenuButton>
               <MenuItems as="ul" class="headlessui-Menu__items">
                 <MenuItem as="li" class="headlessui-Menu__item">
-                  <router-link :to="{ name: 'PasswordReset'}" exact-active-class="is-active">パスワード再設定</router-link>
+                  <router-link :to="{name: 'PasswordReset'}" exact-active-class="is-active">パスワード再設定</router-link>
                 </MenuItem>
                 <MenuItem as="li" class="headlessui-Menu__item">
                   <button type="button" class="c-Button _menu-item" @click="handleClick">ログアウト</button>
@@ -46,7 +46,7 @@ import { useRouter } from 'vue-router';
 import { useStore } from 'vuex';
 
 export default {
-  name: 'HeaderUser',
+  name: 'UserHeader',
   props: {
     title: String
   },

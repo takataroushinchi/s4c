@@ -2,7 +2,7 @@
 <section class="c-Header">
   <div class="c-Header__items u-FlexBox u-FlexBox--middle u-FlexBox--justify">
     <div class="c-Header__item u-FlexBox__item--fill">
-      <router-link to="/" exact-active-class="is-active" class="u-FlexBox u-FlexBox--middle">
+      <router-link :to="{name: 'ManagerAccounts'}" exact-active-class="is-active" class="u-FlexBox u-FlexBox--middle">
         <div class="c-Header__logo">
           <img alt="logo" src="@/assets/images/logo.png">
         </div><!-- /c-Header__logo -->
@@ -16,42 +16,42 @@
       <nav class="c-Nav">
         <ul class="c-Nav__items u-FlexBox u-FlexBox--middle">
           <li class="c-Nav__item u-InlineFlex">
-            <router-link :to="{name: 'Accounts'}" exact-active-class="is-active">キャンペーン</router-link>
-            <Menu as="div" class="headlessui-Menu">
-              <MenuButton class="headlessui-Menu__button">
-                <down theme="filled"/>
-              </MenuButton>
-              <MenuItems as="ul" class="headlessui-Menu__items">
-                <MenuItem as="li" class="headlessui-Menu__item">
-                  <router-link :to="{name: 'Accounts'}" exact-active-class="is-active">キャンペーン一覧</router-link>
-                </MenuItem>
-                <MenuItem as="li" class="headlessui-Menu__item">
-                  <router-link :to="{name: 'CampaignCreate'}" exact-active-class="is-active">キャンペーン新規作成</router-link>
-                </MenuItem>
-              </MenuItems>
-            </Menu>
+            <router-link :to="{name: 'ManagerAccounts'}" exact-active-class="is-active">アカウント</router-link>
           </li><!-- /c-Nav__item -->
           <li class="c-Nav__item u-InlineFlex">
-            <router-link :to="{name: 'Report'}" exact-active-class="is-active">レポート</router-link>
+            <router-link :to="{name: 'ManagerUsers'}" exact-active-class="is-active">ユーザー</router-link>
             <Menu as="div" class="headlessui-Menu">
               <MenuButton class="headlessui-Menu__button">
                 <down theme="filled"/>
               </MenuButton>
               <MenuItems as="ul" class="headlessui-Menu__items">
                 <MenuItem as="li" class="headlessui-Menu__item">
-                  <router-link :to="{name: 'ReportDimension', params: {dimension: 'daily'}}" exact-active-class="is-active">日別</router-link>
+                  <router-link :to="{name: 'ManagerUsers'}" exact-active-class="is-active">ユーザー一覧</router-link>
                 </MenuItem>
                 <MenuItem as="li" class="headlessui-Menu__item">
-                  <router-link :to="{name: 'ReportDimension', params: {dimension: 'monthly'}}" exact-active-class="is-active">月別</router-link>
-                </MenuItem>
-                <MenuItem as="li" class="headlessui-Menu__item">
-                  <router-link :to="{name: 'ReportDimension', params: {dimension: 'campaign'}}" exact-active-class="is-active">キャンペーン別</router-link>
+                  <router-link :to="{name: 'ManagerUsersCreate'}" exact-active-class="is-active">ユーザー新規作成</router-link>
                 </MenuItem>
               </MenuItems>
             </Menu>
           </li><!-- /c-Nav__item -->
           <li class="c-Nav__item _divider u-InlineFlex">
-            <router-link :to="{name: 'CsvDownLoad'}" exact-active-class="is-active">詳細csv</router-link>
+            <router-link :to="{name: 'ManagerReport'}" exact-active-class="is-active">全体レポート</router-link>
+            <Menu as="div" class="headlessui-Menu">
+              <MenuButton class="headlessui-Menu__button">
+                <down theme="filled"/>
+              </MenuButton>
+              <MenuItems as="ul" class="headlessui-Menu__items">
+                <MenuItem as="li" class="headlessui-Menu__item">
+                  <router-link :to="{name: 'ManagerReportDimension', params: {dimension: 'daily'}}" exact-active-class="is-active">日別</router-link>
+                </MenuItem>
+                <MenuItem as="li" class="headlessui-Menu__item">
+                  <router-link :to="{name: 'ManagerReportDimension', params: {dimension: 'monthly'}}" exact-active-class="is-active">月別</router-link>
+                </MenuItem>
+                <MenuItem as="li" class="headlessui-Menu__item">
+                  <router-link :to="{name: 'ManagerReportDimension', params: {dimension: 'account'}}" exact-active-class="is-active">アカウント別</router-link>
+                </MenuItem>
+              </MenuItems>
+            </Menu>
           </li><!-- /c-Nav__item -->
           <li class="c-Nav__item u-InlineFlex" v-if="login_user?.role===2">
             <router-link :to="{name: 'ManagerAccounts'}" exact-active-class="is-active">管理画面TOP</router-link>
@@ -90,7 +90,7 @@ import { useRouter } from 'vue-router';
 import { useStore } from 'vuex';
 
 export default {
-  name: 'Header',
+  name: 'ManagerHeader',
   props: {
     title: String
   },

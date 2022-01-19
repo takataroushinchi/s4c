@@ -24,32 +24,15 @@
 
 <script>
 import { useRouter } from 'vue-router';
+import { useStore } from 'vuex'
 
 export default {
   name: 'AccountsSelectForm',
   setup() {
-    const router = useRouter()
+    const router = useRouter();
+    const store = useStore();
 
-    const accountsData = [
-      {
-        "id": 1,
-        "supplier_id": "abcd",
-        "supplier_name": "アカウント_1"
-
-      },
-      {
-        "id": 2,
-        "supplier_id": "efgh",
-        "supplier_name": "アカウント_2"
-
-      },
-      {
-        "id": 3,
-        "supplier_id": "ijkl",
-        "supplier_name": "アカウント_3"
-
-      },
-    ];
+    const accountsData = store.state.suppliers;
 
     let supplier_id = accountsData[0].id;
 
@@ -58,7 +41,7 @@ export default {
     }
 
     const handleClick = () => {
-      router.push(`/accounts/${supplier_id}/list`)
+      router.push({ name: 'Accounts', params: { supplier_id } })
     }
     return {
       handleChange,

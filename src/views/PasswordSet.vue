@@ -1,19 +1,19 @@
 <template>
-  <HeaderUser title="PRアイテム"/>
+  <UserHeader title="PRアイテム"/>
   <CommonTitle text="パスワード設定"/>
   <PasswordSetForm />
 </template>
 
 <script>
 // @ is an alias to /src
-import HeaderUser from '@/components/user/HeaderUser.vue';
+import UserHeader from '@/components/user/Header.vue';
 import CommonTitle from '@/components/CommonTitle.vue';
 import PasswordSetForm from '@/components/user/PasswordSetForm.vue';
 
 export default {
   name: 'PasswordSet',
   components: {
-    HeaderUser,
+    UserHeader,
     CommonTitle,
     PasswordSetForm,
   },

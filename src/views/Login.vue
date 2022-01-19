@@ -1,19 +1,19 @@
 <template>
-  <HeaderUser title="PRアイテム"/>
+  <UserHeader title="PRアイテム"/>
   <CommonTitle text="ログイン"/>
   <LoginForm />
 </template>
 
 <script>
 // @ is an alias to /src
-import HeaderUser from '@/components/user/HeaderUser.vue';
+import UserHeader from '@/components/user/Header.vue';
 import CommonTitle from '@/components/CommonTitle.vue';
 import LoginForm from '@/components/user/LoginForm.vue';
 
 export default {
   name: 'Login',
   components: {
-    HeaderUser,
+    UserHeader,
     CommonTitle,
     LoginForm,
   },

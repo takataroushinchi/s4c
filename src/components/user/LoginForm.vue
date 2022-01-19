@@ -45,7 +45,7 @@ export default {
   name: 'LoginForm',
   setup() {
     const router = useRouter();
-    const store = useStore()
+    const store = useStore();
 
     const userRef = ref('')
     const passwordRef = ref('')

@@ -4,16 +4,24 @@ import CampaignEdit from '../views/CampaignEdit.vue'
 import CampaignDetail from '../views/CampaignDetail.vue'
 import Report from '../views/Report.vue'
 import CsvDownLoad from '../views/CsvDownLoad.vue'
+import NotFound from '@/views/NotFound.vue'
+// user
 import Login from '../views/Login.vue'
 import PasswordSet from '../views/PasswordSet.vue'
 import PasswordReset from '../views/PasswordReset.vue'
 import AccountsSelect from '../views/AccountsSelect.vue'
 import AccountsUnauthorized from '../views/AccountsUnauthorized.vue'
+// manager
+import ManagerAccounts from '../views/ManagerAccounts.vue'
+import ManagerReport from '../views/ManagerReport.vue'
+import ManagerUsers from '../views/ManagerUsers.vue'
+import ManagerUsersCreate from '../views/ManagerUsersCreate.vue'
+import ManagerUsersEdit from '../views/ManagerUsersEdit.vue'
 
 // @ is an alias to /src
+// Design
 import UI from '@/views/UI.vue'
 import FeatureTest from '@/views/FeatureTest.vue'
-import NotFound from '@/views/NotFound.vue'
 
 const routes = [
   {
@@ -27,18 +35,18 @@ const routes = [
     component: Home
   },
   {
-    path: '/accounts/:supplier_id?/list',
-    name: 'AccountsList',
+    path: '/accounts/:supplier_id?',
+    name: 'Accounts',
     component: Home
   },
   {
     path: '/create',
-    name: 'CreateCampaign',
+    name: 'CampaignCreate',
     component: CampaignEdit
   },
   {
     path: '/edit',
-    name: 'EditCampaign',
+    name: 'CampaignEdit',
     component: CampaignEdit
   },
   {
@@ -61,6 +69,7 @@ const routes = [
     name: 'CsvDownLoad',
     component: CsvDownLoad
   },
+  // user
   {
     path: '/login',
     name: 'Login',
@@ -86,11 +95,38 @@ const routes = [
     name: 'AccountsUnauthorized',
     component: AccountsUnauthorized
   },
+  // manager
   {
     path: '/manager/accounts',
     name: 'ManagerAccounts',
-    component: Home
+    component: ManagerAccounts
   },
+  {
+    path: '/manager/users',
+    name: 'ManagerUsers',
+    component: ManagerUsers
+  },
+  {
+    path: '/manager/users/create',
+    name: 'ManagerUsersCreate',
+    component: ManagerUsersCreate
+  },
+  {
+    path: '/manager/users/:user_id?/edit',
+    name: 'ManagerUsersEdit',
+    component: ManagerUsersEdit
+  },
+  {
+    path: '/manager/report',
+    name: 'ManagerReport',
+    component: ManagerReport
+  },
+  {
+    path: '/manager/report/:dimension',
+    name: 'ManagerReportDimension',
+    component: ManagerReport
+  },
+  // design
   {
     path: '/ui',
     name: 'UI',

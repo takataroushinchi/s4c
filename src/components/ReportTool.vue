@@ -7,7 +7,8 @@
     <select class="c-Input" name="reportSelect01" @change="handleChange">
       <option value="daily" :selected="dimension === 'daily'">日別</option>
       <option value="monthly" :selected="dimension === 'monthly'">月別</option>
-      <option value="campaign" :selected="dimension === 'campaign'">キャンペーン別</option>
+      <option value="campaign" :selected="dimension === 'campaign'" v-if="role!=='manager'">キャンペーン別</option>
+      <option value="account" :selected="dimension === 'account'" v-if="role==='manager'">アカウント別</option>
     </select>
   </div><!-- /c-Input__label -->
 
@@ -35,7 +36,7 @@
 
     <div class="u-FlexBox__spacer"></div>
 
-    <div class="c-Input__label">
+    <div class="c-Input__label" v-if="role!=='manager'">
       <label>
         キャンペーン
       </label>
@@ -48,9 +49,22 @@
       </select>
     </div><!-- /c-Input__label -->
 
-    <div class="u-FlexBox__spacer"></div>
+    <div class="c-Input__label" v-if="role=='manager'">
+      <label>
+        アカウント
+      </label>
+      <select class="c-Input" name="reportSelect02">
+        <option value="">-</option>
+        <option value="account1" :selected="filter === 'account'">アカウント001</option>
+        <option value="account2">アカウント002</option>
+        <option value="account3">アカウント003</option>
+        <option value="account4">アカウント004</option>
+      </select>
+    </div><!-- /c-Input__label -->
 
-    <div class="c-Input__label">
+    <div class="u-FlexBox__spacer" v-if="role!=='manager'"></div>
+
+    <div class="c-Input__label" v-if="role!=='manager'">
       <label>
         商品ID
       </label>
@@ -85,6 +99,9 @@ export default {
       type: String,
     },
     filter: {
+      type: String,
+    },
+    role: {
       type: String,
     }
   },
@@ -143,8 +160,12 @@ export default {
     }
 
     const handleChange = (e) => {
-      const dimension = e.target.value; // daily, monthly, campaign
-      router.push(`/report/${dimension}`)
+      const dimension = e.target.value; // daily, monthly, campaign or account
+      if(props.role === 'manager'){
+        router.push({ name: 'ManagerReportDimension', params: { dimension } })
+      }else{
+        router.push({ name: 'ReportDimension', params: { dimension } })
+      }
     }
 
     // /report?filter=item_id

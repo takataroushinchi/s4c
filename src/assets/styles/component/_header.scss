@@ -40,7 +40,7 @@
 
   &__logo {
     font-size: 1.6rem;
-    font-weight: bold;
+    font-weight: 700;
 
     img {
       width: auto;
@@ -50,7 +50,8 @@
 
   &__title {
     font-size: 1.6rem;
-    font-weight: bold;
+    color: $setting-default-brand-color;
+    font-weight: 700;
   }
 }
 

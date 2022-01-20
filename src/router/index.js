@@ -6,6 +6,7 @@ import Report from '../views/Report.vue'
 import CsvDownLoad from '../views/CsvDownLoad.vue'
 import NotFound from '@/views/NotFound.vue'
 // config
+import Root from '../views/Root.vue'
 import Login from '../views/Login.vue'
 import PasswordSet from '../views/PasswordSet.vue'
 import PasswordReset from '../views/PasswordReset.vue'
@@ -26,46 +27,46 @@ import FeatureTest from '@/views/FeatureTest.vue'
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'Root',
+    component: Root
   },
   {
-    path: '/archive',
-    name: 'UserHomeArchive',
-    component: Home
-  },
-  {
-    path: '/user/:supplier_id?',
+    path: '/user',
     name: 'UserHome',
     component: Home
   },
   {
-    path: '/create',
+    path: '/user/archive',
+    name: 'UserHomeArchive',
+    component: Home
+  },
+  {
+    path: '/user/campaign/create',
     name: 'CampaignCreate',
     component: CampaignEdit
   },
   {
-    path: '/edit',
+    path: '/user/campaign/:campaign_id?/edit',
     name: 'CampaignEdit',
     component: CampaignEdit
   },
   {
-    path: '/campaign-detail',
+    path: '/user/campaign/:campaign_id?/detail',
     name: 'CampaignDetail',
     component: CampaignDetail
   },
   {
-    path: '/report',
+    path: '/user/report',
     name: 'Report',
     component: Report
   },
   {
-    path: '/report/:dimension',
+    path: '/user/report/:dimension',
     name: 'ReportDimension',
     component: Report
   },
   {
-    path: '/csv-download',
+    path: '/user/csv-download',
     name: 'CsvDownLoad',
     component: CsvDownLoad
   },

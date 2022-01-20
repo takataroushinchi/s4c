@@ -406,7 +406,7 @@ template {
 }
 .c-Header__logo {
   font-size: 1.6rem;
-  font-weight: bold;
+  font-weight: 700;
 }
 .c-Header__logo img {
   width: auto;
@@ -414,7 +414,8 @@ template {
 }
 .c-Header__title {
   font-size: 1.6rem;
-  font-weight: bold;
+  color: #0010d3;
+  font-weight: 700;
 }
 
 .c-Nav__item {
@@ -869,11 +870,23 @@ template {
   height: auto;
   padding: 0.375rem 0.75rem;
   font-size: 1.3rem;
-  color: #495057;
+  color: #353c43;
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
+}
+.c-Input::-moz-placeholder {
+  color: #999;
+  font-size: 1rem;
+}
+.c-Input:-ms-input-placeholder {
+  color: #999;
+  font-size: 1rem;
+}
+.c-Input::placeholder {
+  color: #999;
+  font-size: 1rem;
 }
 .c-Input__group .c-Input {
   min-width: 28rem;
@@ -901,11 +914,12 @@ template {
   font-weight: 700;
 }
 .c-Input._icon {
-  padding-left: 2.4rem;
+  padding: 0.75rem 0.75rem 0.75rem 2.4rem;
+  border: 1px solid #999;
 }
 .c-Input__icon {
   position: absolute;
-  top: 0.5rem;
+  top: 1rem;
   left: 0.5rem;
 }
 .c-Input__feedback {

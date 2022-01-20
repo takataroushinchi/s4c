@@ -8,8 +8,8 @@
             <label>
               ユーザー名またはメールアドレス
             </label>
-            <input class="c-Input" type="text" name="user" v-model="userRef" placeholder="ユーザー名またはメールアドレスを入力してください">
-            <div class="c-Input__feedback">エラーです</div>
+            <input class="c-Input" :class="{'is-invalid': isInvalidUserRef}" type="text" name="user" v-model="userRef" spellcheck="false" placeholder="ユーザー名またはメールアドレスを入力してください">
+            <div class="c-Input__feedback">登録されたユーザー名またはメールアドレスを入力してください</div>
           </div><!-- /c-Input__label -->
         </div><!-- /c-Input__group -->
       </div><!-- /c-Content__unit -->
@@ -20,8 +20,8 @@
             <label>
               パスワード
             </label>
-            <input class="c-Input" type="password" v-model="passwordRef" placeholder="パスワードを入力してください">
-            <div class="c-Input__feedback">エラーです</div>
+            <input class="c-Input" :class="{'is-invalid': isInvalidPasswordRef}" type="password" v-model="passwordRef" spellcheck="false" placeholder="パスワードを入力してください">
+            <div class="c-Input__feedback">パスワードが一致しません</div>
           </div><!-- /c-Input__label -->
         </div><!-- /c-Input__group -->
       </div><!-- /c-Content__unit -->
@@ -37,9 +37,9 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref } from 'vue';
 import { useRouter } from 'vue-router';
-import { useStore } from 'vuex'
+import { useStore } from 'vuex';
 
 export default {
   name: 'LoginForm',
@@ -49,32 +49,44 @@ export default {
 
     const userRef = ref('')
     const passwordRef = ref('')
+    const isInvalidUserRef = ref(false)
+    const isInvalidPasswordRef = ref(false)
 
     const handleClick = () => {
       // ログイン時の処理
-      if(userRef.value === '') return;
-      if(passwordRef.value === '') return;
+      isInvalidUserRef.value = false;
+      isInvalidPasswordRef.value = false;
+      if(userRef.value === ''){
+        isInvalidUserRef.value = true;
+        return;
+      }
+      if(passwordRef.value === ''){
+        isInvalidPasswordRef.value = true;
+        return;
+      }
 
       if(userRef.value === 'manager'){
         store.dispatch('login', store.state.users[3])
-        router.push({ name: 'ManagerAccounts'})
+        router.push({name: 'ManagerAccounts'})
       } else if (userRef.value === 'user1'){
         store.dispatch('login', store.state.users[0])
-        router.push({ name: 'AccountsSelect'})
+        router.push({name: 'AccountsSelect'})
       } else if (userRef.value === 'user2'){
         store.dispatch('login', store.state.users[1])
         store.dispatch('setSelectedSupplier', store.state.suppliers[0])
-        router.push({ name: 'UserHome', params: { supplier_id: store.state.selected_supplier.id}})
+        router.push({name: 'UserHome'})
       } else {
         store.dispatch('login', store.state.users[2])
         // router.push({ name: 'AccountsUnauthorized'})
-        router.push({ name: 'AccountsSelect'})
+        router.push({name: 'AccountsSelect'})
       }
     }
 
     return {
       userRef,
       passwordRef,
+      isInvalidUserRef,
+      isInvalidPasswordRef,
       handleClick,
     }
   }

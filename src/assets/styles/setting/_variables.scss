@@ -42,6 +42,11 @@ $setting-default-global-rem-size: 10 !default;
 /// @type Number
 $setting-default-line-height: 1.4 !default;
 
+/// ベースとなるブランドカラー
+/// @group setting.default
+/// @type Color
+$setting-default-brand-color: #0010d3 !default;
+
 /// ベースとなる背景色
 /// @group setting.default
 /// @type Color
@@ -56,6 +61,11 @@ $setting-default-border-color: #ccc !default;
 /// @group setting.default
 /// @type Color
 $setting-default-text-color: #353c43 !default;
+
+/// ベースとなる補足色
+/// @group setting.default
+/// @type Color
+$setting-second-text-color: #999 !default;
 
 /// ベースとなるリンク色
 /// @group setting-default

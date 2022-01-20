@@ -2,7 +2,7 @@
 <section class="c-Header">
   <div class="c-Header__items u-FlexBox u-FlexBox--middle u-FlexBox--justify">
     <div class="c-Header__item u-FlexBox__item--fill">
-      <router-link to="/" exact-active-class="is-active" class="u-FlexBox u-FlexBox--middle">
+      <router-link :to="{name: 'Root'}" exact-active-class="is-active" class="u-FlexBox u-FlexBox--middle">
         <div class="c-Header__logo">
           <img alt="logo" src="@/assets/images/logo.png">
         </div><!-- /c-Header__logo -->
@@ -56,7 +56,7 @@
           <li class="c-Nav__item u-InlineFlex" v-if="login_user?.role===2">
             <router-link :to="{name: 'ManagerAccounts'}" exact-active-class="is-active">管理画面TOP</router-link>
           </li><!-- /c-Nav__item -->
-          <li class="c-Nav__item u-InlineFlex" v-if="login_user?.supplier_id.length > 0">
+          <li class="c-Nav__item u-InlineFlex" v-if="login_user?.supplier_id.length > 1">
             <router-link :to="{name: 'AccountsSelect'}" exact-active-class="is-active">アカウント切替</router-link>
           </li><!-- /c-Nav__item -->
           <li class="c-Nav__item u-InlineFlex">

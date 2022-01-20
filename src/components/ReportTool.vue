@@ -75,7 +75,7 @@
     <div class="u-FlexBox__spacer"></div>
 
     <div class="c-Tool__actions u-FlexBox u-FlexBox--middle">
-      <router-link to="/report" exact-active-class="is-active" class="c-Button _element">クリア</router-link>
+      <router-link :to="{name: 'Report'}" exact-active-class="is-active" class="c-Button _element">クリア</router-link>
       <div class="u-FlexBox__spacer"></div>
       <button type="button" class="c-Button _primary">
         <span>変更</span>

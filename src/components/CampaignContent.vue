@@ -3,9 +3,9 @@
   <div class="c-Content">
     <div class="c-Content__inner">
       <div class="c-Content__header u-FlexBox u-FlexBox--middle u-FlexBox--right">
-        <router-link :to="cancelPath" exact-active-class="is-selected" class="c-Button _element">キャンセル</router-link>
+        <button type="button" class="c-Button _element" @click="handleBack">キャンセル</button>
         <div class="u-FlexBox__spacer"></div>
-        <router-link to="/campaign-detail" exact-active-class="is-selected" class="c-Button _primary">{{ text }}</router-link>
+        <router-link :to="{name: 'CampaignDetail', params: { campaign_id: campaign_id }}" exact-active-class="is-selected" class="c-Button _primary">{{ text }}</router-link>
       </div><!-- /c-Content__header -->
 
       <div class="c-Content__unit">
@@ -116,7 +116,7 @@
               <label>
                 日予算
               </label>
-              <input class="c-Input is-invalid" type="number" name="budget" value="0" placeholder="">
+              <input class="c-Input" type="number" name="budget" value="0" placeholder="">
               <div class="c-Input__feedback">エラーです</div>
             </div><!-- /c-Input__label -->
           </div><!-- /c-Input__group -->
@@ -168,6 +168,7 @@ import { defineComponent, ref } from 'vue';
 import DatePicker from 'vue2-datepicker';
 import 'vue2-datepicker/locale/ja';
 // import 'vue2-datepicker/index.css';
+import { useRoute, useRouter } from 'vue-router';
 
 export default defineComponent({
   name: 'CampaignContent',
@@ -178,7 +179,11 @@ export default defineComponent({
     text: String,
     isEdit: Boolean,
   },
-  setup(props) {
+  setup() {
+    const router = useRouter();
+    const route = useRoute()
+    const campaign_id = route.params.campaign_id;
+
     let date1 = ref(new Date())
     let date2 = ref(null)
     let time1 = ref(null)
@@ -190,15 +195,18 @@ export default defineComponent({
           monthBeforeYear: false,
         }
 
-    const cancelPath = props.isEdit ? '/campaign-detail' : '/';
+    const handleBack = () => {
+      router.back()
+    }
 
     return {
+      campaign_id,
       date1,
       date2,
       time1,
       time2,
       lang,
-      cancelPath,
+      handleBack,
     }
   },
 })

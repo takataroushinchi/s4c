@@ -8,7 +8,7 @@
               PRアイテム利用アカウントを選択してください
             </label>
             <select class="c-Input" name="accounts" @change="handleChange">
-              <option v-for="item in accountsData" :value="item.id" :key="item.id" :selected="item.id === 1">{{ item.supplier_name }}</option>
+              <option v-for="item in accountsData" :value="item.id" :key="item.id">{{ item.supplier_name }}</option>
             </select>
           </div><!-- /c-Input__label -->
         </div><!-- /c-Input__group -->
@@ -24,7 +24,7 @@
 
 <script>
 import { useRouter } from 'vue-router';
-import { useStore } from 'vuex'
+import { useStore } from 'vuex';
 
 export default {
   name: 'AccountsSelectForm',
@@ -37,12 +37,12 @@ export default {
     let supplier_id = accountsData[0].id;
 
     const handleChange = (e) => {
-      supplier_id = e.target.value;
+      supplier_id = Number(e.target.value);
     }
 
     const handleClick = () => {
-      store.dispatch('setSelectedSupplier', store.state.suppliers[supplier_id - 1])
-      router.push({ name: 'UserHome', params: { supplier_id } })
+      store.dispatch('setSelectedSupplier', store.getters.getSupplierById(supplier_id))
+      router.push({ name: 'UserHome' })
     }
     return {
       handleChange,

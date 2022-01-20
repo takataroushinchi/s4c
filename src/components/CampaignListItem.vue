@@ -2,7 +2,7 @@
 <tr>
   <td>
     <div class="u-FlexBox u-FlexBox--middle">
-      <router-link to="/campaign-detail" exact-active-class="is-active" class="u-TextEllipsis1line">キャンペーン名称キャンペーン名称キャンペーン名称</router-link>
+      <router-link :to="{name: 'CampaignDetail', params: { campaign_id: id }}" exact-active-class="is-active" class="u-TextEllipsis1line">キャンペーン名称キャンペーン名称キャンペーン名称</router-link>
       <div class="u-FlexBox__spacer"></div>
       <span class="c-Table__badge">99</span>
     </div>
@@ -56,7 +56,7 @@
   <td class="u-TextRight u-TextNoWrap">999,999</td>
   <td class="u-TextRight u-TextNoWrap">999,999</td>
   <td class="u-TextCenter">
-    <router-link to="/report?filter=cpn" exact-active-class="is-active" class="c-Button _element"><chart-line theme="filled"/></router-link>
+    <router-link :to="{name: 'Report', query: { filter: 'cpn' }}" exact-active-class="is-active" class="c-Button _element"><chart-line theme="filled"/></router-link>
   </td>
 </tr>
 </template>

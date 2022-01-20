@@ -7,11 +7,11 @@
             <label>
               メールアドレス
             </label>
-            <input class="c-Input" type="text" name="email" value="" spellcheck="false" placeholder="メールアドレスを入力してください">
-            <div class="c-Input__feedback">エラーです</div>
+            <input class="c-Input" :class="{'is-invalid': isInvalidRef}" type="text" v-model="emailRef" spellcheck="false" placeholder="ご登録メールアドレをを入力してください">
+            <div class="c-Input__feedback">登録されたメールアドレスを入力してください</div>
           </div><!-- /c-Input__label -->
         </div><!-- /c-Input__group -->
-        <p class="c-Content__unitText">ご登録メールアドレス（ユーザーID）を入力してください。ご指定のメールアドレスにパスワード再設定の情報を送りします。</p>
+        <p class="c-Content__unitText">ご登録メールアドレスを入力してください。ご指定のメールアドレスにパスワード再設定の情報を送りします。</p>
       </div><!-- /c-Content__unit -->
 
       <div class="c-Content__footer u-FlexBox u-FlexBox--middle u-FlexBox--right">
@@ -24,6 +24,7 @@
 </template>
 
 <script>
+import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { useStore } from 'vuex';
 
@@ -33,6 +34,9 @@ export default {
     const router = useRouter();
     const store = useStore();
 
+    const emailRef = ref('');
+    const isInvalidRef = ref(false)
+
     const handleBack = () => {
       router.back()
     }
@@ -40,11 +44,19 @@ export default {
     const handleClick = () => {
       // パスワードリセット時の処理
       // メール送信、ログアウト後、ログインページへ遷移
+      isInvalidRef.value = false;
+      if(emailRef.value === ''){
+        isInvalidRef.value = true;
+        return;
+      }
+
       store.dispatch('logout')
       router.push({ name: 'Login'})
     }
 
     return {
+      emailRef,
+      isInvalidRef,
       handleBack,
       handleClick,
     }

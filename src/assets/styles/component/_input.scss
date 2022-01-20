@@ -46,11 +46,16 @@
   height: auto;
   padding: 0.375rem 0.75rem;
   font-size: 1.3rem;
-  color: #495057;
+  color: $setting-default-text-color;
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
+
+  &::placeholder {
+    color: $setting-second-text-color;
+    font-size: 1rem;
+  }
 
   &__group {
     .c-Input {
@@ -86,14 +91,16 @@
   }
 
   // 検索アイコン等、左配置のアイコン
-  // c-Icon._icon > c-Icon__icon {svg等のアイコン}
+  // .c-Input__icon {svg等のアイコン}
+  // .c-Input._icon 検索窓
   &._icon {
-    padding-left: 2.4rem;
+    padding: 0.75rem 0.75rem 0.75rem 2.4rem;
+    border: 1px solid #999;
   }
 
   &__icon {
     position: absolute;
-    top: 0.5rem;
+    top: 1rem;
     left: 0.5rem;
   }
 

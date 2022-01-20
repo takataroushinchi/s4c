@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref } from 'vue';
 import { useRoute, onBeforeRouteLeave } from 'vue-router';
 // @ is an alias to /src
 import Header from '@/components/Header.vue';
@@ -32,9 +32,10 @@ export default {
     Chart,
   },
   setup() {
-    let listRef = ref([])
-    const route = useRoute()
+    const listRef = ref([]);
+    const route = useRoute();
     const path = route.path;
+
     const data = [[
       { id: 1, status: 'valid', text: '有効' },
       { id: 2, status: 'invalid', text: '一時停止' },
@@ -47,10 +48,10 @@ export default {
       { id: 3, status: 'archive', text: 'アーカイブ' }
     ]]
 
-    listRef.value = (path === '/archive')? data[1] : data[0];
+    listRef.value = (/archive$/.test(path))? data[1] : data[0];
 
     onBeforeRouteLeave((to) => {
-      listRef.value = (to.path === '/archive')? data[1] : data[0];
+      listRef.value = (/archive$/.test(to.path))? data[1] : data[0];
     })
 
     return {

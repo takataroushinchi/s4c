@@ -22,9 +22,9 @@ export default {
     const route = useRoute()
     const path = route.path;
 
-    const title = (path === '/create')? 'キャンペーン作成' : 'キャンペーン編集';
-    const text = (path === '/create')? '作成' : '変更';
-    const isEdit = (path === '/edit')? true : false;
+    const title = (/create$/.test(path))? 'キャンペーン作成' : 'キャンペーン編集';
+    const text = (/create$/.test(path))? '作成' : '変更';
+    const isEdit = (/edit$/.test(path))? true : false;
 
     return {
       title,

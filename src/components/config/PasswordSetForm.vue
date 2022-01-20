@@ -7,8 +7,8 @@
             <label>
               新しいパスワード
             </label>
-            <input class="c-Input" type="password" name="password_1" value="" spellcheck="false" placeholder="パスワードを入力してください">
-            <div class="c-Input__feedback">エラーです</div>
+            <input class="c-Input" :class="{'is-invalid': isInvalid1Ref}" type="password" v-model="password1Ref" spellcheck="false" placeholder="パスワードを入力してください">
+            <div class="c-Input__feedback">パスワードを入力してください</div>
           </div><!-- /c-Input__label -->
         </div><!-- /c-Input__group -->
       </div><!-- /c-Content__unit -->
@@ -19,8 +19,8 @@
             <label>
               新しいパスワード再入力
             </label>
-            <input class="c-Input" type="password" name="password_2" value="" spellcheck="false" placeholder="パスワードを再入力してください">
-            <div class="c-Input__feedback">エラーです</div>
+            <input class="c-Input" :class="{'is-invalid': isInvalid2Ref}" type="password" v-model="password2Ref" spellcheck="false" placeholder="パスワードを再入力してください">
+            <div class="c-Input__feedback">入力文字が一致しません</div>
           </div><!-- /c-Input__label -->
         </div><!-- /c-Input__group -->
       </div><!-- /c-Content__unit -->
@@ -34,19 +34,44 @@
 </template>
 
 <script>
+import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
 export default {
   name: 'PasswordSetForm',
   setup() {
     const router = useRouter();
+    const password1Ref = ref('')
+    const password2Ref = ref('')
+    const isInvalid1Ref = ref(false)
+    const isInvalid2Ref = ref(false)
 
     const handleClick = () => {
       // パスワード登録時の処理
+      isInvalid1Ref.value = false;
+      isInvalid2Ref.value = false;
+
+      if(password1Ref.value === ''){
+        isInvalid1Ref.value = true;
+        return;
+      }
+      if(password2Ref.value === ''){
+        isInvalid2Ref.value = true;
+        return;
+      }
+      if(password1Ref.value !== password2Ref.value){
+        isInvalid2Ref.value = true;
+        return;
+      }
+
       router.push({ name: 'Login'})
     }
 
     return {
+      password1Ref,
+      password2Ref,
+      isInvalid1Ref,
+      isInvalid2Ref,
       handleClick,
     }
   }

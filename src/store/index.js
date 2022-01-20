@@ -8,7 +8,7 @@ export default createStore({
       {user_id:1, user_name:'広告ユーザー1（複数アカウント）', email:'multi@test.jp', password:'', role:1, supplier_id:[1,2,3]},
       {user_id:2, user_name:'広告ユーザー2（単数アカウント）', email:'single@test.jp', password:'', role:1, supplier_id:[1]},
       {user_id:3, user_name:'広告ユーザー3（アカウント設定なし）', email:'test@test.jp', password:'', role:1, supplier_id:[]},
-      {user_id:4, user_name:'ECサイト権限ユーザー', email:'manager@test.jp', password:'', role:2, supplier_id:[1,2,3]},
+      {user_id:4, user_name:'ECサイト権限ユーザー', email:'manager@test.jp', password:'', role:2, supplier_id:[1,2,3,4,5,6]},
     ],
     suppliers:[
       {id:1, supplier_id:'aa_bbbb', supplier_name:'アイリスオオヤマ'},
@@ -55,6 +55,10 @@ export default createStore({
     getUserById: state => id => {
       return state.users.find( user => user.user_id === id )
     },
+    // generalUsers( state ){
+    //   return state.users.filter( user => user.role === 1)
+    // }
+    generalUsers: state => state.users.filter( user => user.role === 1),
     supplierName: state => state.selected_supplier ? state.selected_supplier.supplier_name : 'アカウント名',
     getSupplierById: state => id => {
       return state.suppliers.find( supplier => supplier.id === id )

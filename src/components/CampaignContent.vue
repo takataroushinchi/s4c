@@ -181,7 +181,7 @@ export default defineComponent({
   },
   setup() {
     const router = useRouter();
-    const route = useRoute()
+    const route = useRoute();
     const campaign_id = route.params.campaign_id;
 
     let date1 = ref(new Date())

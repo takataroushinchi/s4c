@@ -10,7 +10,7 @@
         <div class="c-Input__icon">
           <search size="16" theme="outline"/>
         </div><!-- /c-Input__icon -->
-        <input class="c-Input _icon" type="search" name="search" value="" :placeholder="text" spellcheck="false">
+        <input class="c-Input _icon" type="search" v-model="keywordRef" :placeholder="text" spellcheck="false">
       </div><!-- /c-Input__label -->
     </div><!-- /c-Input__group -->
 
@@ -26,6 +26,7 @@
 </template>
 
 <script>
+import { ref } from 'vue';
 import { Search } from '@icon-park/vue-next';
 
 export default {
@@ -37,10 +38,14 @@ export default {
       type: String,
     },
   },
-  setup() {
+  emits: ['search-click'],
+  setup(props, { emit }) {
+    const keywordRef = ref('')
     const handleClick = () => {
+      emit('search-click', keywordRef.value);
     }
     return {
+      keywordRef,
       handleClick,
     }
   }

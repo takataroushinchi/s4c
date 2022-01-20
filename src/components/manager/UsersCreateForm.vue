@@ -4,7 +4,7 @@
       <div class="c-Content__header u-FlexBox u-FlexBox--middle u-FlexBox--right">
         <button type="button" class="c-Button _element" @click="handleBack">キャンセル</button>
         <div class="u-FlexBox__spacer"></div>
-        <button type="button" class="c-Button _primary" @click="handleClick">決定</button>
+        <button type="button" class="c-Button _primary" @click="handleClick">作成</button>
       </div><!-- /c-Content__header -->
 
       <div class="c-Content__unit">

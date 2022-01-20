@@ -30,6 +30,11 @@
   }
 
   &._delete {
+    padding: 3px 5px;
+    border-radius: 4px;
+    border: 1px solid $setting-default-danger-color;
+    color: $setting-default-danger-color;
+
     &:hover {
       color: $setting-default-warning-color;
     }

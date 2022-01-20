@@ -1,7 +1,7 @@
 <template>
   <ManagerHeader title="PRアイテム"/>
   <UserListTitle text="ユーザー一覧"/>
-  <Search text="ID、ユーザー名、ログインIDを入力"/>
+  <Search text="ID、ユーザー名、ログインIDを入力" @search-click="searchMethod"/>
   <UserList :list="listRef"/>
 </template>
 
@@ -25,11 +25,17 @@ export default {
   setup() {
     const store = useStore();
     const listRef = ref([]);
-    // const reversed = array1.reverse();
-    listRef.value = store.state.users.reverse();
+
+    listRef.value = store.getters.generalUsers.reverse();
+
+    const searchMethod = (keyword) => {
+      // 検索時の処理
+      console.log(keyword);
+    }
 
     return {
       listRef,
+      searchMethod,
     }
   }
 }

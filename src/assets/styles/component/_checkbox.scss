@@ -8,9 +8,11 @@
 
 /*Checkboxes styles*/
 .c-Checkbox {
-  transform: scale(1.5);
+  transform-origin: top left;
+  transform: scale(1.2);
   font-size: 16px;
   cursor: pointer;
+  accent-color: $setting-default-primary-color;
 
   &--all {
     margin-left: 3px;

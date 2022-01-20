@@ -1,7 +1,7 @@
 <template>
   <ManagerHeader title="PRアイテム"/>
   <CommonTitle text="アカウント一覧"/>
-  <Search text="アカウント名、アカウントIDを入力"/>
+  <Search text="アカウント名、アカウントIDを入力" @search-click="searchMethod"/>
   <AccountList :list="listRef"/>
 </template>
 
@@ -25,10 +25,17 @@ export default {
   setup() {
     const store = useStore();
     const listRef = ref([]);
+
     listRef.value = store.state.suppliers;
+
+    const searchMethod = (keyword) => {
+      // 検索時の処理
+      console.log(keyword);
+    }
 
     return {
       listRef,
+      searchMethod,
     }
   }
 }

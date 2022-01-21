@@ -151,7 +151,7 @@ export default {
       authoritySupplierIds.forEach(id => {
         filterData = filterData.filter( account => account.id !== id)
       });
-      selectAccountsData.value = filterData;
+      selectAccountsData.value = [...filterData];
     }
     setSelectAccountsData();
 

@@ -79,7 +79,7 @@ export default {
         }else if(getUser.supplier_id.length === 1){
           router.push({name: 'UserHome'})
         }else if(getUser.supplier_id.length === 0){
-          router.push({ name: 'AccountsUnauthorized'})
+          router.push({name: 'AccountsUnauthorized'})
         }else{
           router.push({name: 'AccountsSelect'})
         }

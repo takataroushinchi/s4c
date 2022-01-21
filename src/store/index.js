@@ -6,7 +6,7 @@ export default createStore({
     selected_supplier: null,
     users:[
       {user_id:1, user_name:'広告ユーザー1（複数アカウント）', email:'multi@test.jp', password:'', role:1, supplier_id:[1,2,3,7]},
-      {user_id:2, user_name:'広告ユーザー2（単数アカウント）', email:'single@test.jp', password:'', role:1, supplier_id:[1]},
+      {user_id:2, user_name:'広告ユーザー2（単数アカウント）', email:'single@test.jp', password:'', role:1, supplier_id:[3]},
       {user_id:3, user_name:'広告ユーザー3（アカウント設定なし）', email:'test@test.jp', password:'', role:1, supplier_id:[]},
       {user_id:4, user_name:'ECサイト権限ユーザー', email:'manager@test.jp', password:'', role:2, supplier_id:[1,2,3,4,5,6,7]},
       {user_id:5, user_name:'広告ユーザー4（単数アカウント）', email:'supership@test.jp', password:'', role:1, supplier_id:[3]},

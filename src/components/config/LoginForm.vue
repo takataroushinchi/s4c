@@ -73,11 +73,15 @@ export default {
         router.push({name: 'AccountsSelect'})
       } else if (userRef.value === 'user2'){
         store.dispatch('login', store.state.users[1])
-        store.dispatch('setSelectedSupplier', store.state.suppliers[0])
+        const user = store.getters.getUserById( Number(store.getters.uid ));
+        const sid = Number(user.supplier_id[0]);
+        store.dispatch('setSelectedSupplier', store.getters.getSupplierById(sid))
         router.push({name: 'UserHome'})
-      } else {
+      } else if (userRef.value === 'user3'){
         store.dispatch('login', store.state.users[2])
-        // router.push({ name: 'AccountsUnauthorized'})
+        router.push({ name: 'AccountsUnauthorized'})
+      } else {
+        store.dispatch('login', store.state.users[6])
         router.push({name: 'AccountsSelect'})
       }
     }

@@ -65,22 +65,26 @@ export default {
         return;
       }
 
-      if(userRef.value === 'manager'){
-        store.dispatch('login', store.state.users[3])
-        router.push({name: 'ManagerAccounts'})
-      } else if (userRef.value === 'user1'){
-        store.dispatch('login', store.state.users[0])
-        router.push({name: 'AccountsSelect'})
-      } else if (userRef.value === 'user2'){
-        store.dispatch('login', store.state.users[1])
+      const getUser = store.getters.getUserByName(userRef.value);
+
+      if(getUser){
+        store.dispatch('login', getUser)
+        // 初期選択アカウント設定
         const user = store.getters.getUserById( Number(store.getters.uid ));
         const sid = Number(user.supplier_id[0]);
         store.dispatch('setSelectedSupplier', store.getters.getSupplierById(sid))
-        router.push({name: 'UserHome'})
-      } else if (userRef.value === 'user3'){
-        store.dispatch('login', store.state.users[2])
-        router.push({ name: 'AccountsUnauthorized'})
-      } else {
+
+        if(getUser.role === 2){
+          router.push({name: 'ManagerAccounts'})
+        }else if(getUser.supplier_id.length === 1){
+          router.push({name: 'UserHome'})
+        }else if(getUser.supplier_id.length === 0){
+          router.push({ name: 'AccountsUnauthorized'})
+        }else{
+          router.push({name: 'AccountsSelect'})
+        }
+      }else{
+        // 確認用にユーザーデータがない場合適当なユーザー情報で通過させる
         store.dispatch('login', store.state.users[6])
         router.push({name: 'AccountsSelect'})
       }

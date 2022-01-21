@@ -5,11 +5,11 @@ export default createStore({
     login_user: null,
     selected_supplier: null,
     users:[
-      {user_id:1, user_name:'広告ユーザー1（複数アカウント）', email:'multi@test.jp', password:'', role:1, supplier_id:[1,2,3,7]},
-      {user_id:2, user_name:'広告ユーザー2（単数アカウント）', email:'single@test.jp', password:'', role:1, supplier_id:[3]},
-      {user_id:3, user_name:'広告ユーザー3（アカウント設定なし）', email:'test@test.jp', password:'', role:1, supplier_id:[]},
-      {user_id:4, user_name:'ECサイト権限ユーザー', email:'manager@test.jp', password:'', role:2, supplier_id:[1,2,3,4,5,6,7]},
-      {user_id:5, user_name:'広告ユーザー4（単数アカウント）', email:'supership@test.jp', password:'', role:1, supplier_id:[3]},
+      {user_id:1, user_name:'user1', email:'multi@test.jp', password:'', role:1, supplier_id:[1,2,3,7]},
+      {user_id:2, user_name:'user2', email:'single@test.jp', password:'', role:1, supplier_id:[3]},
+      {user_id:3, user_name:'user3', email:'test@test.jp', password:'', role:1, supplier_id:[]},
+      {user_id:4, user_name:'manager', email:'manager@test.jp', password:'', role:2, supplier_id:[1,2,3,4,5,6,7]},
+      {user_id:5, user_name:'user4', email:'supership@test.jp', password:'', role:1, supplier_id:[3]},
       {user_id:6, user_name:'代理店てきな広範囲に権限あるユーザー', email:'hogehoge@hoge.co.jp', password:'', role:1, supplier_id:[1,2,3,4,5,6,7]},
     ],
     suppliers:[
@@ -63,6 +63,9 @@ export default createStore({
     uid: state => state.login_user ? state.login_user.user_id : null,
     getUserById: state => id => {
       return state.users.find( user => user.user_id === id )
+    },
+    getUserByName: state => name => {
+      return state.users.find( user => user.user_name === name )
     },
     // generalUsers( state ){
     //   return state.users.filter( user => user.role === 1)

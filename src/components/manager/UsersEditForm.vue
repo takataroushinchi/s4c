@@ -25,7 +25,7 @@
             <label>
               ログインID（メールアドレス）<i class="c-Input__required">※必須</i>
             </label>
-            <input class="c-Input" :class="{'is-invalid': isInvalidIdRef}" type="text" v-model="idRef" spellcheck="false" placeholder="メールアドレスを入力してください">
+            <input class="c-Input" :class="{'is-invalid': isInvalidEmailRef}" type="text" v-model="emailRef" spellcheck="false" placeholder="メールアドレスを入力してください">
             <div class="c-Input__feedback">メールアドレスを入力してください</div>
           </div><!-- /c-Input__label -->
         </div><!-- /c-Input__group -->
@@ -64,9 +64,9 @@
         <div class="u-FlexBox u-FlexBox--top">
           <div class="c-Input__group">
             <div class="c-Input__label">
-              <select class="c-Input" name="accounts">
+              <select class="c-Input" name="accounts" @change="handleChange">
                 <option value="">-</option>
-                <option v-for="item in accountsData" :value="item.id" :key="item.id">{{ item.supplier_name }}</option>
+                <option v-for="item in selectAccountsData" :value="item.id" :key="item.id">{{ item.supplier_name }}</option>
               </select>
             </div><!-- /c-Input__label -->
           </div><!-- /c-Input__group -->
@@ -103,7 +103,7 @@
               </div>
             </td>
             <td class="u-TextCenter">
-              <button type="button" class="c-Button _delete">権限削除</button>
+              <button type="button" class="c-Button _delete" @click="deleteAuthority(item.id)">権限削除</button>
             </td>
             <td class="u-TextBreakWord">2021/10/10 00:00</td>
           </tr>
@@ -130,25 +130,48 @@ export default {
     const store = useStore();
 
     const userId = Number(route.params.user_id);
+    const getUser = store.getters.getUserById(userId);
 
-    const nameRef = ref(store.getters.getUserById(userId).user_name)
-    const idRef = ref(store.getters.getUserById(userId).email)
+    const nameRef = ref(getUser?.user_name)
+    const emailRef = ref(getUser?.email)
     const isInvalidNameRef = ref(false)
-    const isInvalidIdRef = ref(false)
+    const isInvalidEmailRef = ref(false)
+    let selectedAccont;
 
-    // サプライヤー全て
+    let authoritySupplierIds = getUser ? getUser.supplier_id : [];
+    // サプライヤー全て取得
     const accountsData = store.state.suppliers;
 
+    // ユーザーに紐づいていないサプライヤー
+    const selectAccountsData = ref([])
+    selectAccountsData.value = [...accountsData]
+
+    function setSelectAccountsData(){
+      let filterData = [...accountsData]
+      authoritySupplierIds.forEach(id => {
+        filterData = filterData.filter( account => account.id !== id)
+      });
+      selectAccountsData.value = filterData;
+    }
+    setSelectAccountsData();
+
     // ユーザーに紐付いたサプライヤー抽出
-    let authorityAccountsData = [];
-    const authoritySupplierIds = store.getters.getUserById(userId).supplier_id;
-    authoritySupplierIds.forEach(id => {
-      authorityAccountsData.push(store.getters.getSupplierById(id));
-    });
+    const authorityAccountsData = ref([]);
+    function setAuthorityAccountsData(){
+      authorityAccountsData.value = [];
+      authoritySupplierIds.forEach(id => {
+        authorityAccountsData.value.push(store.getters.getSupplierById(id));
+      });
+    }
+    setAuthorityAccountsData();
 
     const validEmail = (email) => {
       var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       return re.test(email);
+    }
+
+    const handleChange = (e) => {
+      selectedAccont = e.target.value;
     }
 
     const handleBack = () => {
@@ -158,34 +181,51 @@ export default {
     const handleClick = () => {
       // パスワード登録時の処理
       isInvalidNameRef.value = false;
-      isInvalidIdRef.value = false;
+      isInvalidEmailRef.value = false;
 
       if(nameRef.value === '' || nameRef.value.length > 20){
         isInvalidNameRef.value = true;
         return;
       }
-      if( !validEmail(idRef.value) ){
-        isInvalidIdRef.value = true;
+      if( !validEmail(emailRef.value) ){
+        isInvalidEmailRef.value = true;
         return;
       }
 
-      router.push({ name: 'ManagerAccounts' })
+      router.push({ name: 'ManagerUsers' })
     }
 
     const addAuthority = () => {
       // 権限付与時の処理
-      console.log('Add Authority');
+      if(selectedAccont) authoritySupplierIds.push( Number(selectedAccont));
+      authoritySupplierIds.sort((a,b) => (a < b ? -1 : 1));
+      selectedAccont = null;
+
+      setSelectAccountsData();
+      setAuthorityAccountsData();
+    }
+
+    const deleteAuthority = (id) => {
+      // 権限削除時の処理
+      const oldData = [...authorityAccountsData.value];
+      authorityAccountsData.value = oldData.filter( account => account.id !== id);
+
+      authoritySupplierIds = authoritySupplierIds.filter(item => item !== id);
+      setSelectAccountsData();
     }
 
     return {
+      handleChange,
       handleBack,
       handleClick,
       addAuthority,
+      deleteAuthority,
       nameRef,
-      idRef,
+      emailRef,
       isInvalidNameRef,
-      isInvalidIdRef,
+      isInvalidEmailRef,
       accountsData,
+      selectAccountsData,
       authorityAccountsData,
     }
   }

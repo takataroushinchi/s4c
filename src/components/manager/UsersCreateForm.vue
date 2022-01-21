@@ -25,7 +25,7 @@
             <label>
               ログインID（メールアドレス）<i class="c-Input__required">※必須</i>
             </label>
-            <input class="c-Input" :class="{'is-invalid': isInvalidIdRef}" type="text" v-model="idRef" spellcheck="false" placeholder="メールアドレスを入力してください">
+            <input class="c-Input" :class="{'is-invalid': isInvalidEmailRef}" type="text" v-model="emailRef" spellcheck="false" placeholder="メールアドレスを入力してください">
             <div class="c-Input__feedback">メールアドレスを入力してください</div>
           </div><!-- /c-Input__label -->
         </div><!-- /c-Input__group -->
@@ -37,7 +37,7 @@
             <label>
               アカウント権限
             </label>
-            <select class="c-Input" name="accounts">
+            <select class="c-Input" name="accounts" @change="handleChange">
               <option value="">-</option>
               <option v-for="item in accountsData" :value="item.id" :key="item.id">{{ item.supplier_name }}</option>
             </select>
@@ -62,15 +62,22 @@ export default {
     const router = useRouter();
     const store = useStore();
     const nameRef = ref('')
-    const idRef = ref('')
+    const emailRef = ref('')
     const isInvalidNameRef = ref(false)
-    const isInvalidIdRef = ref(false)
+    const isInvalidEmailRef = ref(false)
+    let selectedAccont;
+    let setAccountArray = [];
 
     const accountsData = store.state.suppliers;
 
     const validEmail = (email) => {
       var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       return re.test(email);
+    }
+
+    const handleChange = (e) => {
+      selectedAccont = e.target.value;
+      setAccountArray = (selectedAccont) ? [ Number(selectedAccont) ] : []
     }
 
     const handleBack = () => {
@@ -80,28 +87,40 @@ export default {
     const handleClick = () => {
       // パスワード登録時の処理
       isInvalidNameRef.value = false;
-      isInvalidIdRef.value = false;
+      isInvalidEmailRef.value = false;
 
       if(nameRef.value === '' || nameRef.value.length > 20){
         isInvalidNameRef.value = true;
         return;
       }
-      if( !validEmail(idRef.value) ){
-        isInvalidIdRef.value = true;
+      if( !validEmail(emailRef.value) ){
+        isInvalidEmailRef.value = true;
         return;
       }
 
-      router.push({ name: 'ManagerAccounts' })
+      const setUserId = Number(store.state.users.length) +1;
+
+      const newUser = {
+          user_id: setUserId,
+          user_name: nameRef.value,
+          email: emailRef.value,
+          password: '',
+          role: 1,
+          supplier_id: setAccountArray
+        }
+      store.dispatch('pushLoginUser', newUser)
+      router.push({ name: 'ManagerUsers' })
     }
 
 
     return {
+      handleChange,
       handleBack,
       handleClick,
       nameRef,
-      idRef,
+      emailRef,
       isInvalidNameRef,
-      isInvalidIdRef,
+      isInvalidEmailRef,
       accountsData,
     }
   }

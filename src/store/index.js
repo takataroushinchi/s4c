@@ -5,10 +5,12 @@ export default createStore({
     login_user: null,
     selected_supplier: null,
     users:[
-      {user_id:1, user_name:'広告ユーザー1（複数アカウント）', email:'multi@test.jp', password:'', role:1, supplier_id:[1,2,3]},
+      {user_id:1, user_name:'広告ユーザー1（複数アカウント）', email:'multi@test.jp', password:'', role:1, supplier_id:[1,2,3,7]},
       {user_id:2, user_name:'広告ユーザー2（単数アカウント）', email:'single@test.jp', password:'', role:1, supplier_id:[1]},
       {user_id:3, user_name:'広告ユーザー3（アカウント設定なし）', email:'test@test.jp', password:'', role:1, supplier_id:[]},
-      {user_id:4, user_name:'ECサイト権限ユーザー', email:'manager@test.jp', password:'', role:2, supplier_id:[1,2,3,4,5,6]},
+      {user_id:4, user_name:'ECサイト権限ユーザー', email:'manager@test.jp', password:'', role:2, supplier_id:[1,2,3,4,5,6,7]},
+      {user_id:5, user_name:'広告ユーザー4（単数アカウント）', email:'supership@test.jp', password:'', role:1, supplier_id:[3]},
+      {user_id:6, user_name:'代理店てきな広範囲に権限あるユーザー', email:'hogehoge@hoge.co.jp', password:'', role:1, supplier_id:[1,2,3,4,5,6,7]},
     ],
     suppliers:[
       {id:1, supplier_id:'aa_bbbb', supplier_name:'アイリスオオヤマ'},
@@ -17,6 +19,7 @@ export default createStore({
       {id:4, supplier_id:'000-xxxxx', supplier_name:'大手企業の会社'},
       {id:5, supplier_id:'001-xxxxx', supplier_name:'中小企業の会社'},
       {id:6, supplier_id:'002-xxxxx', supplier_name:'個人経営の会社'},
+      {id:7, supplier_id:'007-xxxxx', supplier_name:'セブンイレブン'},
     ]
   },
   mutations: {
@@ -25,6 +28,9 @@ export default createStore({
     },
     deleteLoginUser (state) {
       state.login_user = null
+    },
+    pushLoginUser (state, user) {
+      state.users.push(user)
     },
     setSelectedSupplier (state, supplier) {
       state.selected_supplier = supplier
@@ -39,6 +45,9 @@ export default createStore({
     },
     logout ({ commit }) {
       commit('deleteLoginUser')
+    },
+    pushLoginUser ({ commit }, user) {
+      commit('pushLoginUser', user)
     },
     setSelectedSupplier ({ commit }, supplier) {
       commit('setSelectedSupplier', supplier)

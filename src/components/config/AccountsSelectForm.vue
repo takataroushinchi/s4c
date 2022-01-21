@@ -31,8 +31,19 @@ export default {
   setup() {
     const router = useRouter();
     const store = useStore();
+    const getUser = store.getters.getUserById(store.getters.uid);
+    let authoritySupplierIds = getUser ? getUser.supplier_id : [];
 
-    const accountsData = store.state.suppliers;
+    let accountsData = store.state.suppliers;
+
+    // ユーザーに紐付いたサプライヤー抽出
+    let authorityAccountsData = [];
+    if(getUser){
+      authoritySupplierIds.forEach(id => {
+        authorityAccountsData.push(store.getters.getSupplierById(id));
+      });
+      accountsData = authorityAccountsData;
+    }
 
     let supplier_id = accountsData[0].id;
 

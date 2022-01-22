@@ -65,20 +65,20 @@ export default {
         return;
       }
 
-      const getUser = store.getters.getUserByName(userRef.value);
+      const registeredUser = store.getters.getUserByName(userRef.value);
 
-      if(getUser){
-        store.dispatch('login', getUser)
+      if(registeredUser){
+        store.dispatch('login', registeredUser)
         // 初期選択アカウント設定
         const user = store.getters.getUserById( Number(store.getters.uid ));
         const sid = Number(user.supplier_id[0]);
         store.dispatch('setSelectedSupplier', store.getters.getSupplierById(sid))
 
-        if(getUser.role === 2){
+        if(registeredUser.role === 2){
           router.push({name: 'ManagerAccounts'})
-        }else if(getUser.supplier_id.length === 1){
+        }else if(registeredUser.supplier_id.length === 1){
           router.push({name: 'UserHome'})
-        }else if(getUser.supplier_id.length === 0){
+        }else if(registeredUser.supplier_id.length === 0){
           router.push({name: 'AccountsUnauthorized'})
         }else{
           router.push({name: 'AccountsSelect'})
@@ -87,6 +87,10 @@ export default {
         // 確認用にユーザーデータがない場合適当なユーザー情報で通過させる
         store.dispatch('login', store.state.users[6])
         router.push({name: 'AccountsSelect'})
+
+        // 登録ユーザー名でない場合はエラー表示
+        // isInvalidUserRef.value = true;
+        // return;
       }
     }
 

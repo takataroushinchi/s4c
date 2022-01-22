@@ -106,9 +106,10 @@ export default {
           email: emailRef.value,
           password: '',
           role: 1,
+          login: true,
           supplier_id: setAccountArray
         }
-      store.dispatch('pushLoginUser', newUser)
+      store.dispatch('pushRegisterUser', newUser)
       router.push({ name: 'ManagerUsers' })
     }
 

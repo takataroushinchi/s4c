@@ -5,12 +5,12 @@ export default createStore({
     login_user: null,
     selected_supplier: null,
     users:[
-      {user_id:1, user_name:'user1', email:'multi@test.jp', password:'', role:1, supplier_id:[1,2,3,7]},
-      {user_id:2, user_name:'user2', email:'single@test.jp', password:'', role:1, supplier_id:[3]},
-      {user_id:3, user_name:'user3', email:'test@test.jp', password:'', role:1, supplier_id:[]},
-      {user_id:4, user_name:'manager', email:'manager@test.jp', password:'', role:2, supplier_id:[1,2,3,4,5,6,7]},
-      {user_id:5, user_name:'user4', email:'supership@test.jp', password:'', role:1, supplier_id:[3]},
-      {user_id:6, user_name:'代理店てきな広範囲に権限あるユーザー', email:'hogehoge@hoge.co.jp', password:'', role:1, supplier_id:[1,2,3,4,5,6,7]},
+      {user_id:1, user_name:'user1', email:'multi@test.jp', password:'', role:1, login:true, supplier_id:[1,2,3,7]},
+      {user_id:2, user_name:'user2', email:'single@test.jp', password:'', role:1, login:true, supplier_id:[3]},
+      {user_id:3, user_name:'user3', email:'test@test.jp', password:'', role:1, login:true, supplier_id:[]},
+      {user_id:4, user_name:'manager', email:'manager@test.jp', password:'', role:2, login:true, supplier_id:[1,2,3,4,5,6,7]},
+      {user_id:5, user_name:'user4', email:'supership@test.jp', password:'', role:1, login:true, supplier_id:[3]},
+      {user_id:6, user_name:'代理店てきな広範囲に権限あるユーザー', email:'hogehoge@hoge.co.jp', password:'', role:1, login:true, supplier_id:[1,2,3,4,5,6,7]},
     ],
     suppliers:[
       {id:1, supplier_id:'aa_bbbb', supplier_name:'アイリスオオヤマ'},
@@ -29,8 +29,13 @@ export default createStore({
     deleteLoginUser (state) {
       state.login_user = null
     },
-    pushLoginUser (state, user) {
+    pushRegisterUser (state, user) {
       state.users.push(user)
+    },
+    editRegisterUser (state, user) {
+      const id = user.user_id;
+      const index = state.users.findIndex((u) => u.id === id);
+      state.users.splice(index, 1, user);
     },
     setSelectedSupplier (state, supplier) {
       state.selected_supplier = supplier
@@ -46,8 +51,11 @@ export default createStore({
     logout ({ commit }) {
       commit('deleteLoginUser')
     },
-    pushLoginUser ({ commit }, user) {
-      commit('pushLoginUser', user)
+    pushRegisterUser ({ commit }, user) {
+      commit('pushRegisterUser', user)
+    },
+    editRegisterUser ({ commit }, user) {
+      commit('editRegisterUser', user)
     },
     setSelectedSupplier ({ commit }, supplier) {
       commit('setSelectedSupplier', supplier)

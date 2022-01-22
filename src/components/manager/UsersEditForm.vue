@@ -48,7 +48,7 @@
 
       <div class="c-Content__unit">
         <div class="u-FlexBox u-FlexBox--middle">
-          <input class="c-Checkbox" type="checkbox" id="permission" name="permission" checked>
+          <input class="c-Checkbox" type="checkbox" id="permission" name="permission" v-model="loginRef">
           <div class="u-FlexBox__spacer"></div>
           <label for="permission">ログイン有効</label>
         </div>
@@ -134,6 +134,8 @@ export default {
 
     const nameRef = ref(getUser?.user_name)
     const emailRef = ref(getUser?.email)
+    const loginPermission = getUser ? getUser.login : true;
+    const loginRef = ref(loginPermission)
     const isInvalidNameRef = ref(false)
     const isInvalidEmailRef = ref(false)
     let selectedAccont;
@@ -183,13 +185,27 @@ export default {
       isInvalidNameRef.value = false;
       isInvalidEmailRef.value = false;
 
-      if(nameRef.value === '' || nameRef.value.length > 20){
+      if(nameRef.value === '' || nameRef.value?.length > 20){
         isInvalidNameRef.value = true;
         return;
       }
       if( !validEmail(emailRef.value) ){
         isInvalidEmailRef.value = true;
         return;
+      }
+
+      const registeredUser = store.getters.getUserById(userId);
+      if(registeredUser){
+        const editUser = {
+          user_id: userId,
+          user_name: nameRef.value,
+          email: emailRef.value,
+          password: '',
+          role: 1,
+          login: loginRef.value,
+          supplier_id: authoritySupplierIds
+        }
+        store.dispatch('editRegisterUser', editUser)
       }
 
       router.push({ name: 'ManagerUsers' })
@@ -222,6 +238,7 @@ export default {
       deleteAuthority,
       nameRef,
       emailRef,
+      loginRef,
       isInvalidNameRef,
       isInvalidEmailRef,
       accountsData,

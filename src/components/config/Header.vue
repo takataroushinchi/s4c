@@ -2,7 +2,7 @@
 <section class="c-Header">
   <div class="c-Header__items u-FlexBox u-FlexBox--middle u-FlexBox--justify">
     <div class="c-Header__item u-FlexBox__item--fill">
-      <div class="u-FlexBox u-FlexBox--middle">
+      <router-link :to="{name: 'Root'}" exact-active-class="is-active" class="u-FlexBox u-FlexBox--middle">
         <div class="c-Header__logo">
           <img alt="logo" src="@/assets/images/logo.png">
         </div><!-- /c-Header__logo -->
@@ -10,7 +10,7 @@
         <h1 class="c-Header__title">
             <span>{{ title }}</span>
         </h1><!-- /c-Header__title -->
-      </div>
+      </router-link>
     </div><!-- /c-Header__item -->
     <div class="c-Header__item" v-if="login_user">
       <nav class="c-Nav">

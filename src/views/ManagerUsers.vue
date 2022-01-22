@@ -8,6 +8,7 @@
 <script>
 import { ref } from 'vue';
 import { useStore } from 'vuex';
+import { useRouter } from 'vue-router';
 // @ is an alias to /src
 import ManagerHeader from '@/components/manager/Header.vue';
 import UserListTitle from '@/components/manager/UserListTitle.vue';
@@ -24,8 +25,14 @@ export default {
   },
   setup() {
     const store = useStore();
-    const listRef = ref([]);
+    const router = useRouter();
 
+    // ECサイト権限以外はルートにリダイレクト
+    if(store.state.login_user?.role !== 2){
+      router.push({name: 'Root'})
+    }
+
+    const listRef = ref([]);
     listRef.value = store.getters.generalUsers.reverse();
 
     const searchMethod = (keyword) => {

@@ -5,6 +5,8 @@
 </template>
 
 <script>
+import { useStore } from 'vuex';
+import { useRouter } from 'vue-router';
 // @ is an alias to /src
 import ManagerHeader from '@/components/manager/Header.vue';
 import CommonTitle from '@/components/CommonTitle.vue';
@@ -18,6 +20,13 @@ export default {
     UsersCreate,
   },
   setup() {
+    const store = useStore();
+    const router = useRouter();
+
+    // ECサイト権限以外はルートにリダイレクト
+    if(store.state.login_user?.role !== 2){
+      router.push({name: 'Root'})
+    }
   }
 }
 </script>

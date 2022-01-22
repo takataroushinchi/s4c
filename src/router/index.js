@@ -1,4 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
+// store
+import Store from '@/store/index.js'
+// Views
 import Home from '../views/Home.vue'
 import CampaignEdit from '../views/CampaignEdit.vue'
 import CampaignDetail from '../views/CampaignDetail.vue'
@@ -28,47 +31,56 @@ const routes = [
   {
     path: '/',
     name: 'Root',
-    component: Root
+    component: Root,
+    meta: { requiresAuth: true }
   },
   {
     path: '/user',
     name: 'UserHome',
-    component: Home
+    component: Home,
+    meta: { requiresAuth: true }
   },
   {
     path: '/user/archive',
     name: 'UserHomeArchive',
-    component: Home
+    component: Home,
+    meta: { requiresAuth: true }
   },
   {
     path: '/user/campaign/create',
     name: 'CampaignCreate',
-    component: CampaignEdit
+    component: CampaignEdit,
+    meta: { requiresAuth: true }
   },
   {
     path: '/user/campaign/:campaign_id?/edit',
     name: 'CampaignEdit',
-    component: CampaignEdit
+    component: CampaignEdit,
+    meta: { requiresAuth: true }
   },
   {
     path: '/user/campaign/:campaign_id?/detail',
     name: 'CampaignDetail',
-    component: CampaignDetail
+    component: CampaignDetail,
+    meta: { requiresAuth: true }
   },
   {
     path: '/user/report',
     name: 'Report',
-    component: Report
+    component: Report,
+    meta: { requiresAuth: true }
   },
   {
     path: '/user/report/:dimension',
     name: 'ReportDimension',
-    component: Report
+    component: Report,
+    meta: { requiresAuth: true }
   },
   {
     path: '/user/csv-download',
     name: 'CsvDownLoad',
-    component: CsvDownLoad
+    component: CsvDownLoad,
+    meta: { requiresAuth: true }
   },
   // config
   {
@@ -89,43 +101,51 @@ const routes = [
   {
     path: '/accounts/select',
     name: 'AccountsSelect',
-    component: AccountsSelect
+    component: AccountsSelect,
+    meta: { requiresAuth: true }
   },
   {
     path: '/accounts/unauthorized',
     name: 'AccountsUnauthorized',
-    component: AccountsUnauthorized
+    component: AccountsUnauthorized,
+    meta: { requiresAuth: true }
   },
   // manager
   {
     path: '/manager/accounts',
     name: 'ManagerAccounts',
-    component: ManagerAccounts
+    component: ManagerAccounts,
+    meta: { requiresAuth: true }
   },
   {
     path: '/manager/users',
     name: 'ManagerUsers',
-    component: ManagerUsers
+    component: ManagerUsers,
+    meta: { requiresAuth: true }
   },
   {
     path: '/manager/users/create',
     name: 'ManagerUsersCreate',
-    component: ManagerUsersCreate
+    component: ManagerUsersCreate,
+    meta: { requiresAuth: true }
   },
   {
     path: '/manager/users/:user_id?/edit',
     name: 'ManagerUsersEdit',
-    component: ManagerUsersEdit
+    component: ManagerUsersEdit,
+    meta: { requiresAuth: true }
   },
   {
     path: '/manager/report',
     name: 'ManagerReport',
-    component: ManagerReport
+    component: ManagerReport,
+    meta: { requiresAuth: true }
   },
   {
     path: '/manager/report/:dimension',
     name: 'ManagerReportDimension',
-    component: ManagerReport
+    component: ManagerReport,
+    meta: { requiresAuth: true }
   },
   // design
   {
@@ -155,5 +175,13 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
 })
+
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.requiresAuth) && !Store.state.userToken) {
+    next({ name: 'Login'});
+  } else {
+    next();
+  }
+});
 
 export default router

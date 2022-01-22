@@ -8,8 +8,9 @@
 </template>
 
 <script>
-import { ref } from 'vue'
-import { useRoute, onBeforeRouteLeave, onBeforeRouteUpdate } from 'vue-router';
+import { ref } from 'vue';
+import { useStore } from 'vuex';
+import { useRouter, useRoute, onBeforeRouteLeave, onBeforeRouteUpdate } from 'vue-router';
 // @ is an alias to /src
 import ManagerHeader from '@/components/manager/Header.vue';
 import CommonTitle from '@/components/CommonTitle.vue';
@@ -35,11 +36,19 @@ export default {
     },
   },
   setup() {
+    const store = useStore();
+    const router = useRouter();
+
+    // ECサイト権限以外はルートにリダイレクト
+    if(store.state.login_user?.role !== 2){
+      router.push({name: 'Root'})
+    }
+
+    const route = useRoute();
+    const { dimension } = route.params
+
     let listRef = ref([])
     let dimensionRef = ref('')
-    const route = useRoute()
-    const { dimension } = route.params
-    // const path = route.path;
 
     // /report?filter=account
     const query_filter = route.query.filter? route.query.filter : ''

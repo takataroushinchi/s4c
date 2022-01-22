@@ -18,14 +18,16 @@ export default {
     const router = useRouter();
     const store = useStore();
 
-    if(store.state.login_user?.user_id === 4){
-      router.push({name: 'ManagerAccounts'})
-    }else if(store.state.login_user?.user_id === 1){
-      router.push({name: 'AccountsSelect'})
-    }else if(store.state.login_user?.user_id === 2){
-      router.push({name: 'UserHome'})
-    }else if(store.state.login_user?.user_id === 3){
-      router.push({name: 'AccountsUnauthorized'})
+    if(store.state.login_user){
+      if(store.state.login_user.role === 2){
+        router.push({name: 'ManagerAccounts'})
+      }else if(store.state.login_user.supplier_id.length === 1){
+        router.push({name: 'UserHome'})
+      }else if(store.state.login_user.supplier_id.length === 0){
+        router.push({name: 'AccountsUnauthorized'})
+      }else{
+        router.push({name: 'AccountsSelect'})
+      }
     }else{
       router.push({name: 'Login'})
     }

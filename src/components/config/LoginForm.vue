@@ -68,7 +68,11 @@ export default {
       const registeredUser = store.getters.getUserByName(userRef.value);
 
       if(registeredUser){
-        store.dispatch('login', registeredUser)
+        const payload = {
+          registeredUser,
+          userToken: 'dummy token',
+        }
+        store.dispatch('login', payload)
         // 初期選択アカウント設定
         const user = store.getters.getUserById( Number(store.getters.uid ));
         const sid = Number(user.supplier_id[0]);
@@ -85,12 +89,16 @@ export default {
         }
       }else{
         // 確認用にユーザーデータがない場合適当なユーザー情報で通過させる
-        store.dispatch('login', store.state.users[6])
-        router.push({name: 'AccountsSelect'})
+        // const payload = {
+        //   registeredUser: store.state.users[6],
+        //   userToken: 'dummy token',
+        // }
+        // store.dispatch('login', payload)
+        // router.push({name: 'AccountsSelect'})
 
         // 登録ユーザー名でない場合はエラー表示
-        // isInvalidUserRef.value = true;
-        // return;
+        isInvalidUserRef.value = true;
+        return;
       }
     }
 

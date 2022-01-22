@@ -1,5 +1,5 @@
 <template>
-  <Header title="アカウント名称"/>
+  <ConfigHeader title="PRアイテム"/>
   <section class="c-NotFound">
     <h2 class="c-NotFound__title u-FlexBox u-FlexBox--middle">
       <info theme="filled"/>
@@ -17,12 +17,12 @@
 <script>
 import { Info } from '@icon-park/vue-next';
 // @ is an alias to /src
-import Header from '@/components/Header.vue';
+import ConfigHeader from '@/components/config/Header.vue';
 
 export default {
   components: {
     Info,
-    Header,
+    ConfigHeader,
   },
 }
 </script>

@@ -22,7 +22,8 @@
 
     //.c-Content._1by2 .c-Content__inner
     ._1by2 & {
-      max-width: 50%;
+      width: min(50%, 500px);
+      // width: clamp(360px, 50%, 600px);
       padding-top: 32px;
     }
   }

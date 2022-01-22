@@ -2,6 +2,7 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
+    userToken: null,
     login_user: null,
     selected_supplier: null,
     users:[
@@ -23,8 +24,9 @@ export default createStore({
     ]
   },
   mutations: {
-    setLoginUser (state, user) {
-      state.login_user = user
+    setLoginUser(state, user) {
+      state.login_user = user.registeredUser
+      state.userToken = user.userToken
     },
     deleteLoginUser (state) {
       state.login_user = null

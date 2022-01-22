@@ -7,6 +7,7 @@
 
 <script>
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 import { useStore } from 'vuex';
 // @ is an alias to /src
 import ManagerHeader from '@/components/manager/Header.vue';
@@ -23,9 +24,15 @@ export default {
     AccountList,
   },
   setup() {
+    const router = useRouter();
     const store = useStore();
-    const listRef = ref([]);
 
+    // ECサイト権限以外はルートにリダイレクト
+    if(store.state.login_user?.role !== 2){
+      router.push({name: 'Root'})
+    }
+
+    const listRef = ref([]);
     listRef.value = store.state.suppliers;
 
     const searchMethod = (keyword) => {

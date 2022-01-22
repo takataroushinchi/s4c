@@ -68,11 +68,11 @@ export default {
       const registeredUser = store.getters.getUserByName(userRef.value);
 
       if(registeredUser){
-        const payload = {
+        const login_params = {
           registeredUser,
           userToken: 'dummy token',
         }
-        store.dispatch('login', payload)
+        store.dispatch('login', login_params)
         // 初期選択アカウント設定
         const user = store.getters.getUserById( Number(store.getters.uid ));
         const sid = Number(user.supplier_id[0]);
@@ -89,11 +89,11 @@ export default {
         }
       }else{
         // 確認用にユーザーデータがない場合適当なユーザー情報で通過させる
-        // const payload = {
+        // const login_params = {
         //   registeredUser: store.state.users[6],
         //   userToken: 'dummy token',
         // }
-        // store.dispatch('login', payload)
+        // store.dispatch('login', login_params)
         // router.push({name: 'AccountsSelect'})
 
         // 登録ユーザー名でない場合はエラー表示

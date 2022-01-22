@@ -62,8 +62,11 @@
           <li class="c-Nav__item u-InlineFlex">
             <Menu as="div" class="headlessui-Menu">
               <MenuButton class="headlessui-Menu__button">
-                <span>{{ displayUserName }}</span>
-                <down theme="filled"/>
+                <span class="c-Nav__text u-FlexBox u-FlexBox--middle">
+                  <user theme="outline"/>
+                  <b>{{ displayUserName }}</b>
+                  <down theme="filled"/>
+                </span>
               </MenuButton>
               <MenuItems as="ul" class="headlessui-Menu__items">
                 <MenuItem as="li" class="headlessui-Menu__item">
@@ -83,7 +86,7 @@
 </template>
 
 <script>
-import { Down } from '@icon-park/vue-next';
+import { Down, User } from '@icon-park/vue-next';
 import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/vue";
 import { computed } from 'vue';
 import { useRouter } from 'vue-router';
@@ -96,6 +99,7 @@ export default {
   },
   components: {
     Down,
+    User,
     Menu,
     MenuButton,
     MenuItems,

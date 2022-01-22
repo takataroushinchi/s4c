@@ -424,13 +424,23 @@ template {
 .c-Nav__item._divider {
   border-right: 1px solid #ccc;
 }
-.c-Nav a {
+.c-Nav__item a {
   display: block;
   font-size: 1.3rem;
   color: #353c43;
 }
-.c-Nav a.is-active {
+.c-Nav__item a.is-active {
   color: #1e5596;
+}
+.c-Nav__text {
+  font-size: 1.3rem;
+  color: #353c43;
+}
+.c-Nav__text b {
+  font-weight: normal;
+}
+.c-Nav__text .i-icon {
+  padding: 0.25rem;
 }
 
 .c-Title {
@@ -885,15 +895,15 @@ template {
   border-radius: 0.25rem;
 }
 .c-Input::-moz-placeholder {
-  color: #999;
+  color: #666;
   font-size: 1rem;
 }
 .c-Input:-ms-input-placeholder {
-  color: #999;
+  color: #666;
   font-size: 1rem;
 }
 .c-Input::placeholder {
-  color: #999;
+  color: #666;
   font-size: 1rem;
 }
 .c-Input__group .c-Input {
@@ -907,6 +917,8 @@ template {
   position: absolute;
   top: -1.6rem;
   font-size: 10px;
+  color: #666;
+  font-weight: 700;
 }
 .c-Input__required {
   padding: 0 2px;

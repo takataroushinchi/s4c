@@ -54,27 +54,3 @@
     font-weight: 700;
   }
 }
-
-.c-Nav {
-  &__items {
-  }
-
-  &__item {
-    padding: 0.4rem 0.8rem;
-
-    // 仕切り線
-    &._divider {
-      border-right: 1px solid $setting-default-border-color;
-    }
-  }
-
-  a {
-    display: block;
-    font-size: 1.3rem;
-    color: $setting-default-text-color;
-
-    &.is-active {
-      color: $setting-default-current-color;
-    }
-  }
-}

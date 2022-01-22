@@ -22,7 +22,13 @@
 
     //.c-Content._1by2 .c-Content__inner
     ._1by2 & {
-      width: min(50%, 500px);
+      width: 50%;
+      // padding-top: 32px;
+    }
+
+    //.c-Content._1by2 .c-Content__inner
+    ._w-m & {
+      width: min(40%, 450px);
       // width: clamp(360px, 50%, 600px);
       padding-top: 32px;
     }

@@ -2,8 +2,8 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    userToken: null,
     login_user: null,
+    userToken: null,
     selected_supplier: null,
     users:[
       {user_id:1, user_name:'user1', email:'multi@test.jp', password:'', role:1, login:true, supplier_id:[1,2,3,7]},
@@ -24,12 +24,13 @@ export default createStore({
     ]
   },
   mutations: {
-    setLoginUser(state, user) {
-      state.login_user = user.registeredUser
-      state.userToken = user.userToken
+    setLoginUser(state, payload) {
+      state.login_user = payload.registeredUser
+      state.userToken = payload.userToken
     },
     deleteLoginUser (state) {
       state.login_user = null
+      state.userToken = null
     },
     pushRegisterUser (state, user) {
       state.users.push(user)
@@ -47,8 +48,8 @@ export default createStore({
     },
   },
   actions: {
-    login ({ commit }, user) {
-      commit('setLoginUser', user)
+    login ({ commit }, payload) {
+      commit('setLoginUser', payload)
     },
     logout ({ commit }) {
       commit('deleteLoginUser')

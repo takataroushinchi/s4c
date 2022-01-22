@@ -1,5 +1,5 @@
 <template>
-  <div class="c-Content _1by2">
+  <div class="c-Content _w-m">
     <div class="c-Content__inner">
       <div class="c-Content__unit">
         <div class="c-Input__group">

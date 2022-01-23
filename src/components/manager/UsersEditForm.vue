@@ -66,7 +66,7 @@
             <div class="c-Input__label">
               <select class="c-Input" name="accounts" @change="handleChange">
                 <option value="">-</option>
-                <option v-for="item in selectAccountsData" :value="item.id" :key="item.id">{{ item.supplier_name }}</option>
+                <option v-for="item in unauthorityAccountsData" :value="item.id" :key="item.id">{{ item.supplier_name }}</option>
               </select>
             </div><!-- /c-Input__label -->
           </div><!-- /c-Input__group -->
@@ -143,29 +143,31 @@ export default {
     let authoritySupplierIds = getUser ? getUser.supplier_id : [];
     // サプライヤー全て取得
     const accountsData = store.state.suppliers;
+    const accountAllIds = accountsData.map(item => item.id);
 
     // ユーザーに紐づいていないサプライヤー
-    const selectAccountsData = ref([])
-    selectAccountsData.value = [...accountsData]
+    const unauthorityAccountsData = ref([])
+    unauthorityAccountsData.value = [...accountsData]
 
-    function setSelectAccountsData(){
-      let filterData = [...accountsData]
-      authoritySupplierIds.forEach(id => {
-        filterData = filterData.filter( account => account.id !== id)
+    function setUnauthorityAccounts(){
+      const unauthorityAccountIds = accountAllIds.filter(i => authoritySupplierIds.indexOf(i) === -1)
+      let unauthorityAccountArray = [];
+      unauthorityAccountIds.forEach(id => {
+        unauthorityAccountArray.push(store.getters.getSupplierById(id));
       });
-      selectAccountsData.value = [...filterData];
+      unauthorityAccountsData.value = unauthorityAccountArray;
     }
-    setSelectAccountsData();
+    setUnauthorityAccounts();
 
     // ユーザーに紐付いたサプライヤー抽出
     const authorityAccountsData = ref([]);
-    function setAuthorityAccountsData(){
+    function setAuthorityAccounts(){
       authorityAccountsData.value = [];
       authoritySupplierIds.forEach(id => {
         authorityAccountsData.value.push(store.getters.getSupplierById(id));
       });
     }
-    setAuthorityAccountsData();
+    setAuthorityAccounts();
 
     const validEmail = (email) => {
       var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -217,8 +219,8 @@ export default {
       authoritySupplierIds.sort((a,b) => (a < b ? -1 : 1));
       selectedAccont = null;
 
-      setSelectAccountsData();
-      setAuthorityAccountsData();
+      setUnauthorityAccounts();
+      setAuthorityAccounts();
     }
 
     const deleteAuthority = (id) => {
@@ -227,7 +229,7 @@ export default {
       authorityAccountsData.value = oldData.filter( account => account.id !== id);
 
       authoritySupplierIds = authoritySupplierIds.filter(item => item !== id);
-      setSelectAccountsData();
+      setUnauthorityAccounts();
     }
 
     return {
@@ -242,7 +244,7 @@ export default {
       isInvalidNameRef,
       isInvalidEmailRef,
       accountsData,
-      selectAccountsData,
+      unauthorityAccountsData,
       authorityAccountsData,
     }
   }

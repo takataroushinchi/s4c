@@ -38,7 +38,7 @@ export default createStore({
     },
     editRegisterUser (state, user) {
       const id = user.user_id;
-      const index = state.users.findIndex((u) => u.id === id);
+      const index = state.users.findIndex((u) => u.user_id === id);
       state.users.splice(index, 1, user);
     },
     setSelectedSupplier (state, supplier) {

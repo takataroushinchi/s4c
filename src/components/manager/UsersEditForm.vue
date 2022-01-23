@@ -138,7 +138,7 @@ export default {
     const loginRef = ref(loginPermission)
     const isInvalidNameRef = ref(false)
     const isInvalidEmailRef = ref(false)
-    let selectedAccont;
+    let selectedAccount;
 
     let authoritySupplierIds = getUser ? getUser.supplier_id : [];
     // サプライヤー全て取得
@@ -147,8 +147,6 @@ export default {
 
     // ユーザーに紐づいていないサプライヤー
     const unauthorityAccountsData = ref([])
-    unauthorityAccountsData.value = [...accountsData]
-
     function setUnauthorityAccounts(){
       const unauthorityAccountIds = accountAllIds.filter(i => authoritySupplierIds.indexOf(i) === -1)
       let unauthorityAccountArray = [];
@@ -175,7 +173,7 @@ export default {
     }
 
     const handleChange = (e) => {
-      selectedAccont = e.target.value;
+      selectedAccount = e.target.value;
     }
 
     const handleBack = () => {
@@ -215,9 +213,9 @@ export default {
 
     const addAuthority = () => {
       // 権限付与時の処理
-      if(selectedAccont) authoritySupplierIds.push( Number(selectedAccont));
+      if(selectedAccount) authoritySupplierIds.push( Number(selectedAccount));
       authoritySupplierIds.sort((a,b) => (a < b ? -1 : 1));
-      selectedAccont = null;
+      selectedAccount = null;
 
       setUnauthorityAccounts();
       setAuthorityAccounts();

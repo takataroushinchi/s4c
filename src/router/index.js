@@ -8,6 +8,12 @@ import CampaignDetail from '../views/CampaignDetail.vue'
 import Report from '../views/Report.vue'
 import CsvDownLoad from '../views/CsvDownLoad.vue'
 import NotFound from '@/views/NotFound.vue'
+// manager
+import ManagerAccounts from '../views/ManagerAccounts.vue'
+import ManagerReport from '../views/ManagerReport.vue'
+import ManagerUsers from '../views/ManagerUsers.vue'
+import ManagerUsersCreate from '../views/ManagerUsersCreate.vue'
+import ManagerUsersEdit from '../views/ManagerUsersEdit.vue'
 // config
 import Root from '../views/Root.vue'
 import Login from '../views/Login.vue'
@@ -15,12 +21,6 @@ import PasswordSet from '../views/PasswordSet.vue'
 import PasswordReset from '../views/PasswordReset.vue'
 import AccountsSelect from '../views/AccountsSelect.vue'
 import AccountsUnauthorized from '../views/AccountsUnauthorized.vue'
-// manager
-import ManagerAccounts from '../views/ManagerAccounts.vue'
-import ManagerReport from '../views/ManagerReport.vue'
-import ManagerUsers from '../views/ManagerUsers.vue'
-import ManagerUsersCreate from '../views/ManagerUsersCreate.vue'
-import ManagerUsersEdit from '../views/ManagerUsersEdit.vue'
 
 // @ is an alias to /src
 // Design
@@ -82,34 +82,6 @@ const routes = [
     component: CsvDownLoad,
     meta: { requiresAuth: true }
   },
-  // config
-  {
-    path: '/login',
-    name: 'Login',
-    component: Login
-  },
-  {
-    path: '/password/:user_id?/set',
-    name: 'PasswordSet',
-    component: PasswordSet
-  },
-  {
-    path: '/password/reset',
-    name: 'PasswordReset',
-    component: PasswordReset
-  },
-  {
-    path: '/accounts/select',
-    name: 'AccountsSelect',
-    component: AccountsSelect,
-    meta: { requiresAuth: true }
-  },
-  {
-    path: '/accounts/unauthorized',
-    name: 'AccountsUnauthorized',
-    component: AccountsUnauthorized,
-    meta: { requiresAuth: true }
-  },
   // manager
   {
     path: '/manager/accounts',
@@ -145,6 +117,34 @@ const routes = [
     path: '/manager/report/:dimension',
     name: 'ManagerReportDimension',
     component: ManagerReport,
+    meta: { requiresAuth: true }
+  },
+  // config
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login
+  },
+  {
+    path: '/password/:user_id?/set',
+    name: 'PasswordSet',
+    component: PasswordSet
+  },
+  {
+    path: '/password/reset',
+    name: 'PasswordReset',
+    component: PasswordReset
+  },
+  {
+    path: '/accounts/select',
+    name: 'AccountsSelect',
+    component: AccountsSelect,
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/accounts/unauthorized',
+    name: 'AccountsUnauthorized',
+    component: AccountsUnauthorized,
     meta: { requiresAuth: true }
   },
   // design

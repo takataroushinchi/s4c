@@ -8,8 +8,18 @@
           <th>集計単位</th>
           <th class="u-TextRight">Imp</th>
           <th class="u-TextRight">クリック</th>
-          <th class="u-TextRight">CTR</th>
-          <th class="u-TextRight">CPC</th>
+          <th class="u-TextRight">CTR
+            <div class="c-Info">
+              <button><info theme="filled"/></button>
+              <div class="c-InfoBody _left">クリック率（クリック回数/広告表示回数）です。</div>
+            </div>
+          </th>
+          <th class="u-TextRight">CPC
+            <div class="c-Info">
+              <button><info theme="filled"/></button>
+              <div class="c-InfoBody _left">平均クリック単価です。<br />入札額を変更した日以外は、入札金額とイコールです。</div>
+            </div>
+          </th>
           <th class="u-TextRight">広告費</th>
           <th class="u-TextRight">注文回数</th>
           <th class="u-TextRight">経由売上</th>
@@ -26,10 +36,12 @@
 </template>
 
 <script>
+import { Info } from '@icon-park/vue-next';
 import ReportListItem from '@/components/ReportListItem.vue';
 
 export default {
   components: {
+    Info,
     ReportListItem,
   },
   props: {

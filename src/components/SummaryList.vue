@@ -7,18 +7,22 @@
           <th>当月</th>
           <th>Imp</th>
           <th>クリック</th>
-          <th>CTR</th>
-          <th>CPC</th>
+          <th>CTR
+            <div class="c-Info">
+              <button><info theme="filled"/></button>
+              <div class="c-InfoBody _left">クリック率（クリック回数/広告表示回数）です。</div>
+            </div>
+          </th>
+          <th>CPC
+            <div class="c-Info">
+              <button><info theme="filled"/></button>
+              <div class="c-InfoBody _left">平均クリック単価です。<br />入札額を変更した日以外は、入札金額とイコールです。</div>
+            </div>
+          </th>
           <th>広告費</th>
           <th>注文回数</th>
           <th>経由売上</th>
-          <th>
-            ROAS
-            <div class="c-Info">
-              <button><info theme="filled"/></button>
-              <div class="c-InfoBody _left">ROASとはホゲホゲです。</div>
-            </div>
-          </th>
+          <th>ROAS</th>
         </tr>
       </thead>
       <tbody>

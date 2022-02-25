@@ -121,7 +121,7 @@
               <label>
                 日予算<i class="c-Input__required">※必須</i>
               </label>
-              <input class="c-Input" type="number" name="budget" value="0" placeholder="">
+              <input class="c-Input" type="number" name="budget" value="0" inputmode="numeric" placeholder="">
               <div class="c-Input__feedback">エラーです</div>
             </div><!-- /c-Input__label -->
           </div><!-- /c-Input__group -->
@@ -130,7 +130,7 @@
               <label>
                 ベース入札金額<i class="c-Input__required">※必須</i>
               </label>
-              <input class="c-Input" type="number" name="base_amount" value="50" placeholder="">
+              <input class="c-Input" type="number" name="base_amount" value="50" inputmode="numeric" placeholder="">
               <div class="c-Input__feedback">エラーです</div>
             </div><!-- /c-Input__label -->
           </div><!-- /c-Input__group -->

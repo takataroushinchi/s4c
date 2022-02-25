@@ -8,7 +8,7 @@
             <label>
               ユーザー名またはメールアドレス
             </label>
-            <input class="c-Input" :class="{'is-invalid': isInvalidUserRef}" type="text" name="user" v-model="userRef" spellcheck="false" placeholder="ユーザー名またはメールアドレスを入力してください">
+            <input class="c-Input" :class="{'is-invalid': isInvalidUserRef}" type="text" name="user" v-model="userRef" spellcheck="false" inputmode="email" placeholder="ユーザー名またはメールアドレスを入力してください">
             <div class="c-Input__feedback">登録されたユーザー名またはメールアドレスを入力してください</div>
           </div><!-- /c-Input__label -->
         </div><!-- /c-Input__group -->

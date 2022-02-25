@@ -7,7 +7,7 @@
             <label>
               メールアドレス
             </label>
-            <input class="c-Input" :class="{'is-invalid': isInvalidRef}" type="text" v-model="emailRef" spellcheck="false" placeholder="ご登録メールアドレをを入力してください">
+            <input class="c-Input" :class="{'is-invalid': isInvalidRef}" type="text" v-model="emailRef" spellcheck="false" inputmode="email" placeholder="ご登録メールアドレをを入力してください">
             <div class="c-Input__feedback">登録されたメールアドレスを入力してください</div>
           </div><!-- /c-Input__label -->
         </div><!-- /c-Input__group -->

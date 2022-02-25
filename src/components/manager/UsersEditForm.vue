@@ -25,7 +25,7 @@
             <label>
               ログインID（メールアドレス）<i class="c-Input__required">※必須</i>
             </label>
-            <input class="c-Input" :class="{'is-invalid': isInvalidEmailRef}" type="text" v-model="emailRef" spellcheck="false" placeholder="メールアドレスを入力してください">
+            <input class="c-Input" :class="{'is-invalid': isInvalidEmailRef}" type="text" v-model="emailRef" spellcheck="false" inputmode="email" placeholder="メールアドレスを入力してください">
             <div class="c-Input__feedback">メールアドレスを入力してください</div>
           </div><!-- /c-Input__label -->
         </div><!-- /c-Input__group -->

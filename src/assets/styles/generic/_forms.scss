@@ -21,30 +21,29 @@ button {
 }
 
 input {
-
   html & {
     &[disabled] {
       cursor: default;
     }
   }
 
-  &[type="button"],
-  &[type="reset"],
-  &[type="submit"] {
+  &[type='button'],
+  &[type='reset'],
+  &[type='submit'] {
     appearance: button;
     cursor: pointer;
   }
 
-  &[type="search"] {
-    appearance: textfield;
+  // &[type="search"] {
+  //   appearance: textfield;
 
-    &::-webkit-search-cancel-button,
-    &::-webkit-search-decoration {
-      appearance: none;
-    }
-  }
+  //   &::-webkit-search-cancel-button,
+  //   &::-webkit-search-decoration {
+  //     appearance: none;
+  //   }
+  // }
 
-  &[type="file"] {
+  &[type='file'] {
     &::-webkit-file-upload-button {
       font: inherit;
       appearance: button;

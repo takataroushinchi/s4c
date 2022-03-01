@@ -15,7 +15,7 @@
             <label>
               名称<i class="c-Input__required">※必須</i>
             </label>
-            <input class="c-Input" type="text" name="campaign_name" value="無題のキャンペーン001" spellcheck="false" placeholder="">
+            <input class="c-Input" type="search" name="campaign_name" value="無題のキャンペーン001" spellcheck="false" placeholder="">
             <div class="c-Input__feedback">エラーです</div>
           </div><!-- /c-Input__label -->
         </div><!-- /c-Input__group -->

@@ -27,7 +27,7 @@ import { useRouter } from 'vue-router';
 import { useStore } from 'vuex';
 
 export default {
-  name: 'AccountsSelectForm',
+  name: 'SuppliersSelectForm',
   setup() {
     const router = useRouter();
     const store = useStore();

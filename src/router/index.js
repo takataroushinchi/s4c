@@ -19,7 +19,7 @@ import Root from '../views/Root.vue'
 import Login from '../views/Login.vue'
 import PasswordSet from '../views/PasswordSet.vue'
 import PasswordReset from '../views/PasswordReset.vue'
-import AccountsSelect from '../views/AccountsSelect.vue'
+import SuppliersSelect from '../views/SuppliersSelect.vue'
 import AccountsUnauthorized from '../views/AccountsUnauthorized.vue'
 
 // @ is an alias to /src
@@ -136,9 +136,9 @@ const routes = [
     component: PasswordReset
   },
   {
-    path: '/accounts/select',
-    name: 'AccountsSelect',
-    component: AccountsSelect,
+    path: '/supplier/select',
+    name: 'SuppliersSelect',
+    component: SuppliersSelect,
     meta: { requiresAuth: true }
   },
   {

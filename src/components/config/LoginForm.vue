@@ -85,7 +85,7 @@ export default {
         }else if(registeredUser.supplier_id.length === 0){
           router.push({name: 'AccountsUnauthorized'})
         }else{
-          router.push({name: 'AccountsSelect'})
+          router.push({ name: 'SuppliersSelect'})
         }
       }else{
         // 確認用にユーザーデータがない場合適当なユーザー情報で通過させる

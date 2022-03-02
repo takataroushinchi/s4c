@@ -57,7 +57,7 @@
             <router-link :to="{name: 'ManagerAccounts'}" exact-active-class="is-active">管理画面TOP</router-link>
           </li><!-- /c-Nav__item -->
           <li class="c-Nav__item u-InlineFlex" v-if="login_user?.supplier_id.length > 1">
-            <router-link :to="{name: 'AccountsSelect'}" exact-active-class="is-active">アカウント切替</router-link>
+            <router-link :to="{name: 'SuppliersSelect'}" exact-active-class="is-active">アカウント切替</router-link>
           </li><!-- /c-Nav__item -->
           <li class="c-Nav__item u-InlineFlex">
             <Menu as="div" class="headlessui-Menu">

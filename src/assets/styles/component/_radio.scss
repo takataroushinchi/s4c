@@ -13,12 +13,6 @@
 // </div><!--/.c-Radio-->
 // ```
 
-/// チェックした時の丸の色
-/// @group setting-default
-/// @type color
-/// @see $setting-default-checked-color
-$component-radio-checked-color: $setting-default-radio-checked-color !default;
-
 /// @group component-radio
 /// @type Color
 $component-radio-disabled-border-color: #eee !default;
@@ -82,7 +76,7 @@ $component-radio-border-color: #ddd !default;
 
       + .c-Radio__label {
         &::after {
-          background-color: $component-radio-checked-color;
+          background-color: var(--setting-default-radio-checked-color);
           transform: scale(1);
         }
       }
@@ -92,7 +86,7 @@ $component-radio-border-color: #ddd !default;
       & + .c-Radio__label {
         // base
         &::before {
-          border: 2px solid $component-radio-checked-color;
+          border: 2px solid var(--setting-default-radio-checked-color);
         }
       }
     }
@@ -183,7 +177,7 @@ $component-radio-border-color: #ddd !default;
       width: 10px;
       height: 10px;
       border-radius: $component-radio-checked-radius;
-      background: $component-radio-checked-color;
+      background: var(--setting-default-radio-checked-color);
       content: '';
       transition: 0.4s;
     }

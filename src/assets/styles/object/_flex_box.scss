@@ -2,11 +2,13 @@
   #FLEX-BOX
 \* ---------------------------------- */
 
+@use '../setting/variables_property' as props;
+
 /// 余白サイズ
 /// @group object-flex-box
 /// @type Number
 /// @see $setting-default-spacing
-$object-flex-box-spacing: $setting-default-spacing !default;
+$object-flex-box-spacing: props.$setting-default-spacing !default;
 
 .u-InlineFlex {
   display: inline-flex;

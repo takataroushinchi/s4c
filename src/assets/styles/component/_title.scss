@@ -9,10 +9,10 @@
 .c-Title {
   position: relative;
   width: 100%;
-  min-width: $setting-default-global-minwidth-size;
+  min-width: var(--setting-default-global-minwidth-size);
   margin: 0 auto;
   padding: 1.2rem 1.2rem;
-  background: $setting-default-background-color;
+  background: var(--setting-default-background-color);
   white-space: nowrap;
 
   &__text {

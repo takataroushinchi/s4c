@@ -1,0 +1,23 @@
+// =============================================================================
+// config
+// =============================================================================
+
+/// リリースバージョン
+/// @group setting.default
+/// @type Number
+$setting-default-release-version: 1 !default;
+
+/// サービスID
+/// @group setting.default
+/// @type String
+$setting-service-id: s4c !default;
+
+// 画像参照パス
+// @group setting.default
+// @type String
+$setting-default-image-path: '../images/' !default;
+
+/// ベースとなる余白サイズ
+/// @group setting-default
+/// @type Number
+$setting-default-spacing: 10px !default;

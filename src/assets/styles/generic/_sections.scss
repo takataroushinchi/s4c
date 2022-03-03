@@ -3,6 +3,6 @@
 \* ---------------------------------- */
 
 body {
-  min-width: $setting-default-global-minwidth-size;
+  min-width: var(--setting-default-global-minwidth-size);
   padding-bottom: 160px;
 }

@@ -1,57 +1,55 @@
 // Setting
-@import 'setting/variables';
-@import 'setting/variables_state';
+@use 'setting/variables';
 
 // Generic
-@import 'generic/reset';
-@import 'generic/universal';
-@import 'generic/root-element';
-@import 'generic/sections';
-@import 'generic/grouping-content';
-@import 'generic/text-level-semantics';
-@import 'generic/embedded-content';
-@import 'generic/links';
-@import 'generic/tables';
-@import 'generic/forms';
-@import 'generic/hidden';
+@use 'generic/reset';
+@use 'generic/universal';
+@use 'generic/root-element';
+@use 'generic/sections';
+@use 'generic/grouping-content';
+@use 'generic/text-level-semantics';
+@use 'generic/embedded-content';
+@use 'generic/links';
+@use 'generic/tables';
+@use 'generic/forms';
+@use 'generic/hidden';
 
 // Base
 
 // Objects
-// @import 'object/flex_image';
-@import 'object/flex_box';
-@import 'object/text';
-@import 'object/breakpoints'; // [ _sm: 428px, _md: 768px, _lg: 1024px ]
+@use 'object/flex_box';
+@use 'object/text';
+@use 'object/breakpoints'; // [ _sm: 428px, _md: 768px, _lg: 1024px ]
 
 // Components
-@import 'component/header';
-@import 'component/nav';
-@import 'component/title';
-@import 'component/table';
-@import 'component/info'; // (i) マーク項目説明 ＋チップ表示
+@use 'component/header';
+@use 'component/nav';
+@use 'component/title';
+@use 'component/table';
+@use 'component/info'; // (i) マーク項目説明 ＋チップ表示
 
-@import 'component/button';
-@import 'component/checkbox'; // ネイティブのチェックボックススタイル調整
-@import 'component/check';
-@import 'component/radio';
-@import 'component/input'; // インプット部品、バリデーションエラー表示
+@use 'component/button';
+@use 'component/checkbox'; // ネイティブのチェックボックススタイル調整
+@use 'component/check';
+@use 'component/radio';
+@use 'component/input'; // インプット部品、バリデーションエラー表示
 
-@import 'component/message'; // 各種ステータスメッセージ、案内
-@import 'component/not_found'; // 404や、ゼロマッチ等のメッセージ
+@use 'component/message'; // 各種ステータスメッセージ、案内
+@use 'component/not_found'; // 404や、ゼロマッチ等のメッセージ
 
-@import 'component/pagination';
-@import 'component/loader';
+@use 'component/pagination';
+@use 'component/loader';
 
 // Modules (or Layout)
 // 主にレイアウトに関するもの
-@import 'module/content'; // c-Content c-Content__unit
-@import 'module/item_list'; // テーブルのラッパー
-@import 'module/tool'; // 絞り込み等のエリア
-@import 'module/inline_list'; // キャンペーン設定済み項目リスト
-@import 'module/tab'; // タブUIのラッパー
+@use 'module/content'; // c-Content c-Content__unit
+@use 'module/item_list'; // テーブルのラッパー
+@use 'module/tool'; // 絞り込み等のエリア
+@use 'module/inline_list'; // キャンペーン設定済み項目リスト
+@use 'module/tab'; // タブUIのラッパー
 
 // Tools
-@import 'tool/headless_ui'; // vue2-datepicker@next
-@import 'tool/chart'; // Chart.js 3
+@use 'tool/headless_ui'; // vue2-datepicker@next
+@use 'tool/chart'; // Chart.js 3
 
 // Trumps

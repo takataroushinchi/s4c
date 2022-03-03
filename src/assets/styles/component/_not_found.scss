@@ -13,7 +13,7 @@
   margin: 40px auto 80px;
   padding: 20px;
   background: #fff;
-  box-shadow: $setting-default-card-box-shadow--soft;
+  box-shadow: var(--setting-default-card-box-shadow--soft);
 
   &__title {
     margin-bottom: 10px;

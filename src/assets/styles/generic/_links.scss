@@ -2,21 +2,11 @@
    #LINKS
 \* ---------------------------------- */
 
-/// 文字色
-/// @group foundation-link
-/// @type Color
-$foundation-link-text-color: $setting-default-primary-color !default;
-
-/// 訪問済みの文字色
-/// @group foundation-link
-/// @type Color
-$foundation-link-visited-text-color: #531d76 !default;
-
 a {
-  color: $foundation-link-text-color;
+  color: var(--setting-default-primary-color);
   text-decoration: none;
 
   &:visited {
-    color: $foundation-link-text-color;
+    color: var(--setting-default-primary-color);
   }
 }

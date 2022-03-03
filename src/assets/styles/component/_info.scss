@@ -32,33 +32,33 @@
       top: 0;
       right: 0;
       margin-right: 5px;
-      border: 1px solid $setting-default-danger-color;
+      border: 1px solid var(--setting-default-danger-color);
       color: #fff;
-      background: $setting-default-danger-color;
+      background: var(--setting-default-danger-color);
     }
 
     &._danger {
-      border: 1px solid $setting-default-danger-color;
+      border: 1px solid var(--setting-default-danger-color);
       color: #fff;
-      background: $setting-default-danger-color;
+      background: var(--setting-default-danger-color);
     }
 
     &._warning {
-      border: 1px solid $setting-default-warning-color;
+      border: 1px solid var(--setting-default-warning-color);
       color: #fff;
-      background: $setting-default-warning-color;
+      background: var(--setting-default-warning-color);
     }
 
     &._success {
-      border: 1px solid $setting-default-success-color;
+      border: 1px solid var(--setting-default-success-color);
       color: #fff;
-      background: $setting-default-success-color;
+      background: var(--setting-default-success-color);
     }
 
     &._info {
-      border: 1px solid $setting-default-info-color;
+      border: 1px solid var(--setting-default-info-color);
       color: #fff;
-      background: $setting-default-info-color;
+      background: var(--setting-default-info-color);
     }
   }
 

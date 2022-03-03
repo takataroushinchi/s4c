@@ -12,7 +12,7 @@
   transform: scale(1.2);
   font-size: 16px;
   cursor: pointer;
-  accent-color: $setting-default-primary-color;
+  accent-color: var(--setting-default-primary-color);
 
   &--all {
     margin-left: 3px;

@@ -15,23 +15,23 @@
 
     // 仕切り線
     &._divider {
-      border-right: 1px solid $setting-default-border-color;
+      border-right: 1px solid var(--setting-default-border-color);
     }
 
     a {
       display: block;
       font-size: 1.3rem;
-      color: $setting-default-text-color;
+      color: var(--setting-default-text-color);
 
       &.is-active {
-        color: $setting-default-current-color;
+        color: var(--setting-default-current-color);
       }
     }
   }
 
   &__text {
     font-size: 1.3rem;
-    color: $setting-default-text-color;
+    color: var(--setting-default-text-color);
 
     b {
       font-weight: normal;

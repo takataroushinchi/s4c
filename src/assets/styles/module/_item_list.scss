@@ -9,7 +9,7 @@
 // .#{$setting-service-id}-ItemList {
 .c-ItemList {
   width: 100%;
-  min-width: $setting-default-global-minwidth-size;
+  min-width: var(--setting-default-global-minwidth-size);
   margin: 0 auto;
   padding: 10px;
 
@@ -32,7 +32,7 @@
 
   &__content {
     background: #fff;
-    // box-shadow: $setting-default-card-box-shadow;
+    // box-shadow: var(--setting-default-card-box-shadow);
 
     ._1by2 & {
       max-width: 70%;

@@ -9,7 +9,7 @@
 .chartjs-Chart {
   position: relative;
   width: 100%;
-  min-width: $setting-default-global-minwidth-size;
+  min-width: var(--setting-default-global-maxwidth-size);
   margin: 0 auto;
   padding: 10px 10px 20px 150px;
 

@@ -24,7 +24,7 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     background: #fff;
-    box-shadow: $setting-default-card-box-shadow;
+    box-shadow: var(--setting-default-card-box-shadow);
   }
 
   &__item {
@@ -52,7 +52,7 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     background: #fff;
-    box-shadow: $setting-default-card-box-shadow;
+    box-shadow: var(--setting-default-card-box-shadow);
   }
 
   &__header {
@@ -117,7 +117,7 @@
     font-weight: 700;
 
     .i-icon {
-      color: $setting-default-primary-color;
+      color: var(--setting-default-primary-color);
     }
   }
 

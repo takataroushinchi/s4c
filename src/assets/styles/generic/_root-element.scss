@@ -8,7 +8,7 @@
   min-height: 100%; // 1
   box-sizing: border-box;
   background-color: #fff;
-  color: $setting-default-text-color;
+  color: var(--setting-default-text-color);
   font-size: 62.5%; // rem setup 10/16px = 10px
   font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     'Hiragino Sans', 'Segoe UI', sans-serif;

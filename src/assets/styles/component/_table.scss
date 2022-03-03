@@ -11,7 +11,7 @@
 
   &._primary {
     th {
-      background: $setting-default-primary-color;
+      background: var(--setting-default-primary-color);
       color: #fff;
       font-weight: normal;
 

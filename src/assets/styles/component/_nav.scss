@@ -24,15 +24,11 @@
       user-select: none;
       color: var(--setting-default-text-color);
 
+      // .router-link-active .is-active
+      &.router-link-active,
       &.is-active {
         color: var(--setting-default-current-color);
       }
-    }
-
-    // .router-link-active .is-active
-    .router-link-active {
-      color: var(--setting-default-current-color);
-      pointer-events: none;
     }
   }
 

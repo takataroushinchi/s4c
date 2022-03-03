@@ -470,12 +470,8 @@ template {
           user-select: none;
   color: var(--setting-default-text-color);
 }
-.c-Nav__item a.is-active {
+.c-Nav__item a.router-link-active, .c-Nav__item a.is-active {
   color: var(--setting-default-current-color);
-}
-.c-Nav__item .router-link-active {
-  color: var(--setting-default-current-color);
-  pointer-events: none;
 }
 .c-Nav__text {
   font-size: 1.3rem;
@@ -1494,4 +1490,9 @@ template {
   position: absolute;
   left: 10px;
   top: 40px;
+}
+
+.router-link-active,
+.is-active {
+  pointer-events: none;
 }

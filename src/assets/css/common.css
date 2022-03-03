@@ -464,10 +464,18 @@ template {
 .c-Nav__item a {
   display: block;
   font-size: 1.3rem;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   color: var(--setting-default-text-color);
 }
 .c-Nav__item a.is-active {
   color: var(--setting-default-current-color);
+}
+.c-Nav__item .router-link-active {
+  color: var(--setting-default-current-color);
+  pointer-events: none;
 }
 .c-Nav__text {
   font-size: 1.3rem;

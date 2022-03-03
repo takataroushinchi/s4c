@@ -1,7 +1,7 @@
 <template>
 <section class="c-Header">
   <div class="c-Header__items u-FlexBox u-FlexBox--middle u-FlexBox--justify">
-    <div class="c-Header__item u-FlexBox__item--fill">
+    <div class="c-Header__item">
       <router-link :to="{name: 'Root'}" exact-active-class="is-active" class="u-FlexBox u-FlexBox--middle">
         <div class="c-Header__logo">
           <img alt="logo" src="@/assets/images/logo.png">
@@ -12,6 +12,7 @@
         </h1><!-- /c-Header__title -->
       </router-link>
     </div><!-- /c-Header__item -->
+    <div class="c-Header__item u-FlexBox__item--fill"></div><!-- /c-Header__item -->
     <div class="c-Header__item">
       <nav class="c-Nav">
         <ul class="c-Nav__items u-FlexBox u-FlexBox--middle">

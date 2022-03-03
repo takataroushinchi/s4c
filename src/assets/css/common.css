@@ -154,11 +154,11 @@ button {
   cursor: pointer;
 }
 button[disabled] {
-  cursor: default;
+  cursor: not-allowed;
 }
 
 html input[disabled] {
-  cursor: default;
+  cursor: not-allowed;
 }
 input[type=button], input[type=reset], input[type=submit] {
   -webkit-appearance: button;
@@ -598,8 +598,8 @@ template {
 .c-Button {
   display: inline-block;
   background: #fff;
-  border: 1px solid #eee;
-  border-radius: 2px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
   padding: 6px 10px;
   font-weight: normal;
   text-align: center;
@@ -615,6 +615,11 @@ template {
 }
 .c-Button:hover {
   color: #5575c7;
+}
+.c-Button.disabled, .c-Button:disabled {
+  color: #666;
+  background-color: #f3f3f3;
+  box-shadow: none;
 }
 .c-Button i {
   margin: 0 2px;

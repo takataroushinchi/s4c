@@ -4,8 +4,8 @@
   <LoginForm />
   <pre>
     <code>
-    ユーザー名またはメールアドレス： user_name -> user1 とか manager とか
-    パスワード：空でOK
+    ユーザー名またはメールアドレス: user_name -> user1 とか manager とか
+    パスワード: 空でOK
 
     1.単数サプライヤーのみ、サプライヤー選択が無し
       ユーザー名【 user1 】
@@ -15,6 +15,9 @@
 
     3.ECサイト権限、ECサイト画面がルート、サプライヤー画面閲覧、ECサイト画面への動線あり
       ユーザー名【 manager 】
+
+    4.開発環境、ECサイト権限、ECサイト画面がルート、サプライヤー画面閲覧、ECサイト画面への動線あり
+      ユーザー名【 hoge@example.com 】パスワード【 1 】
 
     users:[
       {user_id:1, user_name:'user1', email:'multi@test.jp', password:'', role:1, login:true, supplier_id:[1,2,3,7]},

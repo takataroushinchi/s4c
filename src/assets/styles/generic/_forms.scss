@@ -16,14 +16,14 @@ button {
   cursor: pointer;
 
   &[disabled] {
-    cursor: default;
+    cursor: not-allowed;
   }
 }
 
 input {
   html & {
     &[disabled] {
-      cursor: default;
+      cursor: not-allowed;
     }
   }
 

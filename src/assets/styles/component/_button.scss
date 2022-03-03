@@ -9,8 +9,8 @@
 .c-Button {
   display: inline-block;
   background: #fff;
-  border: 1px solid #eee;
-  border-radius: 2px;
+  border: 1px solid $setting-default-border-color;
+  border-radius: 4px;
   padding: 6px 10px;
   font-weight: normal;
   text-align: center;
@@ -23,6 +23,13 @@
 
   &:hover {
     color: $setting-default-primary-color;
+  }
+
+  &.disabled,
+  &:disabled {
+    color: $setting-second-text-color;
+    background-color: #f3f3f3;
+    box-shadow: none;
   }
 
   i {

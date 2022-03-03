@@ -5,7 +5,7 @@
     <div class="u-FlexBox u-FlexBox--middle">
       <p>入札</p>
       <div class="u-FlexBox__spacer"></div>
-      <input class="c-Input" type="number" name="amount" :value="base_amount" placeholder="">
+        <input class="c-Input" type="number" name="amount" :value="base_amount" inputmode="numeric" placeholder="">
       <div class="u-FlexBox__spacer"></div>
       <button type="button" class="c-Button" @click="DialogMethod">
         <span>このページ内のチェック商品 250 件を一括入札</span>

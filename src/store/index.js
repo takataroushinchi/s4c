@@ -13,6 +13,7 @@ export default createStore({
       {user_id:5, user_name:'user4', email:'supership@test.jp', password:'', role:1, login:true, supplier_id:[3]},
       {user_id:6, user_name:'user', email:'hogehoge@hoge.co.jp', password:'', role:1, login:true, supplier_id:[1, 2, 3, 4, 5, 6, 7]},
       {user_id:7, user_name:'壱弐参肆伍陸漆捌玖拾壱弐参肆伍陸漆捌玖拾', email:'hogehoge@hoge.co.jp', password:'', role:1, login:true, supplier_id:[4,5]},
+      {user_id:8, user_name:'hoge@example.com', email:'hoge@example.com', password:'1', role:2, login:true, supplier_id:[1,2,3,4,5,6,7]},
     ],
     suppliers:[
       {id:1, supplier_id:'aa_bbbb', supplier_name:'アイリスオオヤマ'},

@@ -3,7 +3,7 @@
 <section class="c-ItemList">
   <div class="c-ItemList__content u-FlexBox u-FlexBox--center u-FlexBox--middle">
     <table class="c-Table">
-      <thead>
+      <thead class="_sticky">
         <tr>
           <th>集計単位</th>
           <th class="u-TextRight">Imp</th>

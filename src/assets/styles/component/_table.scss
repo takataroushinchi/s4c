@@ -31,6 +31,17 @@
     }
   }
 
+  thead {
+    background: #fff;
+    box-shadow: var(--setting-default-card-box-shadow--soft);
+
+    &._sticky {
+      position: sticky;
+      top: 0;
+      left: 0;
+    }
+  }
+
   th {
     padding: 8px;
     line-height: 1.4;

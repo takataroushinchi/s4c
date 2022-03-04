@@ -24,7 +24,7 @@
   --setting-default-card-box-shadow-color: rgba(0, 0, 0, 0.3);
   --setting-default-card-box-shadow: 0 1px 2px
     var(--setting-default-card-box-shadow-color);
-  --setting-default-card-box-shadow--soft: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --setting-default-card-box-shadow--soft: 0 2px 2px rgba(0, 0, 0, 0.05);
   --setting-default-success-color: #3c763d;
   --setting-default-success-background-color: #dff0d8;
   --setting-default-success-border-color: #d6e9c6;
@@ -521,6 +521,15 @@ template {
 }
 .c-Table._striped tr:nth-child(even) {
   background-color: #fdfdfd;
+}
+.c-Table thead {
+  background: #fff;
+  box-shadow: var(--setting-default-card-box-shadow--soft);
+}
+.c-Table thead._sticky {
+  position: sticky;
+  top: 0;
+  left: 0;
 }
 .c-Table th {
   padding: 8px;

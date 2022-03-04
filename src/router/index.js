@@ -71,8 +71,20 @@ const routes = [
     meta: { requiresAuth: true }
   },
   {
-    path: '/user/report/:dimension',
-    name: 'ReportDimension',
+    path: '/user/report/daily',
+    name: 'ReportDimensionDaily',
+    component: Report,
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/user/report/monthly',
+    name: 'ReportDimensionMonthly',
+    component: Report,
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/user/report/campaign',
+    name: 'ReportDimensionCampaign',
     component: Report,
     meta: { requiresAuth: true }
   },
@@ -114,8 +126,20 @@ const routes = [
     meta: { requiresAuth: true }
   },
   {
-    path: '/manager/report/:dimension',
-    name: 'ManagerReportDimension',
+    path: '/manager/report/daily',
+    name: 'ManagerReportDimensionDaily',
+    component: ManagerReport,
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/manager/report/monthly',
+    name: 'ManagerReportDimensionMonthly',
+    component: ManagerReport,
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/manager/report/account',
+    name: 'ManagerReportDimensionAccount',
     component: ManagerReport,
     meta: { requiresAuth: true }
   },

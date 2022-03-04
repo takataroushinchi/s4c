@@ -27,29 +27,29 @@
               </MenuButton>
               <MenuItems as="ul" class="headlessui-Menu__items">
                 <MenuItem as="li" class="headlessui-Menu__item">
-                  <router-link :to="{name: 'ManagerUsers'}" exact-active-class="is-active">ユーザー一覧</router-link>
+                  <router-link :to="{name: 'ManagerUsers'}" exact-active-class="is-active" :tabindex="$route.name === 'ManagerUsers'? -1 : 0">ユーザー一覧</router-link>
                 </MenuItem>
                 <MenuItem as="li" class="headlessui-Menu__item">
-                  <router-link :to="{name: 'ManagerUsersCreate'}" exact-active-class="is-active">ユーザー新規作成</router-link>
+                  <router-link :to="{name: 'ManagerUsersCreate'}" exact-active-class="is-active" :tabindex="$route.name === 'ManagerUsersCreate'? -1 : 0">ユーザー新規作成</router-link>
                 </MenuItem>
               </MenuItems>
             </Menu>
           </li><!-- /c-Nav__item -->
           <li class="c-Nav__item _divider u-InlineFlex">
-            <router-link :to="{name: 'ManagerReport'}" exact-active-class="is-active" :tabindex="$route.name === 'ManagerReport'? -1 : 0">全体レポート</router-link>
+            <router-link :to="{name: 'ManagerReportDimensionDaily', params: {dimension: 'daily'}}" exact-active-class="is-active" :tabindex="$route.name === 'ManagerReportDimensionDaily'? -1 : 0">全体レポート</router-link>
             <Menu as="div" class="headlessui-Menu">
               <MenuButton class="headlessui-Menu__button">
                 <down theme="filled"/>
               </MenuButton>
               <MenuItems as="ul" class="headlessui-Menu__items">
                 <MenuItem as="li" class="headlessui-Menu__item">
-                  <router-link :to="{name: 'ManagerReportDimension', params: {dimension: 'daily'}}" exact-active-class="is-active">日別</router-link>
+                  <router-link :to="{name: 'ManagerReportDimensionDaily', params: {dimension: 'daily'}}" exact-active-class="is-active" :tabindex="$route.name === 'ManagerReportDimensionDaily'? -1 : 0">日別</router-link>
                 </MenuItem>
                 <MenuItem as="li" class="headlessui-Menu__item">
-                  <router-link :to="{name: 'ManagerReportDimension', params: {dimension: 'monthly'}}" exact-active-class="is-active">月別</router-link>
+                  <router-link :to="{name: 'ManagerReportDimensionMonthly', params: {dimension: 'monthly'}}" exact-active-class="is-active" :tabindex="$route.name === 'ManagerReportDimensionMonthly'? -1 : 0">月別</router-link>
                 </MenuItem>
                 <MenuItem as="li" class="headlessui-Menu__item">
-                  <router-link :to="{name: 'ManagerReportDimension', params: {dimension: 'account'}}" exact-active-class="is-active">アカウント別</router-link>
+                  <router-link :to="{name: 'ManagerReportDimensionAccount', params: {dimension: 'account'}}" exact-active-class="is-active" :tabindex="$route.name === 'ManagerReportDimensionAccount'? -1 : 0">アカウント別</router-link>
                 </MenuItem>
               </MenuItems>
             </Menu>

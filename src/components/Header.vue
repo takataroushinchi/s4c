@@ -24,29 +24,29 @@
               </MenuButton>
               <MenuItems as="ul" class="headlessui-Menu__items">
                 <MenuItem as="li" class="headlessui-Menu__item">
-                  <router-link :to="{name: 'UserHome'}" exact-active-class="is-active">キャンペーン一覧</router-link>
+                  <router-link :to="{name: 'UserHome'}" exact-active-class="is-active" :tabindex="$route.name === 'UserHome'? -1 : 0">キャンペーン一覧</router-link>
                 </MenuItem>
                 <MenuItem as="li" class="headlessui-Menu__item">
-                  <router-link :to="{name: 'CampaignCreate'}" exact-active-class="is-active">キャンペーン新規作成</router-link>
+                  <router-link :to="{name: 'CampaignCreate'}" exact-active-class="is-active" :tabindex="$route.name === 'CampaignCreate'? -1 : 0">キャンペーン新規作成</router-link>
                 </MenuItem>
               </MenuItems>
             </Menu>
           </li><!-- /c-Nav__item -->
           <li class="c-Nav__item u-InlineFlex">
-            <router-link :to="{name: 'Report'}" exact-active-class="is-active" :tabindex="$route.name === 'Report'? -1 : 0">レポート</router-link>
+            <router-link :to="{name: 'ReportDimensionDaily', params: {dimension: 'daily'}}" exact-active-class="is-active" :tabindex="$route.name === 'ReportDimensionDaily'? -1 : 0">レポート</router-link>
             <Menu as="div" class="headlessui-Menu">
               <MenuButton class="headlessui-Menu__button">
                 <down theme="filled"/>
               </MenuButton>
               <MenuItems as="ul" class="headlessui-Menu__items">
                 <MenuItem as="li" class="headlessui-Menu__item">
-                  <router-link :to="{name: 'ReportDimension', params: {dimension: 'daily'}}" exact-active-class="is-active">日別</router-link>
+                  <router-link :to="{name: 'ReportDimensionDaily', params: {dimension: 'daily'}}" exact-active-class="is-active" :tabindex="$route.name === 'ReportDimensionDaily'? -1 : 0">日別</router-link>
                 </MenuItem>
                 <MenuItem as="li" class="headlessui-Menu__item">
-                  <router-link :to="{name: 'ReportDimension', params: {dimension: 'monthly'}}" exact-active-class="is-active">月別</router-link>
+                  <router-link :to="{name: 'ReportDimensionMonthly', params: {dimension: 'monthly'}}" exact-active-class="is-active" :tabindex="$route.name === 'ReportDimensionMonthly'? -1 : 0">月別</router-link>
                 </MenuItem>
                 <MenuItem as="li" class="headlessui-Menu__item">
-                  <router-link :to="{name: 'ReportDimension', params: {dimension: 'campaign'}}" exact-active-class="is-active">キャンペーン別</router-link>
+                  <router-link :to="{name: 'ReportDimensionCampaign', params: {dimension: 'campaign'}}" exact-active-class="is-active" :tabindex="$route.name === 'ReportDimensionCampaign'? -1 : 0">キャンペーン別</router-link>
                 </MenuItem>
               </MenuItems>
             </Menu>

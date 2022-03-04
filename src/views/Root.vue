@@ -26,7 +26,7 @@ export default {
       }else if(store.state.login_user.supplier_id.length === 0){
         router.push({name: 'AccountsUnauthorized'})
       }else{
-        router.push({name: 'AccountsSelect'})
+        router.push({name: 'SuppliersSelect'})
       }
     }else{
       router.push({name: 'Login'})

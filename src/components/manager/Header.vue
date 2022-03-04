@@ -2,7 +2,7 @@
 <section class="c-Header">
   <div class="c-Header__items u-FlexBox u-FlexBox--middle u-FlexBox--justify">
     <div class="c-Header__item">
-      <router-link :to="{name: 'Root'}" exact-active-class="is-active" class="u-FlexBox u-FlexBox--middle">
+      <router-link :to="{name: 'Root'}" exact-active-class="is-active" :tabindex="$route.path === '/'? -1 : 0" class="u-FlexBox u-FlexBox--middle">
         <div class="c-Header__logo">
           <img alt="logo" src="@/assets/images/logo.png">
         </div><!-- /c-Header__logo -->

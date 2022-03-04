@@ -17,10 +17,10 @@
       <nav class="c-Nav">
         <ul class="c-Nav__items u-FlexBox u-FlexBox--middle">
           <li class="c-Nav__item u-InlineFlex">
-            <router-link :to="{name: 'ManagerAccounts'}" exact-active-class="is-active">アカウント</router-link>
+            <router-link :to="{name: 'ManagerAccounts'}" exact-active-class="is-active" :tabindex="$route.name === 'ManagerAccounts'? -1 : 0">アカウント</router-link>
           </li><!-- /c-Nav__item -->
           <li class="c-Nav__item u-InlineFlex">
-            <router-link :to="{name: 'ManagerUsers'}" exact-active-class="is-active">ユーザー</router-link>
+            <router-link :to="{name: 'ManagerUsers'}" exact-active-class="is-active" :tabindex="$route.name === 'ManagerUsers'? -1 : 0">ユーザー</router-link>
             <Menu as="div" class="headlessui-Menu">
               <MenuButton class="headlessui-Menu__button">
                 <down theme="filled"/>
@@ -36,7 +36,7 @@
             </Menu>
           </li><!-- /c-Nav__item -->
           <li class="c-Nav__item _divider u-InlineFlex">
-            <router-link :to="{name: 'ManagerReport'}" exact-active-class="is-active">全体レポート</router-link>
+            <router-link :to="{name: 'ManagerReport'}" exact-active-class="is-active" :tabindex="$route.name === 'ManagerReport'? -1 : 0">全体レポート</router-link>
             <Menu as="div" class="headlessui-Menu">
               <MenuButton class="headlessui-Menu__button">
                 <down theme="filled"/>
@@ -55,7 +55,7 @@
             </Menu>
           </li><!-- /c-Nav__item -->
           <li class="c-Nav__item u-InlineFlex" v-if="login_user?.role===2">
-            <router-link :to="{name: 'ManagerAccounts'}" exact-active-class="is-active">管理画面TOP</router-link>
+            <router-link :to="{name: 'ManagerAccounts'}" exact-active-class="is-active" :tabindex="$route.name === 'ManagerAccounts'? -1 : 0">管理画面TOP</router-link>
           </li><!-- /c-Nav__item -->
           <li class="c-Nav__item u-InlineFlex" v-if="login_user?.supplier_id.length > 1">
             <router-link :to="{name: 'SuppliersSelect'}" exact-active-class="is-active">アカウント切替</router-link>

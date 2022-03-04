@@ -17,7 +17,7 @@
       <nav class="c-Nav">
         <ul class="c-Nav__items u-FlexBox u-FlexBox--middle">
           <li class="c-Nav__item u-InlineFlex">
-            <router-link :to="{name: 'UserHome'}" exact-active-class="is-active">キャンペーン</router-link>
+            <router-link :to="{name: 'UserHome'}" exact-active-class="is-active" :tabindex="$route.name === 'UserHome'? -1 : 0">キャンペーン</router-link>
             <Menu as="div" class="headlessui-Menu">
               <MenuButton class="headlessui-Menu__button">
                 <down theme="filled"/>
@@ -33,7 +33,7 @@
             </Menu>
           </li><!-- /c-Nav__item -->
           <li class="c-Nav__item u-InlineFlex">
-            <router-link :to="{name: 'Report'}" exact-active-class="is-active">レポート</router-link>
+            <router-link :to="{name: 'Report'}" exact-active-class="is-active" :tabindex="$route.name === 'Report'? -1 : 0">レポート</router-link>
             <Menu as="div" class="headlessui-Menu">
               <MenuButton class="headlessui-Menu__button">
                 <down theme="filled"/>
@@ -52,7 +52,7 @@
             </Menu>
           </li><!-- /c-Nav__item -->
           <li class="c-Nav__item _divider u-InlineFlex">
-            <router-link :to="{name: 'CsvDownLoad'}" exact-active-class="is-active">詳細csv</router-link>
+            <router-link :to="{name: 'CsvDownLoad'}" exact-active-class="is-active" :tabindex="$route.name === 'CsvDownLoad'? -1 : 0">詳細csv</router-link>
           </li><!-- /c-Nav__item -->
           <li class="c-Nav__item u-InlineFlex" v-if="login_user?.role===2">
             <router-link :to="{name: 'ManagerAccounts'}" exact-active-class="is-active">管理画面TOP</router-link>

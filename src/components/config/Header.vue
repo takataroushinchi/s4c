@@ -27,7 +27,7 @@
               </MenuButton>
               <MenuItems as="ul" class="headlessui-Menu__items">
                 <MenuItem as="li" class="headlessui-Menu__item">
-                  <router-link :to="{name: 'PasswordReset'}" exact-active-class="is-active">パスワード再設定</router-link>
+                  <router-link :to="{name: 'PasswordReset'}" exact-active-class="is-active" :tabindex="$route.name === 'PasswordReset'? -1 : 0">パスワード再設定</router-link>
                 </MenuItem>
                 <MenuItem as="li" class="headlessui-Menu__item">
                   <button type="button" class="c-Button _menu-item" @click="handleClick">ログアウト</button>

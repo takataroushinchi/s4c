@@ -129,6 +129,8 @@
     border: none;
     box-shadow: none;
 
+    // .router-link-active .is-active
+    &.router-link-active,
     &.is-selected {
       font-weight: 700;
       color: var(--setting-default-primary-color);

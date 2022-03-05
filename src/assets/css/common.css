@@ -757,7 +757,7 @@ template {
   border: none;
   box-shadow: none;
 }
-.c-Button._tab.is-selected {
+.c-Button._tab.router-link-active, .c-Button._tab.is-selected {
   font-weight: 700;
   color: var(--setting-default-primary-color);
   border-bottom: 1px solid var(--setting-default-primary-color);

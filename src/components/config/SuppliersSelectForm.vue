@@ -53,7 +53,7 @@ export default {
 
     const handleClick = () => {
       store.dispatch('setSelectedSupplier', store.getters.getSupplierById(supplier_id))
-      router.push({ name: 'UserHome' })
+      router.push({ name: 'SupplierHome' })
     }
     return {
       handleChange,

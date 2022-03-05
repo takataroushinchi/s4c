@@ -17,14 +17,14 @@
       <nav class="c-Nav">
         <ul class="c-Nav__items u-FlexBox u-FlexBox--middle">
           <li class="c-Nav__item u-InlineFlex">
-            <router-link :to="{name: 'UserHome'}" exact-active-class="is-active" :tabindex="$route.name === 'UserHome'? -1 : 0">キャンペーン</router-link>
+            <router-link :to="{name: 'SupplierHome'}" exact-active-class="is-active" :tabindex="$route.name === 'SupplierHome'? -1 : 0">キャンペーン</router-link>
             <Popover as="div" class="headlessui-Menu">
               <PopoverButton class="headlessui-Menu__button">
                 <down theme="filled"/>
               </PopoverButton>
               <PopoverPanel as="ul" class="headlessui-Menu__items">
                 <li class="headlessui-Menu__item">
-                  <router-link :to="{name: 'UserHome'}" exact-active-class="is-active" :tabindex="$route.name === 'UserHome'? -1 : 0">キャンペーン一覧</router-link>
+                  <router-link :to="{name: 'SupplierHome'}" exact-active-class="is-active" :tabindex="$route.name === 'SupplierHome'? -1 : 0">キャンペーン一覧</router-link>
                 </li>
                 <li class="headlessui-Menu__item">
                   <router-link :to="{name: 'CampaignCreate'}" exact-active-class="is-active" :tabindex="$route.name === 'CampaignCreate'? -1 : 0">キャンペーン新規作成</router-link>

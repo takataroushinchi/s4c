@@ -22,7 +22,7 @@ export default {
       if(store.state.login_user.role === 2){
         router.push({name: 'ManagerAccounts'})
       }else if(store.state.login_user.supplier_id.length === 1){
-        router.push({name: 'UserHome'})
+        router.push({name: 'SupplierHome'})
       }else if(store.state.login_user.supplier_id.length === 0){
         router.push({name: 'AccountsUnauthorized'})
       }else{

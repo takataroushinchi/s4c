@@ -8,7 +8,7 @@
         </div><!-- /c-Header__logo -->
         <div class="u-FlexBox__spacer"></div>
         <h1 class="c-Header__title">
-            <span>{{ displaySupplierName }}</span>
+          <span>{{ displaySupplierName }}</span>
         </h1><!-- /c-Header__title -->
       </router-link>
     </div><!-- /c-Header__item -->
@@ -18,38 +18,38 @@
         <ul class="c-Nav__items u-FlexBox u-FlexBox--middle">
           <li class="c-Nav__item u-InlineFlex">
             <router-link :to="{name: 'UserHome'}" exact-active-class="is-active" :tabindex="$route.name === 'UserHome'? -1 : 0">キャンペーン</router-link>
-            <Menu as="div" class="headlessui-Menu">
-              <MenuButton class="headlessui-Menu__button">
+            <Popover as="div" class="headlessui-Menu">
+              <PopoverButton class="headlessui-Menu__button">
                 <down theme="filled"/>
-              </MenuButton>
-              <MenuItems as="ul" class="headlessui-Menu__items">
-                <MenuItem as="li" class="headlessui-Menu__item">
+              </PopoverButton>
+              <PopoverPanel as="ul" class="headlessui-Menu__items">
+                <li class="headlessui-Menu__item">
                   <router-link :to="{name: 'UserHome'}" exact-active-class="is-active" :tabindex="$route.name === 'UserHome'? -1 : 0">キャンペーン一覧</router-link>
-                </MenuItem>
-                <MenuItem as="li" class="headlessui-Menu__item">
+                </li>
+                <li class="headlessui-Menu__item">
                   <router-link :to="{name: 'CampaignCreate'}" exact-active-class="is-active" :tabindex="$route.name === 'CampaignCreate'? -1 : 0">キャンペーン新規作成</router-link>
-                </MenuItem>
-              </MenuItems>
-            </Menu>
+                </li>
+              </PopoverPanel>
+            </Popover>
           </li><!-- /c-Nav__item -->
           <li class="c-Nav__item u-InlineFlex">
             <router-link :to="{name: 'ReportDimensionDaily', params: {dimension: 'daily'}}" exact-active-class="is-active" :tabindex="$route.name === 'ReportDimensionDaily'? -1 : 0">レポート</router-link>
-            <Menu as="div" class="headlessui-Menu">
-              <MenuButton class="headlessui-Menu__button">
+            <Popover as="div" class="headlessui-Menu">
+              <PopoverButton class="headlessui-Menu__button">
                 <down theme="filled"/>
-              </MenuButton>
-              <MenuItems as="ul" class="headlessui-Menu__items">
-                <MenuItem as="li" class="headlessui-Menu__item">
+              </PopoverButton>
+              <PopoverPanel as="ul" class="headlessui-Menu__items">
+                <li class="headlessui-Menu__item">
                   <router-link :to="{name: 'ReportDimensionDaily', params: {dimension: 'daily'}}" exact-active-class="is-active" :tabindex="$route.name === 'ReportDimensionDaily'? -1 : 0">日別</router-link>
-                </MenuItem>
-                <MenuItem as="li" class="headlessui-Menu__item">
+                </li>
+                <li class="headlessui-Menu__item">
                   <router-link :to="{name: 'ReportDimensionMonthly', params: {dimension: 'monthly'}}" exact-active-class="is-active" :tabindex="$route.name === 'ReportDimensionMonthly'? -1 : 0">月別</router-link>
-                </MenuItem>
-                <MenuItem as="li" class="headlessui-Menu__item">
+                </li>
+                <li class="headlessui-Menu__item">
                   <router-link :to="{name: 'ReportDimensionCampaign', params: {dimension: 'campaign'}}" exact-active-class="is-active" :tabindex="$route.name === 'ReportDimensionCampaign'? -1 : 0">キャンペーン別</router-link>
-                </MenuItem>
-              </MenuItems>
-            </Menu>
+                </li>
+              </PopoverPanel>
+            </Popover>
           </li><!-- /c-Nav__item -->
           <li class="c-Nav__item _divider u-InlineFlex">
             <router-link :to="{name: 'CsvDownLoad'}" exact-active-class="is-active" :tabindex="$route.name === 'CsvDownLoad'? -1 : 0">詳細csv</router-link>
@@ -61,23 +61,23 @@
             <router-link :to="{name: 'SuppliersSelect'}" exact-active-class="is-active">アカウント切替</router-link>
           </li><!-- /c-Nav__item -->
           <li class="c-Nav__item u-InlineFlex">
-            <Menu as="div" class="headlessui-Menu">
-              <MenuButton class="headlessui-Menu__button">
+            <Popover as="div" class="headlessui-Menu">
+              <PopoverButton class="headlessui-Menu__button">
                 <span class="c-Nav__text u-FlexBox u-FlexBox--middle">
                   <user theme="outline"/>
                   <b>{{ displayUserName }}</b>
                   <down theme="filled"/>
                 </span>
-              </MenuButton>
-              <MenuItems as="ul" class="headlessui-Menu__items">
-                <MenuItem as="li" class="headlessui-Menu__item">
+              </PopoverButton>
+              <PopoverPanel as="ul" class="headlessui-Menu__items">
+                <li class="headlessui-Menu__item">
                   <router-link :to="{name: 'PasswordReset'}" exact-active-class="is-active">パスワード再設定</router-link>
-                </MenuItem>
-                <MenuItem as="li" class="headlessui-Menu__item">
+                </li>
+                <li class="headlessui-Menu__item">
                   <button type="button" class="c-Button _menu-item" @click="handleClick">ログアウト</button>
-                </MenuItem>
-              </MenuItems>
-            </Menu>
+                </li>
+              </PopoverPanel>
+            </Popover>
           </li><!-- /c-Nav__item -->
         </ul>
       </nav><!-- /c-Nav -->
@@ -88,7 +88,7 @@
 
 <script>
 import { Down, User } from '@icon-park/vue-next';
-import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/vue";
+import { Popover, PopoverButton, PopoverPanel } from "@headlessui/vue";
 import { computed } from 'vue';
 import { useRouter } from 'vue-router';
 import { useStore } from 'vuex';
@@ -101,10 +101,9 @@ export default {
   components: {
     Down,
     User,
-    Menu,
-    MenuButton,
-    MenuItems,
-    MenuItem,
+    Popover,
+    PopoverButton,
+    PopoverPanel,
   },
   setup() {
     const router = useRouter();

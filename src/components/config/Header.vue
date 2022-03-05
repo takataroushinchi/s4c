@@ -8,7 +8,7 @@
         </div><!-- /c-Header__logo -->
         <div class="u-FlexBox__spacer"></div>
         <h1 class="c-Header__title">
-            <span>{{ title }}</span>
+          <span>{{ title }}</span>
         </h1><!-- /c-Header__title -->
       </router-link>
     </div><!-- /c-Header__item -->
@@ -17,23 +17,23 @@
       <nav class="c-Nav">
         <ul class="c-Nav__items u-FlexBox u-FlexBox--middle">
           <li class="c-Nav__item u-InlineFlex">
-            <Menu as="div" class="headlessui-Menu">
-              <MenuButton class="headlessui-Menu__button">
+            <Popover as="div" class="headlessui-Menu">
+              <PopoverButton class="headlessui-Menu__button">
                 <span class="c-Nav__text u-FlexBox u-FlexBox--middle">
                   <user theme="outline"/>
                   <b>{{ displayUserName }}</b>
                   <down theme="filled"/>
                 </span>
-              </MenuButton>
-              <MenuItems as="ul" class="headlessui-Menu__items">
-                <MenuItem as="li" class="headlessui-Menu__item">
+              </PopoverButton>
+              <PopoverPanel as="ul" class="headlessui-Menu__items">
+                <li class="headlessui-Menu__item">
                   <router-link :to="{name: 'PasswordReset'}" exact-active-class="is-active" :tabindex="$route.name === 'PasswordReset'? -1 : 0">パスワード再設定</router-link>
-                </MenuItem>
-                <MenuItem as="li" class="headlessui-Menu__item">
+                </li>
+                <li class="headlessui-Menu__item">
                   <button type="button" class="c-Button _menu-item" @click="handleClick">ログアウト</button>
-                </MenuItem>
-              </MenuItems>
-            </Menu>
+                </li>
+              </PopoverPanel>
+            </Popover>
           </li><!-- /c-Nav__item -->
         </ul>
       </nav><!-- /c-Nav -->
@@ -44,7 +44,7 @@
 
 <script>
 import { Down, User } from '@icon-park/vue-next';
-import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/vue";
+import {Popover, PopoverButton, PopoverPanel} from "@headlessui/vue";
 import { computed } from 'vue';
 import { useRouter } from 'vue-router';
 import { useStore } from 'vuex';
@@ -57,10 +57,9 @@ export default {
   components: {
     Down,
     User,
-    Menu,
-    MenuButton,
-    MenuItems,
-    MenuItem,
+    Popover,
+    PopoverButton,
+    PopoverPanel,
   },
   setup() {
     const router = useRouter();

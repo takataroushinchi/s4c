@@ -532,6 +532,15 @@ template {
   top: 0;
   left: 0;
 }
+.c-Table tbody:empty {
+  position: absolute;
+  display: block;
+  min-height: 300px;
+  width: 100vw;
+  background-color: #fff;
+  background-image: linear-gradient(0deg, #f1eede 1px, transparent 2px, transparent 42px);
+  background-size: 42px 42px;
+}
 .c-Table th {
   padding: 8px;
   line-height: 1.4;
@@ -549,6 +558,7 @@ template {
   border-bottom: 1px solid #f1eede;
 }
 .c-Table td {
+  height: 4.2rem;
   padding: 5px 10px;
   line-height: 1.4;
   font-size: 14px;

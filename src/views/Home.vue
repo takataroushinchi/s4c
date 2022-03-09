@@ -19,6 +19,7 @@ import CampaignListTitle from '@/components/CampaignListTitle.vue';
 import TabNavigation from '@/components/TabNavigation.vue';
 import CampaignList from '@/components/CampaignList.vue';
 import Chart from '@/components/Chart.vue';
+import { useToast } from "vue-toastification";
 
 export default {
   name: 'Home',
@@ -35,6 +36,7 @@ export default {
     const listRef = ref([]);
     const route = useRoute();
     const path = route.path;
+    const toast = useToast();
 
     const data = [[
       { id: 1, status: 'valid', text: '有効' },
@@ -49,6 +51,13 @@ export default {
     ]]
 
     listRef.value = (/archive$/.test(path))? data[1] : data[0];
+
+    toast.clear();
+    toast("Default toast");
+    toast.info("Info toast");
+    toast.success("Success toast");
+    toast.error("Error toast");
+    toast.warning("Warning toast");
 
     onBeforeRouteLeave((to) => {
       listRef.value = (/archive$/.test(to.path))? data[1] : data[0];

@@ -2,7 +2,7 @@
 <tr>
   <td>
     <div class="u-FlexBox u-FlexBox--middle">
-      <router-link :to="{name: 'CampaignDetail', params: { campaign_id: id }}" exact-active-class="is-active" class="u-TextEllipsis1line">キャンペーン名称キャンペーン名称キャンペーン名称</router-link>
+      <router-link :to="{name: 'CampaignDetail', params: { campaignId: id }}" exact-active-class="is-active" class="u-TextEllipsis1line">キャンペーン名称キャンペーン名称キャンペーン名称</router-link>
       <div class="u-FlexBox__spacer"></div>
       <span class="c-Table__badge">99</span>
     </div>

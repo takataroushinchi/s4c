@@ -2,7 +2,7 @@
 <div class="c-Title u-FlexBox u-FlexBox--middle u-FlexBox--justify">
   <h2 class="c-Title__text">{{ text }}</h2>
   <div class="c-Title__actions u-FlexBox u-FlexBox--middle u-FlexBox--justify u-FlexBox__item--fill">
-    <router-link :to="{name: 'CampaignEdit', params: { campaign_id: campaign_id }}" exact-active-class="is-active" class="c-Button">編集<arrow-right theme="filled"/></router-link>
+    <router-link :to="{name: 'CampaignEdit', params: { campaignId }}" exact-active-class="is-active" class="c-Button">編集<arrow-right theme="filled"/></router-link>
     <router-link :to="{name: 'Report', query: { filter: 'cpn' }}" exact-active-class="is-active" class="c-Button">キャンペーンレポート<chart-line theme="filled"/></router-link>
   </div><!-- /c-Title__actions -->
 </div><!-- /c-Title -->
@@ -23,10 +23,10 @@ export default {
   },
   setup() {
     const route = useRoute()
-    const campaign_id = route.params.campaign_id;
+    const campaignId = route.params.campaignId;
 
     return {
-      campaign_id,
+      campaignId,
     }
   }
 }

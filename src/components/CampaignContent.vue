@@ -5,7 +5,7 @@
       <div class="c-Content__header u-FlexBox u-FlexBox--middle u-FlexBox--right">
         <button type="button" class="c-Button _element" @click="handleBack">キャンセル</button>
         <div class="u-FlexBox__spacer"></div>
-        <router-link :to="{name: 'CampaignDetail', params: { campaignId: campaignId }}" exact-active-class="is-selected" class="c-Button _primary">{{ text }}</router-link>
+        <router-link :to="{name: 'CampaignDetail', params: { campaignId }}" exact-active-class="is-selected" class="c-Button _primary">{{ text }}</router-link>
       </div><!-- /c-Content__header -->
 
       <div class="c-Content__unit">
@@ -186,7 +186,7 @@ export default defineComponent({
   setup() {
     const router = useRouter();
     const route = useRoute();
-    const campaignId = route.params.campaignId;
+    const campaignId = route.params.campaignId? route.params.campaignId : 1;
 
     let date1 = ref(new Date())
     let date2 = ref(null)

@@ -146,6 +146,7 @@ const routes = [
   // config
   {
     path: '/login',
+    // alias: "/",
     name: 'Login',
     component: Login
   },

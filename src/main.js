@@ -9,10 +9,8 @@ import "vue-toastification/dist/index.css";
 const options = {
 	position: POSITION.BOTTOM_RIGHT,
 	timeout: 3000,
+	showCloseButtonOnHover: true,
 	hideProgressBar: true,
-	// maxToasts: 20,
-  // newestOnTop: false,
-	// transition: "fade",
 	toastDefaults: {
 		[TYPE.INFO]: {
 			timeout: 3000,

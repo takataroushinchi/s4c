@@ -59,6 +59,16 @@ export default {
     toast.error("Error toast");
     toast.warning("Warning toast");
 
+    const toastId = toast("Loading...", { timeout: false });
+    const startTime = new Date();
+    const intervalId = setInterval(() =>{
+      let _time = new Date() - startTime;
+      toast.update(toastId, { content: `... ${_time} Loaded!` });
+      if(_time > 5000){
+        clearInterval(intervalId);
+        toast.update(toastId, { content: `${_time}Finished!`, options: { timeout: 5000 } });
+      }}, 300);
+
     onBeforeRouteLeave((to) => {
       listRef.value = (/archive$/.test(to.path))? data[1] : data[0];
     })

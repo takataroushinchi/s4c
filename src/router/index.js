@@ -53,13 +53,13 @@ const routes = [
     meta: { requiresAuth: true }
   },
   {
-    path: '/user/campaign/:campaign_id?/edit',
+    path: '/user/campaign/:campaignId?/edit',
     name: 'CampaignEdit',
     component: CampaignEdit,
     meta: { requiresAuth: true }
   },
   {
-    path: '/user/campaign/:campaign_id?/detail',
+    path: '/user/campaign/:campaignId?',
     name: 'CampaignDetail',
     component: CampaignDetail,
     meta: { requiresAuth: true }

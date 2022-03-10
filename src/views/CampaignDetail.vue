@@ -73,8 +73,7 @@ export default {
     let listRef = ref([])
     const router = useRouter()
     const route = useRoute()
-    const path = route.path
-    let toPath = '/campaign-detail'
+    const campaignId = route.params.campaignId;
 
     let isOpenRef = ref(false);
 
@@ -84,18 +83,12 @@ export default {
       { id: 3333, checked: true },
       { id: 4444, checked: true },
       { id: 5555, checked: true },
-    ],
-    [
-      { id: 1111, checked: true },
-      { id: 2222, checked: false },
-      { id: 3333, checked: true },
-      { id: 4444, checked: true },
     ]]
 
-    listRef.value = (path === '/campaign-detail')? data[0] : data[1];
+    listRef.value = data[0];
 
     const handleMethod = () => {
-      router.push(toPath)
+      router.push({ name: 'CampaignDetail', params: { campaignId } })
     }
 
     return {

@@ -27,6 +27,79 @@ import AccountsUnauthorized from '../views/AccountsUnauthorized.vue'
 import UI from '@/views/UI.vue'
 import FeatureTest from '@/views/FeatureTest.vue'
 
+import { useToast } from 'vue-toastification'
+
+const requireAuth = async (to, from, next) => {
+  const toast = useToast()
+  // const res = await fetch('/api/is_logined')
+  const res = await fetch('https://jsonplaceholder.typicode.com/users')
+  const data = await res.json()
+  toast.clear()
+  if (Object.keys(data).length > 0) {
+    to.params.user = data.user
+    toast.success(`データの取得に成功しました。ようこそ ${data[0].name} さん`, { timeout: 6000 });
+    // toast("Default toast");
+    // toast.info("Info toast");
+    // toast.success("Success toast");
+    // toast.error("Error toast");
+    // toast.warning("Warning toast");
+    next()
+  } else {
+    toast.error("データの取得に失敗しました。");
+    next({ name: 'Login' })
+  }
+}
+
+// const requireManagerAuth = async (to, from, next) => {
+//   const res = await fetch('/api/is_logined')
+//   const data = await res.json()
+
+//   if (Object.keys(data).length > 0) {
+//     if (data.user.role === 2) {
+//       to.params.user = data.user
+//       next()
+//     } else if (data.user.role === 1) {
+//       if (data.account.length === 1) {
+//         next({ name: 'UserHome' })
+//       } else if (data.account.length > 1) {
+//         next({ name: 'SuppliersSelect' })
+//       } else {
+//         next({ name: 'AccountsUnauthorized' })
+//       }
+//     } else {
+//       next({ name: 'AccountsUnauthorized' })
+//     }
+//   } else {
+//     next({ name: 'Login' })
+//   }
+// }
+
+// const requireNoAuth = async (to, from, next) => {
+//   const res = await fetch('/api/is_logined')
+//   const data = await res.json()
+//   if (Object.keys(data).length > 0) {
+//     if (from.name === undefined) {
+//       if (data.user.role === 2) {
+//         next({ name: 'ManagerAccounts' })
+//       } else if (data.user.role === 1) {
+//         if (data.account.length === 1) {
+//           next({ name: 'UserHome' })
+//         } else if (data.account.length > 1) {
+//           next({ name: 'SuppliersSelect' })
+//         } else {
+//           next({ name: 'AccountsUnauthorized' })
+//         }
+//       } else {
+//         next({ name: 'AccountsUnauthorized' })
+//       }
+//     } else {
+//       from()
+//     }
+//   } else {
+//     next()
+//   }
+// }
+
 const routes = [
   {
     path: '/',
@@ -38,7 +111,8 @@ const routes = [
     path: '/user',
     name: 'SupplierHome',
     component: Home,
-    meta: { requiresAuth: true }
+    meta: { requiresAuth: true },
+    beforeEnter: requireAuth
   },
   {
     path: '/user/archive',

@@ -19,7 +19,7 @@ import CampaignListTitle from '@/components/CampaignListTitle.vue';
 import TabNavigation from '@/components/TabNavigation.vue';
 import CampaignList from '@/components/CampaignList.vue';
 import Chart from '@/components/Chart.vue';
-import { useToast } from "vue-toastification";
+import { useToast } from 'vue-toastification';
 
 export default {
   name: 'Home',
@@ -52,13 +52,6 @@ export default {
 
     listRef.value = (/archive$/.test(path))? data[1] : data[0];
 
-    toast.clear();
-    toast("Default toast");
-    toast.info("Info toast");
-    toast.success("Success toast");
-    toast.error("Error toast");
-    toast.warning("Warning toast");
-
     const toastId = toast("Loading...", { timeout: false });
     const startTime = new Date();
     const intervalId = setInterval(() =>{
@@ -66,7 +59,7 @@ export default {
       toast.update(toastId, { content: `... ${_time} Loaded!` });
       if(_time > 5000){
         clearInterval(intervalId);
-        toast.update(toastId, { content: `${_time}Finished!`, options: { timeout: 5000 } });
+        toast.update(toastId, { content: `${_time} Finished!`, options: { timeout: 5000 } });
       }}, 300);
 
     onBeforeRouteLeave((to) => {

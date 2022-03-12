@@ -52,7 +52,7 @@ export default {
 
     listRef.value = (/archive$/.test(path))? data[1] : data[0];
 
-    const toastId = toast("Loading...", { timeout: false });
+    const toastId = toast.info("Loading...", { timeout: false });
     const startTime = new Date();
     const intervalId = setInterval(() =>{
       let _time = new Date() - startTime;

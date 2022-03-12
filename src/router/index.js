@@ -37,7 +37,7 @@ const requireAuth = async (to, from, next) => {
   toast.clear()
   if (Object.keys(data).length > 0) {
     to.params.user = data.user
-    toast.success(`データの取得に成功しました。ようこそ ${data[0].name} さん`, { timeout: 6000 });
+    toast(`最初にキャンペーンを作成し、入札を行ってください。`);
     // toast("Default toast");
     // toast.info("Info toast");
     // toast.success("Success toast");

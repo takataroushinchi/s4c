@@ -9,23 +9,24 @@ import "vue-toastification/dist/index.css";
 const options = {
 	position: POSITION.BOTTOM_RIGHT,
 	timeout: 3000,
+	// closeButton: false,
 	showCloseButtonOnHover: true,
 	hideProgressBar: true,
 	toastDefaults: {
+		[TYPE.DEFAULT]: {
+			timeout: false,
+		},
 		[TYPE.INFO]: {
 			timeout: 3000,
-			closeButton: false,
 		},
 		[TYPE.SUCCESS]: {
 			timeout: 3000,
-			closeButton: false,
 		},
 		[TYPE.ERROR]: {
 			timeout: false,
 		},
 		[TYPE.WARNING]: {
 			timeout: 3000,
-			closeButton: false,
 		}
 	}
 };

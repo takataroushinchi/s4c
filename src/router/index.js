@@ -33,19 +33,16 @@ const requireAuth = async (to, from, next) => {
   const toast = useToast()
   // const res = await fetch('/api/is_logined')
   const res = await fetch('https://jsonplaceholder.typicode.com/users')
+  if(!res.ok) {
+    // const resText = await res.text()
+    toast.error(`データの取得に失敗しました。`);
+  }
   const data = await res.json()
   toast.clear()
   if (Object.keys(data).length > 0) {
     to.params.user = data.user
-    toast(`最初にキャンペーンを作成し、入札を行ってください。`);
-    // toast("Default toast");
-    // toast.info("Info toast");
-    // toast.success("Success toast");
-    // toast.error("Error toast");
-    // toast.warning("Warning toast");
     next()
   } else {
-    toast.error("データの取得に失敗しました。");
     next({ name: 'Login' })
   }
 }

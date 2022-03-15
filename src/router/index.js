@@ -35,10 +35,10 @@ const requireAuth = async (to, from, next) => {
   const res = await fetch('https://jsonplaceholder.typicode.com/users')
   if(!res.ok) {
     // const resText = await res.text()
-    toast.error(`データの取得に失敗しました。`);
+    toast.clear()
+    toast.error(`データの取得に失敗しました。`)
   }
   const data = await res.json()
-  toast.clear()
   if (Object.keys(data).length > 0) {
     to.params.user = data.user
     next()

@@ -45,7 +45,7 @@
         <option value="campaign1" :selected="filter === 'cpn'">キャンペーン001</option>
         <option value="campaign2">キャンペーン002</option>
         <option value="campaign3">キャンペーン003</option>
-        <option value="campaign4">キャンペーン004</option>
+        <option value="campaign4">キャンペーンあああdjoijjiojiojoijiooooooooooooooooooooooooooooooooooあああああああ004</option>
       </select>
     </div><!-- /c-Input__label -->
 

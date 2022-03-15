@@ -974,6 +974,9 @@ template {
 .c-Input__group .c-Input {
   min-width: 28rem;
 }
+.c-Tool .c-Input {
+  max-width: 17rem;
+}
 .c-Input__label {
   position: relative;
   padding-right: 0.8rem;

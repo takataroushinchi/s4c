@@ -8,7 +8,7 @@ import "vue-toastification/dist/index.css";
 
 const options = {
 	position: POSITION.BOTTOM_RIGHT,
-	timeout: 3000,
+	timeout: 5000,
 	showCloseButtonOnHover: true,
 	hideProgressBar: true,
 	toastDefaults: {
@@ -19,7 +19,7 @@ const options = {
 			timeout: 5000,
 		},
 		[TYPE.SUCCESS]: {
-			timeout: 3000,
+			timeout: 5000,
 		},
 		[TYPE.ERROR]: {
 			timeout: false,

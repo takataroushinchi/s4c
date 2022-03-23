@@ -11,6 +11,7 @@
 <script>
 import { ref } from 'vue';
 import { useRoute, onBeforeRouteLeave } from 'vue-router';
+import { useToast } from 'vue-toastification';
 // @ is an alias to /src
 import Header from '@/components/Header.vue';
 import CommonTitle from '@/components/CommonTitle.vue';
@@ -19,7 +20,6 @@ import CampaignListTitle from '@/components/CampaignListTitle.vue';
 import TabNavigation from '@/components/TabNavigation.vue';
 import CampaignList from '@/components/CampaignList.vue';
 import Chart from '@/components/Chart.vue';
-import { useToast } from 'vue-toastification';
 
 export default {
   name: 'Home',

@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 // store
 import Store from '@/store/index.js'
+// Toast
+import { useToast } from 'vue-toastification'
 // Views
 import Home from '../views/Home.vue'
 import CampaignEdit from '../views/CampaignEdit.vue'
@@ -26,8 +28,6 @@ import AccountsUnauthorized from '../views/AccountsUnauthorized.vue'
 // Design
 import UI from '@/views/UI.vue'
 import FeatureTest from '@/views/FeatureTest.vue'
-
-import { useToast } from 'vue-toastification'
 
 const requireAuth = async (to, from, next) => {
   const toast = useToast()

@@ -67,28 +67,26 @@ export default {
       })
       .then((res) => {
         toast.clear();
-        res.contents.forEach((item) => {
-          if(item.category?.category){
-            // console.log(item.body);
-            // console.log(item.category.category); // Draft, Default, Info, Success, Error, Warning
-            switch (item.category.category){
-              case 'Default':
-                toast(item.title);
-                break;
-              case 'Info':
-                toast.info(item.title);
-                break;
-              case 'Success':
-                toast.success(item.title);
-                break;
-              case 'Error':
-                toast.error(item.title);
-                break;
-              case 'Warning':
-                toast.warning(item.title);
-                break;
+        res.contents.map( item => {
+          // console.log(item.body);
+          // console.log(item.category.category); // Draft, Default, Info, Success, Error, Warning
+          switch (item.category.category){
+            case 'Default':
+              toast(item.title);
+              break;
+            case 'Info':
+              toast.info(item.title, { timeout: false });
+              break;
+            case 'Success':
+              toast.success(item.title);
+              break;
+            case 'Error':
+              toast.error(item.title);
+              break;
+            case 'Warning':
+              toast.warning(item.title, { timeout: false });
+              break;
             }
-          }
         })
       })
       .catch((err) => console.log(err));

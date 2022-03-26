@@ -67,7 +67,7 @@ export default {
       })
       .then((res) => {
         toast.clear();
-        res.contents.map( item => {
+        res.contents.forEach( item => {
           // console.log(item.body);
           // console.log(item.category.category); // Draft, Default, Info, Success, Error, Warning
           switch (item.category.category){

@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { ref } from 'vue';
+import { ref, h } from 'vue';
 import { useRoute, onBeforeRouteLeave } from 'vue-router';
 import { useToast } from 'vue-toastification';
 // @ is an alias to /src
@@ -68,23 +68,26 @@ export default {
       .then((res) => {
         toast.clear();
         res.contents.forEach( item => {
-          // console.log(item.body);
+          const vNodeJSX = h('div', [
+            h('h1', { class: 'c-Title__text u-TextEllipsis2line', innerHTML: item.title}),
+            h('div', { class: 'u-TextEllipsis4line', innerHTML: item.body })
+          ]);
           // console.log(item.category.category); // Draft, Default, Info, Success, Error, Warning
           switch (item.category.category){
             case 'Default':
-              toast(item.title);
+              toast(vNodeJSX);
               break;
             case 'Info':
-              toast.info(item.title, { timeout: false });
+              toast.info(vNodeJSX, { timeout: false });
               break;
             case 'Success':
-              toast.success(item.title);
+              toast.success(vNodeJSX);
               break;
             case 'Error':
-              toast.error(item.title);
+              toast.error(vNodeJSX);
               break;
             case 'Warning':
-              toast.warning(item.title, { timeout: false });
+              toast.warning(vNodeJSX, { timeout: false });
               break;
             }
         })

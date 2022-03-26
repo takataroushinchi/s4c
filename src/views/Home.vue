@@ -21,6 +21,8 @@ import TabNavigation from '@/components/TabNavigation.vue';
 import CampaignList from '@/components/CampaignList.vue';
 import Chart from '@/components/Chart.vue';
 
+import { createClient } from 'microcms-js-sdk';
+
 export default {
   name: 'Home',
   components: {
@@ -51,6 +53,45 @@ export default {
     ]]
 
     listRef.value = (/archive$/.test(path))? data[1] : data[0];
+
+    // Initialize Client SDK.
+    const client = createClient({
+      serviceDomain: process.env.VUE_APP_API_DOMAIN,
+      apiKey: process.env.VUE_APP_X_API_KEY,
+    });
+
+    client
+      .get({
+        endpoint: 'announcements',
+        queries: { limit: 20 },
+      })
+      .then((res) => {
+        toast.clear();
+        res.contents.forEach((item) => {
+          if(item.category?.category){
+            // console.log(item.body);
+            // console.log(item.category.category); // Default, Info, Success, Error, Warning
+            switch (item.category.category){
+              case 'Default':
+                toast(item.title);
+                break;
+              case 'Info':
+                toast.info(item.title);
+                break;
+              case 'Success':
+                toast.success(item.title);
+                break;
+              case 'Error':
+                toast.error(item.title);
+                break;
+              case 'Warning':
+                toast.warning(item.title);
+                break;
+            }
+          }
+        })
+      })
+      .catch((err) => console.log(err));
 
     const toastId = toast.info("Loading...", { timeout: false });
     const startTime = new Date();

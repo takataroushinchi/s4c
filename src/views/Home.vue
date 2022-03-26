@@ -67,10 +67,12 @@ export default {
       })
       .then((res) => {
         toast.clear();
+        // toast.info(h('h1', { class: 'Vue-Toastification__toast-body u-TextEllipsis2line'}, h('strong', '告知')), { timeout: false });
+
         res.contents.forEach( item => {
           const vNodeJSX = h('div', [
-            h('h1', { class: 'c-Title__text u-TextEllipsis2line', innerHTML: item.title}),
-            h('div', { class: 'u-TextEllipsis4line', innerHTML: item.body })
+            h('h1', { class: 'Vue-Toastification__toast-body u-TextEllipsis2line'}, h('strong', item.title)),
+            h('div', { class: 'Vue-Toastification__toast-body u-TextEllipsis4line', innerHTML: item.body })
           ]);
           // console.log(item.category.category); // Draft, Default, Info, Success, Error, Warning
           switch (item.category.category){

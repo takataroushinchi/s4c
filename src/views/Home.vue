@@ -70,7 +70,7 @@ export default {
         res.contents.forEach((item) => {
           if(item.category?.category){
             // console.log(item.body);
-            // console.log(item.category.category); // Default, Info, Success, Error, Warning
+            // console.log(item.category.category); // Draft, Default, Info, Success, Error, Warning
             switch (item.category.category){
               case 'Default':
                 toast(item.title);

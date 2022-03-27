@@ -12,6 +12,8 @@
 import { ref, h } from 'vue';
 import { useRoute, onBeforeRouteLeave } from 'vue-router';
 import { useToast } from 'vue-toastification';
+import { useStore } from 'vuex';
+import { createClient } from 'microcms-js-sdk';
 // @ is an alias to /src
 import Header from '@/components/Header.vue';
 import CommonTitle from '@/components/CommonTitle.vue';
@@ -20,8 +22,6 @@ import CampaignListTitle from '@/components/CampaignListTitle.vue';
 import TabNavigation from '@/components/TabNavigation.vue';
 import CampaignList from '@/components/CampaignList.vue';
 import Chart from '@/components/Chart.vue';
-
-import { createClient } from 'microcms-js-sdk';
 
 export default {
   name: 'Home',
@@ -39,6 +39,7 @@ export default {
     const route = useRoute();
     const path = route.path;
     const toast = useToast();
+    const store = useStore();
 
     const data = [[
       { id: 1, status: 'valid', text: '有効' },
@@ -55,56 +56,59 @@ export default {
     listRef.value = (/archive$/.test(path))? data[1] : data[0];
 
     // Initialize Client SDK.
-    const client = createClient({
-      serviceDomain: process.env.VUE_APP_API_DOMAIN,
-      apiKey: process.env.VUE_APP_X_API_KEY,
-    });
+    if(!store.state.announced){
+      const client = createClient({
+        serviceDomain: process.env.VUE_APP_API_DOMAIN,
+        apiKey: process.env.VUE_APP_X_API_KEY,
+      });
 
-    client
-      .get({
-        endpoint: 'announcements',
-        queries: { limit: 20 },
-      })
-      .then((res) => {
-        toast.clear();
-        // toast.info(h('h1', { class: 'Vue-Toastification__toast-body u-TextEllipsis2line'}, h('strong', '告知')), { timeout: false });
-
-        res.contents.forEach( item => {
-          const vNodeJSX = h('div', [
-            h('h1', { class: 'Vue-Toastification__toast-body u-TextEllipsis2line'}, h('strong', item.title)),
-            h('div', { class: 'Vue-Toastification__toast-body u-TextEllipsis4line', innerHTML: item.body })
-          ]);
-          // console.log(item.category.category); // Draft, Default, Info, Success, Error, Warning
-          switch (item.category.category){
-            case 'Default':
-              toast(vNodeJSX);
-              break;
-            case 'Info':
-              toast.info(vNodeJSX, { timeout: false });
-              break;
-            case 'Success':
-              toast.success(vNodeJSX);
-              break;
-            case 'Error':
-              toast.error(vNodeJSX);
-              break;
-            case 'Warning':
-              toast.warning(vNodeJSX, { timeout: false });
-              break;
-            }
+      client
+        .get({
+          endpoint: 'announcements',
+          queries: { limit: 20 },
         })
-      })
-      .catch((err) => console.log(err));
+        .then((res) => {
+          store.dispatch('setAnnounced')
+          toast.clear();
+          // toast.info(h('h1', { class: 'Vue-Toastification__toast-body u-TextEllipsis2line'}, h('strong', '告知')), { timeout: false });
 
-    const toastId = toast.info("Loading...", { timeout: false });
-    const startTime = new Date();
-    const intervalId = setInterval(() =>{
-      let _time = new Date() - startTime;
-      toast.update(toastId, { content: `... ${_time} Loaded!` });
-      if(_time > 5000){
-        clearInterval(intervalId);
-        toast.update(toastId, { content: `${_time} Finished!`, options: { timeout: 5000 } });
-      }}, 300);
+          res.contents.forEach( item => {
+            const vNodeJSX = h('div', [
+              h('h1', { class: 'Vue-Toastification__toast-body u-TextEllipsis2line'}, h('strong', item.title)),
+              h('div', { class: 'Vue-Toastification__toast-body u-TextEllipsis4line', innerHTML: item.body })
+            ]);
+            // console.log(item.category.category); // Draft, Default, Info, Success, Error, Warning
+            switch (item.category.category){
+              case 'Default':
+                toast(vNodeJSX);
+                break;
+              case 'Info':
+                toast.info(vNodeJSX, { timeout: false });
+                break;
+              case 'Success':
+                toast.success(vNodeJSX);
+                break;
+              case 'Error':
+                toast.error(vNodeJSX);
+                break;
+              case 'Warning':
+                toast.warning(vNodeJSX, { timeout: false });
+                break;
+              }
+          })
+        })
+        .catch((err) => console.log(err));
+    }
+
+    // const toastId = toast.info("Loading...", { timeout: false });
+    // const startTime = new Date();
+    // const intervalId = setInterval(() =>{
+    //   let _time = new Date() - startTime;
+    //   toast.update(toastId, { content: `... ${_time} Loaded!` });
+    //   if(_time > 5000){
+    //     clearInterval(intervalId);
+    //     toast.update(toastId, { content: `${_time} Finished!`, options: { timeout: 5000 } });
+    //   }}, 300);
 
     onBeforeRouteLeave((to) => {
       listRef.value = (/archive$/.test(to.path))? data[1] : data[0];

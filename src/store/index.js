@@ -5,6 +5,7 @@ export default createStore({
     login_user: null,
     userToken: null,
     selected_supplier: null,
+    announced: false,
     users:[
       {user_id:1, user_name:'user1', email:'multi@test.jp', password:'', role:1, login:true, supplier_id:[1,2,3,7]},
       {user_id:2, user_name:'user2', email:'single@test.jp', password:'', role:1, login:true, supplier_id:[3]},
@@ -48,6 +49,9 @@ export default createStore({
     deleteSelectedSupplier (state) {
       state.selected_supplier = null
     },
+    setStateAnnounced (state) {
+      state.announced = true
+    },
   },
   actions: {
     login ({ commit }, params) {
@@ -67,6 +71,9 @@ export default createStore({
     },
     deleteSelectedSupplier ({ commit }) {
       commit('deleteSelectedSupplier')
+    },
+    setAnnounced ({ commit }) {
+      commit('setStateAnnounced')
     },
   },
   modules: {

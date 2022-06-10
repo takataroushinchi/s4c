@@ -4,33 +4,17 @@
   <CampaignContent :text="text" :isEdit="isEdit"/>
 </template>
 
-<script>
+<script setup>
 import { useRoute } from 'vue-router';
 // @ is an alias to /src
 import Header from '@/components/Header.vue';
 import CommonTitle from '@/components/CommonTitle.vue';
 import CampaignContent from '@/components/CampaignContent.vue';
 
-export default {
-  name: 'CampaignEdit',
-  components: {
-    Header,
-    CommonTitle,
-    CampaignContent,
-  },
-  setup() {
-    const route = useRoute()
-    const path = route.path;
+const route = useRoute()
+const path = route.path;
 
-    const title = (/create$/.test(path))? 'キャンペーン作成' : 'キャンペーン編集';
-    const text = (/create$/.test(path))? '作成' : '変更';
-    const isEdit = (/edit$/.test(path))? true : false;
-
-    return {
-      title,
-      text,
-      isEdit,
-    }
-  },
-}
+const title = (/create$/.test(path))? 'キャンペーン作成' : 'キャンペーン編集';
+const text = (/create$/.test(path))? '作成' : '変更';
+const isEdit = (/edit$/.test(path))? true : false;
 </script>

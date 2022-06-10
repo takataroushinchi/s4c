@@ -2,13 +2,8 @@
   <router-view/>
 </template>
 
-<script>
+<script setup>
 import 'vue2-datepicker/index.css';
-
-export default {
-	components: {
-  },
-}
 </script>
 
 <style>

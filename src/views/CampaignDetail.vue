@@ -33,7 +33,7 @@
   </Dialog>
 </template>
 
-<script>
+<script setup>
 import { ref } from "vue";
 import {
   useRouter,
@@ -54,51 +54,28 @@ import CampaignDetailSettingItem from '@/components/CampaignDetailSettingItem.vu
 import CampaignDetailTool from '@/components/CampaignDetailTool.vue';
 import CampaignDetailList from '@/components/CampaignDetailList.vue';
 
-export default {
-  name: 'CampaignDetail',
-  components: {
-    Info,
-    Dialog,
-    DialogOverlay,
-    DialogTitle,
-    DialogDescription,
-    Header,
-    CommonTitle,
-    CampaignDetailTitle,
-    CampaignDetailSettingItem,
-    CampaignDetailTool,
-    CampaignDetailList,
-  },
-  setup() {
-    let listRef = ref([])
-    const router = useRouter()
-    const route = useRoute()
-    const campaignId = route.params.campaignId;
+let listRef = ref([])
+const router = useRouter()
+const route = useRoute()
+const campaignId = route.params.campaignId;
 
-    let isOpenRef = ref(false);
+let isOpenRef = ref(false);
 
-    const data = [[
-      { id: 1111, checked: true },
-      { id: 2222, checked: false },
-      { id: 3333, checked: true },
-      { id: 4444, checked: true },
-      { id: 5555, checked: true },
-    ]]
+const data = [[
+  { id: 1111, checked: true },
+  { id: 2222, checked: false },
+  { id: 3333, checked: true },
+  { id: 4444, checked: true },
+  { id: 5555, checked: true },
+]]
 
-    listRef.value = data[0];
+listRef.value = data[0];
 
-    const handleMethod = () => {
-      router.push({ name: 'CampaignDetail', params: { campaignId } })
-    }
+const handleMethod = () => {
+  router.push({ name: 'CampaignDetail', params: { campaignId } })
+}
 
-    return {
-      listRef,
-      isOpenRef,
-      setIsOpen(value) {
-        isOpenRef.value = value;
-      },
-      handleMethod,
-    }
-  }
+const setIsOpen = (value) => {
+  isOpenRef.value = value;
 }
 </script>

@@ -12,18 +12,9 @@
   </section><!-- /c-NotFound -->
 </template>
 
-<script>
+<script setup>
 import { Info } from '@icon-park/vue-next';
 // @ is an alias to /src
 import ConfigHeader from '@/components/config/Header.vue';
 import CommonTitle from '@/components/CommonTitle.vue';
-
-export default {
-  name: 'AccountsUnauthorized',
-  components: {
-    Info,
-    ConfigHeader,
-    CommonTitle,
-  },
-}
 </script>

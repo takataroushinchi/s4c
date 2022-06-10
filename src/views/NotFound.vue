@@ -14,15 +14,8 @@
   </section><!-- /c-NotFound -->
 </template>
 
-<script>
+<script setup>
 import { Info } from '@icon-park/vue-next';
 // @ is an alias to /src
 import ConfigHeader from '@/components/config/Header.vue';
-
-export default {
-  components: {
-    Info,
-    ConfigHeader,
-  },
-}
 </script>

@@ -168,50 +168,33 @@
 </form>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { defineProps, ref } from 'vue';
 import DatePicker from 'vue2-datepicker';
 import 'vue2-datepicker/locale/ja';
 import { useRoute, useRouter } from 'vue-router';
 
-export default defineComponent({
-  name: 'CampaignContent',
-  components: {
-    DatePicker,
-  },
-  props: {
-    text: String,
-    isEdit: Boolean,
-  },
-  setup() {
-    const router = useRouter();
-    const route = useRoute();
-    const campaignId = route.params.campaignId? route.params.campaignId : 1;
-
-    let date1 = ref(new Date())
-    let date2 = ref(null)
-    let time1 = ref(null)
-    let time2 = ref(null)
-    const lang = {
-          formatLocale: {
-            firstDayOfWeek: 1,
-          },
-          monthBeforeYear: false,
-        }
-
-    const handleBack = () => {
-      router.back()
-    }
-
-    return {
-      campaignId,
-      date1,
-      date2,
-      time1,
-      time2,
-      lang,
-      handleBack,
-    }
-  },
+defineProps({
+  text: String,
+  isEdit: Boolean,
 })
+
+const router = useRouter();
+const route = useRoute();
+const campaignId = route.params.campaignId? route.params.campaignId : 1;
+
+let date1 = ref(new Date())
+let date2 = ref(null)
+let time1 = ref(null)
+let time2 = ref(null)
+const lang = {
+      formatLocale: {
+        firstDayOfWeek: 1,
+      },
+      monthBeforeYear: false,
+    }
+
+const handleBack = () => {
+  router.back()
+}
 </script>

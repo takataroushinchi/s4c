@@ -54,33 +54,24 @@
 </form>
 </template>
 
-<script>
+<script setup>
+import { defineProps, defineEmits } from 'vue';
 import { ArrowLeft, ArrowRight, Check } from '@icon-park/vue-next';
 import CampaignDetailListItem from '@/components/CampaignDetailListItem.vue';
 
-export default {
-  components: {
-    ArrowLeft,
-    ArrowRight,
-    Check,
-    CampaignDetailListItem,
+defineProps({
+  list: {
+    type: Array,
   },
-  props: {
-    list: {
-      type: Array,
-    },
-  },
-  setup(_, context) {
-    const base_amount = 50;
+})
 
-    const DialogMethod = () => {
-      context.emit('custom-event', true);
-    }
+const base_amount = 50;
 
-    return {
-      base_amount,
-      DialogMethod,
-    }
-  },
+const emits = defineEmits(
+  ['custom-event']
+)
+
+const DialogMethod = () => {
+  emits('custom-event', true);
 }
 </script>

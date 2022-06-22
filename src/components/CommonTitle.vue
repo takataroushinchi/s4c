@@ -4,11 +4,12 @@
 </div><!-- /c-Title -->
 </template>
 
-<script>
-export default {
-  name: 'CommonTitle',
-  props: {
-    text: String
+<script setup>
+import { defineProps } from 'vue'
+
+defineProps({
+  text: {
+    type: String,
   },
-}
+})
 </script>

@@ -101,50 +101,36 @@
 
 </template>
 
-<script>
-import { ref } from 'vue'
+<script setup>
+import { ref, defineProps } from 'vue'
 import { Info, UploadOne } from '@icon-park/vue-next';
 import { useRoute, onBeforeRouteLeave, onBeforeRouteUpdate } from 'vue-router';
 // @ is an alias to /src
 import CommonTitle from '@/components/CommonTitle.vue';
 import Loader from '@/components/Loader.vue';
 
-export default {
-  name: 'UI',
-  components: {
-    Info,
-    UploadOne,
-    CommonTitle,
-    Loader,
+defineProps({
+  id: {
+    type: String,
   },
-  props: {
-    id: {
-      type: String,
-    },
-  },
-  setup() {
-    let idRef = ref('')
-    const route = useRoute()
-    const { id } = route.params
-    // const path = route.path;
+})
 
-    // :id [ ui-name ]
-    // /ui の場合は、undefind なので、uiを設定
-    idRef.value = id? id : "ui";
+let idRef = ref('')
+const route = useRoute()
+const { id } = route.params
+// const path = route.path;
 
-    onBeforeRouteLeave((to) => {
-      const p = to.path.split("/").filter(e => Boolean(e));
-      idRef.value = p[p.length - 1];
-    })
+// :id [ ui-name ]
+// /ui の場合は、undefind なので、uiを設定
+idRef.value = id? id : "ui";
 
-    onBeforeRouteUpdate((to) => {
-      const p = to.path.split("/").filter(e => Boolean(e));
-      idRef.value = p[p.length - 1];
-    })
+onBeforeRouteLeave((to) => {
+  const p = to.path.split("/").filter(e => Boolean(e));
+  idRef.value = p[p.length - 1];
+})
 
-    return {
-      idRef,
-    }
-  }
-}
+onBeforeRouteUpdate((to) => {
+  const p = to.path.split("/").filter(e => Boolean(e));
+  idRef.value = p[p.length - 1];
+})
 </script>

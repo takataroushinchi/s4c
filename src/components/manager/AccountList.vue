@@ -26,19 +26,13 @@
 </section><!-- /c-ItemList -->
 </template>
 
-<script>
+<script setup>
+import { defineProps } from 'vue'
 import AccountListItem from '@/components/manager/AccountListItem.vue';
 
-export default {
-  components: {
-    AccountListItem,
+defineProps({
+  list: {
+    type: Array,
   },
-  props: {
-    list: {
-      type: Array,
-    },
-  },
-  setup() {
-  },
-}
+})
 </script>

@@ -12,33 +12,26 @@
 </tr>
 </template>
 
-<script>
+<script setup>
+import { defineProps } from 'vue'
 import { useRouter } from 'vue-router';
 
-export default {
-  components: {
+const props = defineProps({
+  id: {
+    type: Number,
+    default: 1
   },
-  props: {
-    id: {
-      type: Number,
-      default: 1
-    },
-    name: {
-      type: String,
-    },
-    email: {
-      type: String,
-    },
+  name: {
+    type: String,
   },
-  setup(props) {
-    const router = useRouter();
+  email: {
+    type: String,
+  },
+})
 
-    const handleClick = () => {
-      router.push({ name: 'ManagerUsersEdit', params: { user_id: props.id }})
-    }
-    return {
-      handleClick,
-    }
-  }
+const router = useRouter();
+
+const handleClick = () => {
+  router.push({ name: 'ManagerUsersEdit', params: { user_id: props.id }})
 }
 </script>

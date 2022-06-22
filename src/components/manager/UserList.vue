@@ -19,19 +19,13 @@
 </section><!-- /c-ItemList -->
 </template>
 
-<script>
+<script setup>
+import { defineProps } from 'vue'
 import UserListItem from '@/components/manager/UserListItem.vue';
 
-export default {
-  components: {
-    UserListItem,
+defineProps({
+  list: {
+    type: Array,
   },
-  props: {
-    list: {
-      type: Array,
-    },
-  },
-  setup() {
-  },
-}
+})
 </script>

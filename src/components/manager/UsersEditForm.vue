@@ -113,138 +113,114 @@
   </section><!-- /c-ItemList -->
 </template>
 
-<script>
+<script setup>
 import { ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useStore } from 'vuex';
 import CommonTitle from '@/components/CommonTitle.vue';
 
-export default {
-  name: 'UsersEditForm',
-  components: {
-    CommonTitle,
-  },
-  setup() {
-    const router = useRouter();
-    const route = useRoute();
-    const store = useStore();
+const router = useRouter();
+const route = useRoute();
+const store = useStore();
 
-    const userId = Number(route.params.user_id);
-    const getUser = store.getters.getUserById(userId);
+const userId = Number(route.params.user_id);
+const getUser = store.getters.getUserById(userId);
 
-    const nameRef = ref(getUser?.user_name)
-    const emailRef = ref(getUser?.email)
-    const loginPermission = getUser ? getUser.login : true;
-    const loginRef = ref(loginPermission)
-    const isInvalidNameRef = ref(false)
-    const isInvalidEmailRef = ref(false)
-    let selectedAccount;
+const nameRef = ref(getUser?.user_name)
+const emailRef = ref(getUser?.email)
+const loginPermission = getUser ? getUser.login : true;
+const loginRef = ref(loginPermission)
+const isInvalidNameRef = ref(false)
+const isInvalidEmailRef = ref(false)
+let selectedAccount;
 
-    let authoritySupplierIds = getUser ? getUser.supplier_id : [];
-    // サプライヤー全て取得
-    const accountsData = store.state.suppliers;
-    const accountAllIds = accountsData.map(item => item.id);
+let authoritySupplierIds = getUser ? getUser.supplier_id : [];
+// サプライヤー全て取得
+const accountsData = store.state.suppliers;
+const accountAllIds = accountsData.map(item => item.id);
 
-    // ユーザーに紐づいていないサプライヤー
-    const unauthorityAccountsData = ref([])
-    function setUnauthorityAccounts(){
-      const unauthorityAccountIds = accountAllIds.filter(i => authoritySupplierIds.indexOf(i) === -1)
-      let unauthorityAccountArray = [];
-      unauthorityAccountIds.forEach(id => {
-        unauthorityAccountArray.push(store.getters.getSupplierById(id));
-      });
-      unauthorityAccountsData.value = unauthorityAccountArray;
-    }
-    setUnauthorityAccounts();
+// ユーザーに紐づいていないサプライヤー
+const unauthorityAccountsData = ref([])
+function setUnauthorityAccounts(){
+  const unauthorityAccountIds = accountAllIds.filter(i => authoritySupplierIds.indexOf(i) === -1)
+  let unauthorityAccountArray = [];
+  unauthorityAccountIds.forEach(id => {
+    unauthorityAccountArray.push(store.getters.getSupplierById(id));
+  });
+  unauthorityAccountsData.value = unauthorityAccountArray;
+}
+setUnauthorityAccounts();
 
-    // ユーザーに紐付いたサプライヤー抽出
-    const authorityAccountsData = ref([]);
-    function setAuthorityAccounts(){
-      authorityAccountsData.value = [];
-      authoritySupplierIds.forEach(id => {
-        authorityAccountsData.value.push(store.getters.getSupplierById(id));
-      });
-    }
-    setAuthorityAccounts();
+// ユーザーに紐付いたサプライヤー抽出
+const authorityAccountsData = ref([]);
+function setAuthorityAccounts(){
+  authorityAccountsData.value = [];
+  authoritySupplierIds.forEach(id => {
+    authorityAccountsData.value.push(store.getters.getSupplierById(id));
+  });
+}
+setAuthorityAccounts();
 
-    const validEmail = (email) => {
-      var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      return re.test(email);
-    }
+const validEmail = (email) => {
+  var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(email);
+}
 
-    const handleChange = (e) => {
-      selectedAccount = e.target.value;
-    }
+const handleChange = (e) => {
+  selectedAccount = e.target.value;
+}
 
-    const handleBack = () => {
-      router.back()
-    }
+const handleBack = () => {
+  router.back()
+}
 
-    const handleClick = () => {
-      // パスワード登録時の処理
-      isInvalidNameRef.value = false;
-      isInvalidEmailRef.value = false;
+const handleClick = () => {
+  // パスワード登録時の処理
+  isInvalidNameRef.value = false;
+  isInvalidEmailRef.value = false;
 
-      if(nameRef.value === '' || nameRef.value?.length > 20){
-        isInvalidNameRef.value = true;
-        return;
-      }
-      if( !validEmail(emailRef.value) ){
-        isInvalidEmailRef.value = true;
-        return;
-      }
-
-      const registeredUser = store.getters.getUserById(userId);
-      if(registeredUser){
-        const editUser = {
-          user_id: userId,
-          user_name: nameRef.value,
-          email: emailRef.value,
-          password: '',
-          role: 1,
-          login: loginRef.value,
-          supplier_id: authoritySupplierIds
-        }
-        store.dispatch('editRegisterUser', editUser)
-      }
-
-      router.push({ name: 'ManagerUsers' })
-    }
-
-    const addAuthority = () => {
-      // 権限付与時の処理
-      if(selectedAccount) authoritySupplierIds.push( Number(selectedAccount));
-      authoritySupplierIds.sort((a,b) => (a < b ? -1 : 1));
-      selectedAccount = null;
-
-      setUnauthorityAccounts();
-      setAuthorityAccounts();
-    }
-
-    const deleteAuthority = (id) => {
-      // 権限削除時の処理
-      const oldData = [...authorityAccountsData.value];
-      authorityAccountsData.value = oldData.filter( account => account.id !== id);
-
-      authoritySupplierIds = authoritySupplierIds.filter(item => item !== id);
-      setUnauthorityAccounts();
-    }
-
-    return {
-      handleChange,
-      handleBack,
-      handleClick,
-      addAuthority,
-      deleteAuthority,
-      nameRef,
-      emailRef,
-      loginRef,
-      isInvalidNameRef,
-      isInvalidEmailRef,
-      accountsData,
-      unauthorityAccountsData,
-      authorityAccountsData,
-    }
+  if(nameRef.value === '' || nameRef.value?.length > 20){
+    isInvalidNameRef.value = true;
+    return;
   }
+  if( !validEmail(emailRef.value) ){
+    isInvalidEmailRef.value = true;
+    return;
+  }
+
+  const registeredUser = store.getters.getUserById(userId);
+  if(registeredUser){
+    const editUser = {
+      user_id: userId,
+      user_name: nameRef.value,
+      email: emailRef.value,
+      password: '',
+      role: 1,
+      login: loginRef.value,
+      supplier_id: authoritySupplierIds
+    }
+    store.dispatch('editRegisterUser', editUser)
+  }
+
+  router.push({ name: 'ManagerUsers' })
+}
+
+const addAuthority = () => {
+  // 権限付与時の処理
+  if(selectedAccount) authoritySupplierIds.push( Number(selectedAccount));
+  authoritySupplierIds.sort((a,b) => (a < b ? -1 : 1));
+  selectedAccount = null;
+
+  setUnauthorityAccounts();
+  setAuthorityAccounts();
+}
+
+const deleteAuthority = (id) => {
+  // 権限削除時の処理
+  const oldData = [...authorityAccountsData.value];
+  authorityAccountsData.value = oldData.filter( account => account.id !== id);
+
+  authoritySupplierIds = authoritySupplierIds.filter(item => item !== id);
+  setUnauthorityAccounts();
 }
 </script>

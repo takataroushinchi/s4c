@@ -7,16 +7,11 @@
 </div><!-- /c-Title -->
 </template>
 
-<script>
+<script setup>
+import { defineProps } from 'vue'
 import { ArrowRight } from '@icon-park/vue-next';
 
-export default {
-  name: 'UserListTitle',
-  props: {
-    text: String
-  },
-  components: {
-    ArrowRight,
-  }
-}
+defineProps({
+  text: String
+})
 </script>

@@ -25,29 +25,23 @@
 </div><!-- /c-Tool -->
 </template>
 
-<script>
-import { ref } from 'vue';
+<script setup>
+import { ref, defineProps, defineEmits } from 'vue';
 import { Search } from '@icon-park/vue-next';
 
-export default {
-  components: {
-    Search,
+defineProps({
+  text: {
+    type: String,
   },
-  props: {
-    text: {
-      type: String,
-    },
-  },
-  emits: ['search-click'],
-  setup(props, { emit }) {
-    const keywordRef = ref('')
-    const handleClick = () => {
-      emit('search-click', keywordRef.value);
-    }
-    return {
-      keywordRef,
-      handleClick,
-    }
-  }
+})
+
+const keywordRef = ref('')
+
+const emits = defineEmits(
+  ['search-click']
+)
+
+const handleClick = () => {
+  emits('search-click', keywordRef.value);
 }
 </script>

@@ -18,39 +18,30 @@
 </tr>
 </template>
 
-<script>
+<script setup>
+import { defineProps } from 'vue'
 import { useRouter } from 'vue-router';
 import { useStore } from 'vuex';
 import { ChartLine, EveryUser } from '@icon-park/vue-next';
 
-export default {
-  components: {
-    ChartLine,
-    EveryUser,
+const props = defineProps({
+  id: {
+    type: Number,
+    default: 1
   },
-  props: {
-    id: {
-      type: Number,
-      default: 1
-    },
-    sid: {
-      type: String,
-    },
-    name: {
-      type: String,
-    },
+  sid: {
+    type: String,
   },
-  setup(props) {
-    const router = useRouter();
-    const store = useStore();
+  name: {
+    type: String,
+  },
+})
 
-    const handleClick = () => {
-      store.dispatch('setSelectedSupplier', store.getters.getSupplierById(props.id))
-      router.push({ name: 'SupplierHome' })
-    }
-    return {
-      handleClick,
-    }
-  }
+const router = useRouter();
+const store = useStore();
+
+const handleClick = () => {
+  store.dispatch('setSelectedSupplier', store.getters.getSupplierById(props.id))
+  router.push({ name: 'SupplierHome' })
 }
 </script>

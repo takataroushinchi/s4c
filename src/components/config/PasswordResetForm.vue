@@ -23,43 +23,31 @@
   </div><!-- /c-Content -->
 </template>
 
-<script>
+<script setup>
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { useStore } from 'vuex';
 
-export default {
-  name: 'PasswordResetForm',
-  setup() {
-    const router = useRouter();
-    const store = useStore();
+const router = useRouter();
+const store = useStore();
 
-    const emailRef = ref('');
-    const isInvalidRef = ref(false)
+const emailRef = ref('');
+const isInvalidRef = ref(false)
 
-    const handleBack = () => {
-      router.back()
-    }
+const handleBack = () => {
+  router.back()
+}
 
-    const handleClick = () => {
-      // パスワードリセット時の処理
-      // メール送信、ログアウト後、ログインページへ遷移
-      isInvalidRef.value = false;
-      if(emailRef.value === ''){
-        isInvalidRef.value = true;
-        return;
-      }
-
-      store.dispatch('logout')
-      router.push({ name: 'Login'})
-    }
-
-    return {
-      emailRef,
-      isInvalidRef,
-      handleBack,
-      handleClick,
-    }
+const handleClick = () => {
+  // パスワードリセット時の処理
+  // メール送信、ログアウト後、ログインページへ遷移
+  isInvalidRef.value = false;
+  if(emailRef.value === ''){
+    isInvalidRef.value = true;
+    return;
   }
+
+  store.dispatch('logout')
+  router.push({ name: 'Login'})
 }
 </script>

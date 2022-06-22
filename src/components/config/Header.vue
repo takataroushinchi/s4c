@@ -42,48 +42,31 @@
 </section><!-- /c-Header -->
 </template>
 
-<script>
+<script setup>
 import { Down, User } from '@icon-park/vue-next';
 import {Popover, PopoverButton, PopoverPanel} from "@headlessui/vue";
-import { computed } from 'vue';
+import { computed, defineProps } from 'vue';
 import { useRouter } from 'vue-router';
 import { useStore } from 'vuex';
 
-export default {
-  name: 'ConfigHeader',
-  props: {
-    title: String
-  },
-  components: {
-    Down,
-    User,
-    Popover,
-    PopoverButton,
-    PopoverPanel,
-  },
-  setup() {
-    const router = useRouter();
-    const store = useStore();
+defineProps({
+  title: String
+})
 
-    const login_user = computed(()=>{
-      return store.state.login_user
-    })
+const router = useRouter();
+const store = useStore();
 
-    const displayUserName = computed(()=>{
-      return store.getters.userName
-    })
+const login_user = computed(()=>{
+  return store.state.login_user
+})
 
-    const handleClick = () => {
-      // ログアウト時の処理
-      store.dispatch('logout')
-      router.push({ name: 'Login'})
-    }
+const displayUserName = computed(()=>{
+  return store.getters.userName
+})
 
-    return {
-      login_user,
-      displayUserName,
-      handleClick,
-    }
-  }
+const handleClick = () => {
+  // ログアウト時の処理
+  store.dispatch('logout')
+  router.push({ name: 'Login'})
 }
 </script>

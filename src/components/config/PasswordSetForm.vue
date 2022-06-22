@@ -33,47 +33,34 @@
   </div><!-- /c-Content -->
 </template>
 
-<script>
+<script setup>
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
-export default {
-  name: 'PasswordSetForm',
-  setup() {
-    const router = useRouter();
-    const password1Ref = ref('')
-    const password2Ref = ref('')
-    const isInvalid1Ref = ref(false)
-    const isInvalid2Ref = ref(false)
+const router = useRouter();
+const password1Ref = ref('')
+const password2Ref = ref('')
+const isInvalid1Ref = ref(false)
+const isInvalid2Ref = ref(false)
 
-    const handleClick = () => {
-      // パスワード登録時の処理
-      isInvalid1Ref.value = false;
-      isInvalid2Ref.value = false;
+const handleClick = () => {
+  // パスワード登録時の処理
+  isInvalid1Ref.value = false;
+  isInvalid2Ref.value = false;
 
-      if(password1Ref.value === ''){
-        isInvalid1Ref.value = true;
-        return;
-      }
-      if(password2Ref.value === ''){
-        isInvalid2Ref.value = true;
-        return;
-      }
-      if(password1Ref.value !== password2Ref.value){
-        isInvalid2Ref.value = true;
-        return;
-      }
-
-      router.push({ name: 'Login'})
-    }
-
-    return {
-      password1Ref,
-      password2Ref,
-      isInvalid1Ref,
-      isInvalid2Ref,
-      handleClick,
-    }
+  if(password1Ref.value === ''){
+    isInvalid1Ref.value = true;
+    return;
   }
+  if(password2Ref.value === ''){
+    isInvalid2Ref.value = true;
+    return;
+  }
+  if(password1Ref.value !== password2Ref.value){
+    isInvalid2Ref.value = true;
+    return;
+  }
+
+  router.push({ name: 'Login'})
 }
 </script>

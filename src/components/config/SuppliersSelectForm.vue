@@ -22,44 +22,34 @@
   </div><!-- /c-Content -->
 </template>
 
-<script>
+<script setup>
 import { useRouter } from 'vue-router';
 import { useStore } from 'vuex';
 
-export default {
-  name: 'SuppliersSelectForm',
-  setup() {
-    const router = useRouter();
-    const store = useStore();
-    const getUser = store.getters.getUserById(store.getters.uid);
-    let authoritySupplierIds = getUser ? getUser.supplier_id : [];
+const router = useRouter();
+const store = useStore();
+const getUser = store.getters.getUserById(store.getters.uid);
+let authoritySupplierIds = getUser ? getUser.supplier_id : [];
 
-    let accountsData = store.state.suppliers;
+let accountsData = store.state.suppliers;
 
-    // ユーザーに紐付いたサプライヤー抽出
-    let authorityAccountsData = [];
-    if(getUser){
-      authoritySupplierIds.forEach(id => {
-        authorityAccountsData.push(store.getters.getSupplierById(id));
-      });
-      accountsData = authorityAccountsData;
-    }
+// ユーザーに紐付いたサプライヤー抽出
+let authorityAccountsData = [];
+if(getUser){
+  authoritySupplierIds.forEach(id => {
+    authorityAccountsData.push(store.getters.getSupplierById(id));
+  });
+  accountsData = authorityAccountsData;
+}
 
-    let supplier_id = accountsData[0].id;
+let supplier_id = accountsData[0].id;
 
-    const handleChange = (e) => {
-      supplier_id = Number(e.target.value);
-    }
+const handleChange = (e) => {
+  supplier_id = Number(e.target.value);
+}
 
-    const handleClick = () => {
-      store.dispatch('setSelectedSupplier', store.getters.getSupplierById(supplier_id))
-      router.push({ name: 'SupplierHome' })
-    }
-    return {
-      handleChange,
-      handleClick,
-      accountsData,
-    }
-  }
+const handleClick = () => {
+  store.dispatch('setSelectedSupplier', store.getters.getSupplierById(supplier_id))
+  router.push({ name: 'SupplierHome' })
 }
 </script>

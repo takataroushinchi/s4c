@@ -61,7 +61,8 @@
 </tr>
 </template>
 
-<script>
+<script setup>
+import { defineProps } from 'vue'
 import { Down, Caution, ChartLine } from '@icon-park/vue-next';
 import {
   Popover,
@@ -69,39 +70,27 @@ import {
   PopoverPanel,
 } from '@headlessui/vue';
 
-export default {
-  components: {
-    Down,
-    Caution,
-    ChartLine,
-    Popover,
-    PopoverButton,
-    PopoverPanel,
+defineProps({
+  id: {
+    type: Number,
+    default: 1
   },
-  props: {
-    id: {
-      type: Number,
-      default: 1
-    },
-    status: {
-      type: String,
-      default: 'valid'
-    },
-    text: {
-      type: String,
-      default: '有効'
-    },
+  status: {
+    type: String,
+    default: 'valid'
   },
-  setup() {
-    return {
-      accept: async (close) => {
-        // await fetch('/accept-terms', { method: 'POST' })
-        close()
-      },
-      cancel: async (close) => {
-        close()
-      },
-    }
+  text: {
+    type: String,
+    default: '有効'
   },
+})
+
+const accept = async (close) => {
+  // await fetch('/accept-terms', { method: 'POST' })
+  close()
+}
+
+const cancel = async (close) => {
+  close()
 }
 </script>

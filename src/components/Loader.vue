@@ -6,11 +6,10 @@
   </div><!-- /c-Loader#js-Loader -->
 </template>
 
-<script>
-export default {
-name: 'Header',
-  props: {
-    isShow: Boolean,
-  },
-}
+<script setup>
+import { defineProps } from 'vue'
+
+defineProps({
+  isShow: Boolean,
+})
 </script>

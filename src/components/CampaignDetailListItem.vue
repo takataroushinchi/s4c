@@ -18,22 +18,17 @@
 </tr>
 </template>
 
-<script>
+<script setup>
+import { defineProps } from 'vue';
 import { Check, ChartLine } from '@icon-park/vue-next';
 
-export default {
-  components: {
-    Check,
-    ChartLine,
+defineProps({
+  id: {
+    type: Number,
+    default: 1
   },
-  props: {
-    id: {
-      type: Number,
-      default: 1
-    },
-    checked: {
-      type: Boolean,
-    },
+  checked: {
+    type: Boolean,
   },
-}
+})
 </script>

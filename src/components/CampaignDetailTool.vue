@@ -45,13 +45,6 @@
 </div><!-- /c-Tool -->
 </template>
 
-<script>
+<script setup>
 import { Search } from '@icon-park/vue-next';
-
-export default {
-  name: 'CampaignDetailTool',
-  components: {
-    Search,
-  },
-}
 </script>

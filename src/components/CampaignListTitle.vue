@@ -8,17 +8,11 @@
 </div><!-- /c-Title -->
 </template>
 
-<script>
+<script setup>
+import { defineProps } from 'vue'
 import { ArrowRight, Download } from '@icon-park/vue-next';
 
-export default {
-  name: 'CampaignListTitle',
-  props: {
-    text: String
-  },
-  components: {
-    ArrowRight,
-    Download,
-  }
-}
+defineProps({
+  text: String
+})
 </script>

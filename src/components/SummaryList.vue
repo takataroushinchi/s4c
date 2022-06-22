@@ -43,12 +43,6 @@
 </section><!-- /c-ItemList -->
 </template>
 
-<script>
+<script setup>
 import { Info } from '@icon-park/vue-next';
-
-export default {
-  components: {
-    Info,
-  }
-}
 </script>

@@ -35,26 +35,16 @@
 </form>
 </template>
 
-<script>
+<script setup>
+import { defineProps } from 'vue'
 import { Info } from '@icon-park/vue-next';
 import ReportListItem from '@/components/ReportListItem.vue';
 
-export default {
-  components: {
-    Info,
-    ReportListItem,
+defineProps({
+  list: {
+    type: Array,
   },
-  props: {
-    list: {
-      type: Array,
-    },
-  },
-  setup() {
-    const base_amount = 50;
+})
 
-    return {
-      base_amount,
-    }
-  },
-}
+// const base_amount = 50;
 </script>

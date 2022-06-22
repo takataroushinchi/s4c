@@ -12,17 +12,16 @@
 </tr>
 </template>
 
-<script>
+<script setup>
+import { defineProps } from 'vue'
 
-export default {
-  props: {
-    id: {
-      type: Number,
-      default: 1
-    },
-    unit: {
-      type: String,
-    },
+defineProps({
+  id: {
+    type: Number,
+    default: 1
   },
-}
+  unit: {
+    type: String,
+  },
+})
 </script>

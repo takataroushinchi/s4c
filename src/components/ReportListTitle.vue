@@ -4,13 +4,6 @@
 </div><!-- /c-Title -->
 </template>
 
-<script>
+<script setup>
 import { Download } from '@icon-park/vue-next';
-
-export default {
-  name: 'ReportListTitle',
-  components: {
-    Download,
-  },
-}
 </script>

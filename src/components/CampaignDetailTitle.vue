@@ -8,26 +8,15 @@
 </div><!-- /c-Title -->
 </template>
 
-<script>
+<script setup>
+import { defineProps } from 'vue';
 import { ArrowRight, ChartLine } from '@icon-park/vue-next';
 import { useRoute } from 'vue-router';
 
-export default {
-  name: 'CampaignDetailTitle',
-  props: {
-    text: String
-  },
-  components: {
-    ArrowRight,
-    ChartLine,
-  },
-  setup() {
-    const route = useRoute()
-    const campaignId = route.params.campaignId;
+defineProps({
+  text: String
+})
 
-    return {
-      campaignId,
-    }
-  }
-}
+const route = useRoute()
+const campaignId = route.params.campaignId;
 </script>

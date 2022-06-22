@@ -85,100 +85,84 @@
 </div><!-- /c-Tool -->
 </template>
 
-<script>
-import { ref } from 'vue';
+<script setup>
+import { ref, defineProps } from 'vue';
 import { useRouter } from 'vue-router';
 import DatePicker from 'vue2-datepicker';
 import 'vue2-datepicker/locale/ja';
 // import 'vue2-datepicker/index.css';
 
-export default {
-  name: 'ReportTool',
-  props: {
-    dimension: {
-      type: String,
-    },
-    filter: {
-      type: String,
-    },
-    role: {
-      type: String,
-    }
+const props = defineProps({
+  dimension: {
+    type: String,
   },
-  components: {
-    DatePicker,
+  filter: {
+    type: String,
   },
-  setup(props) {
-    const router = useRouter()
-    let date1 = ref([new Date(new Date().getTime() - 30 * 24 * 3600 * 1000), new Date()])
-    const lang = {
-          formatLocale: {
-            firstDayOfWeek: 1,
-          },
-          monthBeforeYear: false,
-        }
+  role: {
+    type: String,
+  }
+})
 
-    const shortcuts = [
-        {
-          text: '今月',
-          onClick() {
-            const start = new Date();
-            const end = new Date();
-            start.setTime(new Date(start.getFullYear(), start.getMonth(), 1));
-            const date = [start, end];
-            return date;
-          },
-        },
-        {
-          text: '先月',
-          onClick() {
-            const start = new Date();
-            const end = new Date();
-            start.setTime(new Date(start.getFullYear(), start.getMonth()-1, 1));
-            end.setTime(new Date(start.getFullYear(), start.getMonth()+1, 0));
-            const date = [start, end];
-            return date;
-          },
-        },
-        {
-          text: '過去90日間',
-          onClick() {
-            const start = new Date();
-            const end = new Date();
-            start.setTime(start.getTime() - 90 * 24 * 3600 * 1000);
-            const date = [start, end];
-            return date;
-          },
-        },
-      ]
-
-    const disabledBefore90daysAndAfterToday = (date) => {
-      const today = new Date();
-      today.setHours(0, 0, 0, 0);
-
-      return date > today || date < new Date(today.getTime() - 90 * 24 * 3600 * 1000);
+const router = useRouter()
+let date1 = ref([new Date(new Date().getTime() - 30 * 24 * 3600 * 1000), new Date()])
+const lang = {
+      formatLocale: {
+        firstDayOfWeek: 1,
+      },
+      monthBeforeYear: false,
     }
 
-    const handleChange = (e) => {
-      const dimension = e.target.value; // daily, monthly, campaign or account
-      if(props.role === 'manager'){
-        router.push({ name: 'ManagerReportDimension', params: { dimension } })
-      }else{
-        router.push({ name: 'ReportDimension', params: { dimension } })
-      }
-    }
+const shortcuts = [
+    {
+      text: '今月',
+      onClick() {
+        const start = new Date();
+        const end = new Date();
+        start.setTime(new Date(start.getFullYear(), start.getMonth(), 1));
+        const date = [start, end];
+        return date;
+      },
+    },
+    {
+      text: '先月',
+      onClick() {
+        const start = new Date();
+        const end = new Date();
+        start.setTime(new Date(start.getFullYear(), start.getMonth()-1, 1));
+        end.setTime(new Date(start.getFullYear(), start.getMonth()+1, 0));
+        const date = [start, end];
+        return date;
+      },
+    },
+    {
+      text: '過去90日間',
+      onClick() {
+        const start = new Date();
+        const end = new Date();
+        start.setTime(start.getTime() - 90 * 24 * 3600 * 1000);
+        const date = [start, end];
+        return date;
+      },
+    },
+  ]
 
-    // /report?filter=item_id
-    const item_id = props.filter === 'item_id'? '12345' : ''
+const disabledBefore90daysAndAfterToday = (date) => {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
 
-    return {
-      date1,
-      lang,
-      shortcuts,
-      disabledBefore90daysAndAfterToday,
-      handleChange,
-      item_id,
-    }
+  return date > today || date < new Date(today.getTime() - 90 * 24 * 3600 * 1000);
+}
+
+const handleChange = (e) => {
+  const dimension = e.target.value; // daily, monthly, campaign or account
+  if(props.role === 'manager'){
+    router.push({ name: 'ManagerReportDimension', params: { dimension } })
+  }else{
+    router.push({ name: 'ReportDimension', params: { dimension } })
   }
 }
+
+// /report?filter=item_id
+const item_id = props.filter === 'item_id'? '12345' : ''
 </script>

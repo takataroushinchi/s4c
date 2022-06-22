@@ -28,19 +28,13 @@
 </section><!-- /c-ItemList -->
 </template>
 
-<script>
+<script setup>
+import { defineProps } from 'vue'
 import CampaignListItem from '@/components/CampaignListItem.vue';
 
-export default {
-  components: {
-    CampaignListItem,
+defineProps({
+  list: {
+    type: Array,
   },
-  props: {
-    list: {
-      type: Array,
-    },
-  },
-  setup() {
-  },
-}
+})
 </script>

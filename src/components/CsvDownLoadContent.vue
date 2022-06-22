@@ -58,77 +58,60 @@
   </div><!-- /c-Content -->
 </template>
 
-<script>
+<script setup>
 import { ref } from 'vue'
 import { Download } from '@icon-park/vue-next';
 import DatePicker from 'vue2-datepicker';
 import 'vue2-datepicker/locale/ja';
 // import 'vue2-datepicker/index.css';
 
-export default {
-  name: 'CsvDownLoadContent',
-  components: {
-    Download,
-    DatePicker,
-  },
-  setup() {
-    let date1 = ref([new Date(new Date().getTime() - 30 * 24 * 3600 * 1000), new Date()])
-    let date2 = ref([new Date(new Date().getTime() - 30 * 24 * 3600 * 1000), new Date()])
-    const lang = {
-          formatLocale: {
-            firstDayOfWeek: 1,
-          },
-          monthBeforeYear: false,
-        }
-
-    const shortcuts = [
-        {
-          text: '今月',
-          onClick() {
-            const start = new Date();
-            const end = new Date();
-            start.setTime(new Date(start.getFullYear(), start.getMonth(), 1));
-            const date = [start, end];
-            return date;
-          },
-        },
-        {
-          text: '先月',
-          onClick() {
-            const start = new Date();
-            const end = new Date();
-            start.setTime(new Date(start.getFullYear(), start.getMonth()-1, 1));
-            end.setTime(new Date(start.getFullYear(), start.getMonth()+1, 0));
-            const date = [start, end];
-            return date;
-          },
-        },
-        {
-          text: '過去90日間',
-          onClick() {
-            const start = new Date();
-            const end = new Date();
-            start.setTime(start.getTime() - 90 * 24 * 3600 * 1000);
-            const date = [start, end];
-            return date;
-          },
-        },
-      ]
-
-    const disabledBefore90daysAndAfterToday = (date) => {
-      const today = new Date();
-      today.setHours(0, 0, 0, 0);
-
-      return date > today || date < new Date(today.getTime() - 90 * 24 * 3600 * 1000);
+let date1 = ref([new Date(new Date().getTime() - 30 * 24 * 3600 * 1000), new Date()])
+let date2 = ref([new Date(new Date().getTime() - 30 * 24 * 3600 * 1000), new Date()])
+const lang = {
+      formatLocale: {
+        firstDayOfWeek: 1,
+      },
+      monthBeforeYear: false,
     }
 
-    return {
-      date1,
-      date2,
-      lang,
-      shortcuts,
-      disabledBefore90daysAndAfterToday,
-    }
-  },
+const shortcuts = [
+    {
+      text: '今月',
+      onClick() {
+        const start = new Date();
+        const end = new Date();
+        start.setTime(new Date(start.getFullYear(), start.getMonth(), 1));
+        const date = [start, end];
+        return date;
+      },
+    },
+    {
+      text: '先月',
+      onClick() {
+        const start = new Date();
+        const end = new Date();
+        start.setTime(new Date(start.getFullYear(), start.getMonth()-1, 1));
+        end.setTime(new Date(start.getFullYear(), start.getMonth()+1, 0));
+        const date = [start, end];
+        return date;
+      },
+    },
+    {
+      text: '過去90日間',
+      onClick() {
+        const start = new Date();
+        const end = new Date();
+        start.setTime(start.getTime() - 90 * 24 * 3600 * 1000);
+        const date = [start, end];
+        return date;
+      },
+    },
+  ]
+
+const disabledBefore90daysAndAfterToday = (date) => {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  return date > today || date < new Date(today.getTime() - 90 * 24 * 3600 * 1000);
 }
 </script>

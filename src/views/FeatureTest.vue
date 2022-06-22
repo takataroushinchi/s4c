@@ -5,41 +5,32 @@
   {{ dataRef }}
 </template>
 
-<script>
+<script setup>
 import { ref, computed, onMounted } from 'vue'
 import { useStore } from 'vuex'
-export default {
-  setup(){
-    const dataRef = ref(null)
 
-    // Vuex
-    const store = useStore()
+const dataRef = ref(null)
 
-    const count = computed(()=>{
-      return store.state.count
-    })
+// Vuex
+const store = useStore()
 
-    const increment = () => {
-      store.commit('increment')
-    }
+const count = computed(()=>{
+  return store.state.count
+})
 
-    // api fetch
-    onMounted(()=>{
-      console.log('onMounted')
-      // fetch('https://ssss.microcms.io/api/v1/blog',{
-      //   headers: {
-      //     'X-MICROCMS-API-KEY': $config.apiKey
-      //   },
-      // })
-      // .then(response => response.json())
-      // .then(data => dataRef.value = data);
-    })
-
-    return {
-      dataRef,
-      count,
-      increment,
-      }
-  }
+const increment = () => {
+  store.commit('increment')
 }
+
+// api fetch
+onMounted(()=>{
+  console.log('onMounted')
+  // fetch('https://ssss.microcms.io/api/v1/blog',{
+  //   headers: {
+  //     'X-MICROCMS-API-KEY': $config.apiKey
+  //   },
+  // })
+  // .then(response => response.json())
+  // .then(data => dataRef.value = data);
+})
 </script>

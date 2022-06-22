@@ -5,7 +5,7 @@
   <AccountList :list="listRef"/>
 </template>
 
-<script>
+<script setup>
 import { ref } from 'vue';
 import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
@@ -15,35 +15,19 @@ import CommonTitle from '@/components/CommonTitle.vue';
 import Search from '@/components/manager/Search.vue';
 import AccountList from '@/components/manager/AccountList.vue';
 
-export default {
-  name: 'ManagerAccounts',
-  components: {
-    ManagerHeader,
-    CommonTitle,
-    Search,
-    AccountList,
-  },
-  setup() {
-    const store = useStore();
-    const router = useRouter();
+const store = useStore();
+const router = useRouter();
 
-    // ECサイト権限以外はルートにリダイレクト
-    if(store.state.login_user?.role !== 2){
-      router.push({name: 'Root'})
-    }
+// ECサイト権限以外はルートにリダイレクト
+if(store.state.login_user?.role !== 2){
+  router.push({name: 'Root'})
+}
 
-    const listRef = ref([]);
-    listRef.value = store.state.suppliers;
+const listRef = ref([]);
+listRef.value = store.state.suppliers;
 
-    const searchMethod = (keyword) => {
-      // 検索時の処理
-      console.log(keyword);
-    }
-
-    return {
-      listRef,
-      searchMethod,
-    }
-  }
+const searchMethod = (keyword) => {
+  // 検索時の処理
+  console.log(keyword);
 }
 </script>

@@ -5,7 +5,7 @@
   <UserList :list="listRef"/>
 </template>
 
-<script>
+<script setup>
 import { ref } from 'vue';
 import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
@@ -15,35 +15,19 @@ import UserListTitle from '@/components/manager/UserListTitle.vue';
 import Search from '@/components/manager/Search.vue';
 import UserList from '@/components/manager/UserList.vue';
 
-export default {
-  name: 'ManagerUsers',
-  components: {
-    ManagerHeader,
-    UserListTitle,
-    Search,
-    UserList,
-  },
-  setup() {
-    const store = useStore();
-    const router = useRouter();
+const store = useStore();
+const router = useRouter();
 
-    // ECサイト権限以外はルートにリダイレクト
-    if(store.state.login_user?.role !== 2){
-      router.push({name: 'Root'})
-    }
+// ECサイト権限以外はルートにリダイレクト
+if(store.state.login_user?.role !== 2){
+  router.push({name: 'Root'})
+}
 
-    const listRef = ref([]);
-    listRef.value = store.getters.generalUsers.reverse();
+const listRef = ref([]);
+listRef.value = store.getters.generalUsers.reverse();
 
-    const searchMethod = (keyword) => {
-      // 検索時の処理
-      console.log(keyword);
-    }
-
-    return {
-      listRef,
-      searchMethod,
-    }
-  }
+const searchMethod = (keyword) => {
+  // 検索時の処理
+  console.log(keyword);
 }
 </script>
